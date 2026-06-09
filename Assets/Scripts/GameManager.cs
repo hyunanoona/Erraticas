@@ -11,16 +11,20 @@ public class GameManager : MonoBehaviour
 	಄ Conecta las animaciones y los audios con los eventos del juego. 
     */
 
+    [Header(". ݁₊ ⊹ . ݁ Referencias y Variables  ݁ . ⊹ ₊ ݁.")]
+        public static GameManager Instance;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+        private void Awake()
+        {
+            //Esto permite que sea una instancia unica y no haya mas de dos.
+            if (Instance!=null)
+            {
+                Destroy(this);
+            }
+            else
+            {
+                Instance = this;
+            }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+}
 }
