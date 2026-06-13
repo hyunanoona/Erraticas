@@ -13,10 +13,10 @@ TagManager:
   - 
   - Water
   - UI
+  - Fondo
+  - Estructura
+  - Item
   - Jugador
-  - 
-  - 
-  - 
   - 
   - 
   - 
@@ -42,4 +42,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Fondo
+    uniqueID: 2179540239
+    locked: 0
+  - name: Estructura
+    uniqueID: 1003428155
+    locked: 0
+  - name: Item
+    uniqueID: 3030665635
+    locked: 0
+  - name: Jugador
+    uniqueID: 979146559
     locked: 0

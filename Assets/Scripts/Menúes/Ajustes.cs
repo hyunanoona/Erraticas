@@ -13,7 +13,9 @@ public class Ajustes : MonoBehaviour
     [SerializeField] private Button botonVolver;
     [SerializeField] private AudioMixer audioMixer;  // CONFIGURAR EL AUDIOMIXER EN EL PROJECT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-    void Start()
+// SOLuCIONAR EL BOTÓN VOLVER NO FUNCIONA
+
+    void Start() 
     {
         if(fullScreenToggle != null)
         {
