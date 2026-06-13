@@ -1135,7 +1135,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   botonJugar: {fileID: 1530255753}
+  botonAjustes: {fileID: 221445951}
   botonSalir: {fileID: 201707957}
+  prefabAjustes: {fileID: 2471788398236781522, guid: cee2788588ba956438107781330cbeac, type: 3}
+  canvasPadre: {fileID: 773475564}
+  tituloTexto: {fileID: 342793738}
 --- !u!1 &1530255751
 GameObject:
   m_ObjectHideFlags: 0
