@@ -605,7 +605,6 @@ RectTransform:
   - {fileID: 3426534054213348283}
   - {fileID: 9211603463286627478}
   - {fileID: 7171829643700566843}
-  - {fileID: 5199691137608394790}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1712,60 +1711,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &5520704506699321450
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5199691137608394790}
-  - component: {fileID: 8756376491085175836}
-  m_Layer: 5
-  m_Name: AjustesManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &5199691137608394790
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5520704506699321450}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4651316444375081182}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8756376491085175836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5520704506699321450}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56cc02b62e8e7d5488ecdfcfbc5b4a58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vol_SFX: {fileID: 3151193167626433206}
-  vol_Musica: {fileID: 9023600011182985099}
-  fullScreenToggle: {fileID: 6125188778836830473}
-  graficos_Dropdown: {fileID: 6408952295338055313}
-  botonVolver: {fileID: 1490238620469246233}
-  audioMixer: {fileID: 0}
 --- !u!1 &5527123828499491295
 GameObject:
   m_ObjectHideFlags: 0
@@ -1887,7 +1832,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8756376491085175836}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Ajustes, Assembly-CSharp
         m_MethodName: Volver
         m_Mode: 1
@@ -2037,7 +1982,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8756376491085175836}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Ajustes, Assembly-CSharp
         m_MethodName: SetCalidadGrafica
         m_Mode: 3
@@ -2345,7 +2290,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8756376491085175836}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Ajustes, Assembly-CSharp
         m_MethodName: SetPantallaCompleta
         m_Mode: 6

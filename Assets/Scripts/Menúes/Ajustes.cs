@@ -14,11 +14,18 @@ public class Ajustes : MonoBehaviour
     [SerializeField] private AudioMixer audioMixer;  // CONFIGURAR EL AUDIOMIXER EN EL PROJECT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     private MenuInicial menuInicialPadre;
-    // private MenuPausa menuPausaPadre;
+    private MenuPausa menuPausaPadre;
 
     public void ConfigurarMenuPadre(MenuInicial menuPadre)
     {
         menuInicialPadre = menuPadre;
+        menuPausaPadre = null;
+    }
+
+    public void ConfigurarMenuPausa(MenuPausa menuPadre)
+    {
+        menuPausaPadre = menuPadre;
+        menuInicialPadre = null;
     }
 
     void Start() 
@@ -94,6 +101,10 @@ public class Ajustes : MonoBehaviour
         if(menuInicialPadre != null)
         {
             menuInicialPadre.ActivarMenuDesdeAjustes();
+        }
+        if(menuPausaPadre != null)
+        {
+            menuPausaPadre.ActivarMenuDesdeAjustes();
         }
         gameObject.SetActive(false);
         Debug.Log("volviendo al menú correspondiente...");
