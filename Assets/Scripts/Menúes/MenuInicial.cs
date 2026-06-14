@@ -3,11 +3,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
-
-// MENU INICIAL Y DE PAUSA SE PODRIAN UNIFICAR EN MENU SIMPLEMENTE; CON LA DIFERENCIA DEL TEXTO EN 
-// JUGAR Y REANUDAR, HACER VERSATIL EL CAMBIO DE ESCENARIO. SEGUN EN QUÉ ESCENA TE ENCUENTRES TE LLEVA A UNA O LA OTRA. 
-// ?? ?  pensarlo.
-
 public class MenuInicial : MonoBehaviour
 {
     [Header(". ݁₊ ⊹ . ݁ Referencias y Variables  ݁ . ⊹ ₊ ݁.")]
@@ -38,11 +33,6 @@ public class MenuInicial : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        MenuInvisible();
-    }
-
     public void Jugar()
     {
         SceneManager.LoadScene("NivelUno");
@@ -50,6 +40,9 @@ public class MenuInicial : MonoBehaviour
 
     public void AbrirAjustes()
     {
+
+        AlternarVisibilidadMenu(false);
+
         if(instanciaAjustes != null)
         {
             instanciaAjustes.SetActive(true);
@@ -61,6 +54,13 @@ public class MenuInicial : MonoBehaviour
         {
             instanciaAjustes = Instantiate(prefabAjustes, canvasPadre);
             instanciaAjustes.transform.SetAsLastSibling(); 
+
+            Ajustes scriptAjustes = instanciaAjustes.GetComponent<Ajustes>();
+            if(scriptAjustes != null)
+            {
+                scriptAjustes.ConfigurarMenuPadre(this);
+            }
+
             RectTransform rect = instanciaAjustes.GetComponent<RectTransform>();
             if(rect != null)
             {
@@ -72,27 +72,23 @@ public class MenuInicial : MonoBehaviour
 
     }
 
+    public void ActivarMenuDesdeAjustes()
+    {
+        AlternarVisibilidadMenu(true);
+    }
+
+    public void AlternarVisibilidadMenu(bool visible)
+    {
+        if (botonJugar != null) botonJugar.gameObject.SetActive(visible);
+        if (botonAjustes != null) botonAjustes.gameObject.SetActive(visible);
+        if (botonSalir != null) botonSalir.gameObject.SetActive(visible);       
+        if (tituloTexto != null) tituloTexto.gameObject.SetActive(visible);
+    }
+
     public void Salir()
     {
         Application.Quit();
         Debug.Log("Saliendo del juego...");
     }
 
-    public void MenuInvisible()
-    {
-        if (instanciaAjustes.activeSelf)
-        {
-            botonJugar.gameObject.SetActive(false);
-            botonAjustes.gameObject.SetActive(false);
-            botonSalir.gameObject.SetActive(false);
-            tituloTexto.gameObject.SetActive(false);
-        }
-        else
-        {
-            botonJugar.gameObject.SetActive(true);
-            botonAjustes.gameObject.SetActive(true);
-            botonSalir.gameObject.SetActive(true);
-            tituloTexto.gameObject.SetActive(true);
-        }
-    }
 }

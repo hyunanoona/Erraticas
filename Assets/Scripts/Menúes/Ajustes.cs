@@ -13,7 +13,13 @@ public class Ajustes : MonoBehaviour
     [SerializeField] private Button botonVolver;
     [SerializeField] private AudioMixer audioMixer;  // CONFIGURAR EL AUDIOMIXER EN EL PROJECT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-// SOLuCIONAR EL BOTÓN VOLVER NO FUNCIONA
+    private MenuInicial menuInicialPadre;
+    // private MenuPausa menuPausaPadre;
+
+    public void ConfigurarMenuPadre(MenuInicial menuPadre)
+    {
+        menuInicialPadre = menuPadre;
+    }
 
     void Start() 
     {
@@ -85,7 +91,12 @@ public class Ajustes : MonoBehaviour
 
     public void Volver()
     {
+        if(menuInicialPadre != null)
+        {
+            menuInicialPadre.ActivarMenuDesdeAjustes();
+        }
         gameObject.SetActive(false);
+        Debug.Log("volviendo al menú correspondiente...");
     }
 
 }
