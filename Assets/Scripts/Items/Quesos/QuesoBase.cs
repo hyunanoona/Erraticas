@@ -72,6 +72,6 @@ public class QuesoBase : MonoBehaviour
 
     protected virtual void AplicarEfectoCazador(DatosCazador cazador)
     {
-        //Aca deberian ir los efectos de le de el queso ejem cazador.SumarPuntos(puntosQueOtorga);
+        GameManager.Instance.SumarPuntos(puntosQueOtorga);
     }
 }

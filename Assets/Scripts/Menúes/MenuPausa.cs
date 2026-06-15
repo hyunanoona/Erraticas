@@ -52,6 +52,7 @@ public class MenuPausa : MonoBehaviour
             {
                 Pausar();
             }
+            Debug.Log("Pausa: " + enPausa);
         }
     }
 
