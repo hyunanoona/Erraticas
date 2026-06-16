@@ -6,7 +6,7 @@ public class MenuPausa : MonoBehaviour
 {
 
     [Header(". ݁₊ ⊹ . ݁ Referencias y Variables  ݁ . ⊹ ₊ ݁.")]
-    [SerializeField] private GameObject menuPausa;  
+    [SerializeField] private GameObject contenedorVisual;  
     [SerializeField] private Button botonReanudar;
     [SerializeField] private Button botonAjustes;
     [SerializeField] private Button botonMenuInicial;
@@ -14,6 +14,7 @@ public class MenuPausa : MonoBehaviour
     [SerializeField] private Transform canvasPadre;
     [SerializeField] private GameObject prefabAjustes;
     private bool enPausa = false;
+    private bool ajustesAbiertos = false;
     private GameObject instanciaAjustes;
 
     void Start()
@@ -36,7 +37,7 @@ public class MenuPausa : MonoBehaviour
         }
 
         
-        if (menuPausa != null) menuPausa.SetActive(false); 
+        if (contenedorVisual != null) contenedorVisual.SetActive(false); 
 
     }
 
@@ -54,31 +55,35 @@ public class MenuPausa : MonoBehaviour
             }
             Debug.Log("Pausa: " + enPausa);
         }
+
+        if (ajustesAbiertos)
+        {
+            contenedorVisual.SetActive(false);
+        }
     }
 
     public void Pausar()
     {
-        menuPausa.SetActive(true);
+        contenedorVisual.SetActive(true);
         Time.timeScale = 0f; // congela el tiempo (todo para)
         enPausa = true;
     }
 
     public void Despausar()
     {
-        menuPausa.SetActive(false);
+        contenedorVisual.SetActive(false);
         Time.timeScale = 1f;  // timeScale maneja la velocidad del tiempo en el juego
         enPausa = false;
     }
 
     public void Reanudar()
     {
-        Time.timeScale = 1f; // reaviva el tiempo 
-        SceneManager.LoadScene("MenuInicial");
+        Despausar();
     }
 
     public void AbrirAjustes()
     {
-        menuPausa.SetActive(false);
+        contenedorVisual.SetActive(false);
 
         if (instanciaAjustes != null)
         {
@@ -105,11 +110,19 @@ public class MenuPausa : MonoBehaviour
                 rect.localScale = Vector3.one;
             }
         }
+
+        ajustesAbiertos = true;
     }
+
 
     public void ActivarMenuDesdeAjustes()
     {
-        menuPausa.SetActive(true);
+        contenedorVisual.SetActive(true);
+        ajustesAbiertos = false;
+        if (instanciaAjustes != null)
+        {
+            instanciaAjustes.SetActive(false);
+        }
     }
 
     public void VolverMenuInicial()
