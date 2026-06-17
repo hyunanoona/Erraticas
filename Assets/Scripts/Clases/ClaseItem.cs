@@ -88,14 +88,13 @@ public abstract class ClaseItem : MonoBehaviour
 
     private void RecoleccionCazador(DatosCazador cazador) 
     {
-        //cazador.CargarBarraHabilidad(puntosDeCarga);
+        //cazador.CargarBarraHabilidad(puntosDeCarga); --> Carga la habiliadad pasiva
         AplicarEfectoCazador(cazador);
         Destroy(gameObject);
     }
 
     private void RecoleccionSoporte(DatosSoporte soporte)
     {
-        //soporte.CargarBarraHabilidad(puntosDeCarga);
         AplicarEfectoSoporte(soporte);
         Destroy(gameObject);
     }
