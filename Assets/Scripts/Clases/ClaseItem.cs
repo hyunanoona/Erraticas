@@ -19,13 +19,11 @@ public abstract class ClaseItem : MonoBehaviour
     //Configuracion del item
     public string nombreItem;
 
-    // Configuracion de la interaccion
+    // Configuracion del tiempo del item
     public float duracionEnMesa;
     public float tiempoDeSpaw;
 
-    // Configuracion de los puntos 
-    public int puntosQueOtorga;
-    public int puntosQueResta;
+    // Puntos para la barra de habilidad 
     public float puntosDeCarga;
 
     // Estado del item
@@ -90,28 +88,22 @@ public abstract class ClaseItem : MonoBehaviour
 
     private void RecoleccionCazador(DatosCazador cazador) 
     {
-        //Puntaje
-        if (GameManager.Instance != null) 
-        { 
-            GameManager.Instance.SumarPuntos(puntosQueOtorga);
-            GameManager.Instance.SumarPuntos(-puntosQueResta);
-        }
-
-        //Recoleccion
         //cazador.CargarBarraHabilidad(puntosDeCarga);
+        AplicarEfectoCazador(cazador);
         Destroy(gameObject);
     }
 
     private void RecoleccionSoporte(DatosSoporte soporte)
     {
-        //Puntaje
-        if (GameManager.Instance != null)
-        {
-            GameManager.Instance.SumarPuntos(-puntosQueResta);
-        }
-
-        //Recoleccion
         //soporte.CargarBarraHabilidad(puntosDeCarga);
+        AplicarEfectoSoporte(soporte);
         Destroy(gameObject);
     }
+
+
+    //  •• <<────────────────≪•◦ Efectos Obstaculos ◦•≫────────────────>> ••
+
+    // Estan vacios ya que dps los obstaculos y quesos tendran su logica de daño o bufos
+    protected virtual void AplicarEfectoCazador(DatosCazador cazador) { }
+    protected virtual void AplicarEfectoSoporte(DatosSoporte soporte) { }
 }
