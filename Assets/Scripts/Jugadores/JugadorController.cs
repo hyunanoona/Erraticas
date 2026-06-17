@@ -13,12 +13,14 @@ public class JugadorController : MonoBehaviour
     private Rigidbody2D rb; // el componente de fisica del pj
     private InputJugador input; // el script que detecta las entradas del jugador
     private DatosPersonaje datos; // aca estan los datos del pj
+    private Health health; // el script de salud del pj
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>(); // el rigidbody o sea la parte fisica
         input = GetComponent<InputJugador>(); //accede al input 
         datos = GetComponent<DatosPersonaje>(); // accede a los datos del personaje
+        health = GetComponent<Health>();
 
         rb.gravityScale = datos.EscalaGravedad; // ajusta la gravedad segun el pj
     }
