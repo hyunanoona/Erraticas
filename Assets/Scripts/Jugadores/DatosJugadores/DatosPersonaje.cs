@@ -10,9 +10,4 @@ public class DatosPersonaje : MonoBehaviour
     public float Velocidad { get; protected set; }
     public float FuerzaSalto { get; protected set; }
     public float EscalaGravedad { get; protected set; }
-
-    public virtual void ActivarHabilidad()
-    {
-        // aca estaria la futura habilidad del pj (soporte o cazador)
-    }
 }

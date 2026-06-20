@@ -27,10 +27,28 @@ public class JugadorController : MonoBehaviour
 
     void Update()
     {
-        // if (input.InputHabilidad) 
-        // {
-        //     datos.ActivarHabilidad(); // llamara a la futura habilidad (crear)
-        // }
+        if (input.Habilidad1)
+        {
+            input.ConsumirHabilidad1(); // avisa al controlador que ya se uso la habilidad
+
+            DatosSoporte datosSupp = datos as DatosSoporte; // intenta convertir los datos del pj a datos de soporte
+
+            if (datosSupp != null)
+            {
+                datosSupp.PresionoHabilidad1(); // si el pj es soporte, ejecuta su habilidad
+            }
+        }
+
+        if (input.Habilidad2)
+        {
+            input.ConsumirHabilidad2();
+
+            DatosSoporte datosSoporte = datos as DatosSoporte;
+            if (datosSoporte != null)
+            {
+                datosSoporte.PresionoHabilidad2(); // Dispara la segunda habilidad
+            }
+        }
     }
 
     void FixedUpdate()

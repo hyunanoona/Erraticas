@@ -708,6 +708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  maxHealth: 100
 --- !u!1 &1078643379
 GameObject:
   m_ObjectHideFlags: 0
@@ -723,7 +724,8 @@ GameObject:
   - component: {fileID: 1078643386}
   - component: {fileID: 1078643384}
   - component: {fileID: 1078643383}
-  - component: {fileID: 1078643387}
+  - component: {fileID: 1078643388}
+  - component: {fileID: 1078643389}
   m_Layer: 9
   m_Name: Soporte
   m_TagString: Soporte
@@ -907,7 +909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 309690eb23e2e7645a5c0e2bec683c0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1078643387
+--- !u!114 &1078643388
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -916,10 +918,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 1078643379}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec0cc500a4fe380428ea53a2450e2c4b, type: 3}
+  m_Script: {fileID: 11500000, guid: 4eb486d9a0852a64ab934f03006e11f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  cantidadCurar: 20
+--- !u!114 &1078643389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078643379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59bdfae265751734ba65d3057632f4b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duracion: 3
 --- !u!1 &1570888718
 GameObject:
   m_ObjectHideFlags: 0

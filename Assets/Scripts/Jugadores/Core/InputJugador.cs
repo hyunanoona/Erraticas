@@ -16,6 +16,10 @@ public class InputJugador : MonoBehaviour
     public float MovimientoX { get; private set; } // movimiento horizontal
     public bool Salto { get; private set; } // si el jugador ha intentado saltar en este fotograma
 
+    // variables de habilidades para el soporte
+    public bool Habilidad1 { get; private set; } // si el jugador ha intentado usar la primera habilidad en este fotograma
+    public bool Habilidad2 { get; private set; } // si el jugador ha intentado usar la segunda habilidad en este fotograma
+
     void Update()
     {
         MovimientoX = 0f;
@@ -29,6 +33,16 @@ public class InputJugador : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space))
             {
                 Salto = true;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                Habilidad1 = true;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                Habilidad2 = true; 
             }
         }
         else if (jugadorAsignado == NumeroJugador.Jugador2)
@@ -47,5 +61,15 @@ public class InputJugador : MonoBehaviour
     public void ConsumirSalto() // avisa al controlador que ya se salto
     {
         Salto = false;
+    }
+
+    public void ConsumirHabilidad1() // avisa al controlador que ya se uso la habilidad 1
+    {
+        Habilidad1 = false;
+    }
+
+    public void ConsumirHabilidad2() // avisa al controlador que ya se uso la habilidad 2
+    {
+        Habilidad2 = false;
     }
 }

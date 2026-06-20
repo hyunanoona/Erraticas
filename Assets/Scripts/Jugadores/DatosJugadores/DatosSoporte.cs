@@ -6,6 +6,12 @@ using UnityEngine;
 */
 public class DatosSoporte : DatosPersonaje
 {
+    private JugadorController cazadorAliado;
+    
+    //habilidades del soporte
+    private HabilidadBase hab1;
+    private HabilidadBase hab2;
+
     void Awake()
     {
         // datos especificos del soporte
@@ -14,8 +20,37 @@ public class DatosSoporte : DatosPersonaje
         EscalaGravedad = 2.5f;
     }
 
-    public override void ActivarHabilidad()
+    void Start()
     {
-        // override para hacer la habilidad del soporte
+        GameObject cazador = GameObject.FindWithTag("Cazador"); // buscamos el objeto del cazador aliado en la escena
+
+        if (cazador != null)
+        {
+            cazadorAliado = cazador.GetComponent<JugadorController>(); // obtenemos el componente del cazador aliado
+        }
+
+        HabilidadBase[] habilidades = GetComponents<HabilidadBase>(); // obtenemos todas las habilidades del soporte
+
+        if (habilidades.Length > 0)
+        {
+            hab1 = habilidades[0]; // asignamos la primera habilidad a hab1
+            hab2 = habilidades[1]; // asignamos la segunda habilidad a hab2
+        }
+    }
+
+    public void PresionoHabilidad1()
+    {
+        if (hab1 != null)
+        {
+            hab1.Ejecutar(gameObject, cazadorAliado); // ejecutamos la habilidad pasando la info del soporte y del cazador aliado
+        }
+    }
+
+    public void PresionoHabilidad2()
+    {
+        if (hab2 != null)
+        {
+            hab2.Ejecutar(gameObject, cazadorAliado); // ejecutamos la habilidad pasando la info del soporte y del cazador aliado
+        }
     }
 }

@@ -13,9 +13,4 @@ public class DatosCazador : DatosPersonaje
         FuerzaSalto = 10f;
         EscalaGravedad = 3.5f;
     }
-
-    public override void ActivarHabilidad()
-    {
-        // override para hacer la habilidad del cazador
-    }
 }
