@@ -13,6 +13,6 @@ public class DatosPersonaje : MonoBehaviour
 
     public virtual void ActivarHabilidad()
     {
-        // aca estaria la futura habilidad del pj (soporte o cazador
+        // aca estaria la futura habilidad del pj (soporte o cazador)
     }
 }
