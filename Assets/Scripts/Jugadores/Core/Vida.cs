@@ -20,16 +20,21 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void ActivarInmunidadTemporal(float duracion)
+    public void Morir() // metodo para morir
     {
-        // Iniciamos la corrutina que cuenta el tiempo en segundo plano
-        StartCoroutine(RutinaInmunidad(duracion));
+        Destroy(gameObject); // destruimos el objeto del personaje
     }
 
-    private IEnumerator RutinaInmunidad(float duracion)
+    // funcionalides especiales para el soporte
+        public void ActivarInmunidadTemporal(float duracion) // metodo para activar la inmunidad temporal del soporte
+    {
+        StartCoroutine(RutinaInmunidad(duracion)); // iniciamos la rutina de inmunidad temporal
+    }
+
+    private IEnumerator RutinaInmunidad(float duracion) // rutina que maneja el estado de inmunidad temporal del soporte, usa un ienumerator para esperar el tiempo de duración del efecto
     {
         esInmune = true; // arranca a ser inmune
-        print($"{gameObject.name} es ahora inmune por {duracion} segundos.");
+        print($"{gameObject.name} es ahora inmune por {duracion} segundos."); 
 
         yield return new WaitForSeconds(duracion); // duracion del efecto de inmunidad
 
@@ -45,10 +50,5 @@ public class Health : MonoBehaviour
         {
             health = maxHealth;
         }
-    }
-
-    public void Morir() // metodo para morir
-    {
-        Destroy(gameObject); // destruimos el objeto del personaje
     }
 }
