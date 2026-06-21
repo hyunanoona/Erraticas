@@ -55,3 +55,6 @@ TagManager:
   - name: Jugador
     uniqueID: 979146559
     locked: 0
+  - name: Iluminacion
+    uniqueID: 1576935705
+    locked: 0
