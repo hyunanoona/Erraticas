@@ -48,7 +48,7 @@ public class InputJugador : MonoBehaviour
         else if (jugadorAsignado == NumeroJugador.Jugador2)
         {
             // jugador 2: flechas + enter
-            if (Input.GetKey(KeyCode.RightArrow)) MovimientoX = 1f;
+            if (Input.GetKey(KeyCode.RightArrow)) MovimientoX = 1f; 
             if (Input.GetKey(KeyCode.LeftArrow)) MovimientoX = -1f;
 
             if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Return))
