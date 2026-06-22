@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 1629362528307568217}
   - component: {fileID: 2497382187777512490}
   - component: {fileID: 5329469195681723534}
-  m_Layer: 0
+  - component: {fileID: -1742342203539727708}
+  m_Layer: 8
   m_Name: prefab_Veneno
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,11 +73,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingLayerID: -1264301661
+  m_SortingLayer: 3
+  m_SortingOrder: 100
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.042808846, g: 0.64051276, b: 0.6981132, a: 1}
+  m_Color: {r: 0.19137037, g: 0.5943396, b: 0.17101279, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -144,7 +145,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombreItem: Veneno
-  duracionEnMesa: 0
-  tiempoDeSpaw: 0
+  duracionEnMesa: 10
+  tiempoDeSpaw: 3
   puntosDeCarga: 0
   danioVida: 10
+--- !u!50 &-1742342203539727708
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97672378044162766}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

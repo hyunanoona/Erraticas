@@ -58,7 +58,7 @@ public abstract class ClaseItem : MonoBehaviour
 
         // Si el queso pide el tag "cazador" o el obstaculo pide "Ambos"
         // en caso de chocar con un queso o obstaculo se agarrara igual
-        if (other.CompareTag(TagPermitido) || TagPermitido == "Ambos")
+        if (TagPermitido == "Ambos" || other.CompareTag(TagPermitido))
         {
             yaFueAgarrado = true;
 
