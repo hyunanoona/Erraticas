@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Soporte
   - Cazador
+  - Pisable
   layers:
   - Default
   - TransparentFX

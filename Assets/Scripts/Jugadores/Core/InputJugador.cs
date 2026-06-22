@@ -13,7 +13,7 @@ public class InputJugador : MonoBehaviour
     public NumeroJugador jugadorAsignado = NumeroJugador.Jugador1;
 
     // Variables para almacenar el estado de las entradas //
-    public float MovimientoX { get; private set; } // movimiento horizontal
+    public float MovimientoX { get; private set; } // movimiento horizontal, 1 para derecha, -1 para izquierda, 0 para no moverse.
     public bool Salto { get; private set; } // si el jugador ha intentado saltar en este fotograma
 
     // variables de habilidades para el soporte
@@ -22,13 +22,13 @@ public class InputJugador : MonoBehaviour
 
     void Update()
     {
-        MovimientoX = 0f;
+        MovimientoX = 0f; // al inicio de cada fotograma, reseteamos el movimiento horizontal a 0
 
         if (jugadorAsignado == NumeroJugador.Jugador1)
         {
             // jugador 1: wasd + espacio
-            if (Input.GetKey(KeyCode.D)) MovimientoX = 1f;
-            if (Input.GetKey(KeyCode.A)) MovimientoX = -1f;
+            if (Input.GetKey(KeyCode.D)) MovimientoX = 1f; // movimiento a la derecha
+            if (Input.GetKey(KeyCode.A)) MovimientoX = -1f; // movimiento a la izquierda
 
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space))
             {
@@ -48,8 +48,8 @@ public class InputJugador : MonoBehaviour
         else if (jugadorAsignado == NumeroJugador.Jugador2)
         {
             // jugador 2: flechas + enter
-            if (Input.GetKey(KeyCode.RightArrow)) MovimientoX = 1f; 
-            if (Input.GetKey(KeyCode.LeftArrow)) MovimientoX = -1f;
+            if (Input.GetKey(KeyCode.RightArrow)) MovimientoX = 1f; // movimiento a la derecha
+            if (Input.GetKey(KeyCode.LeftArrow)) MovimientoX = -1f; // movimiento a la izquierda
 
             if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Return))
             {
@@ -58,6 +58,9 @@ public class InputJugador : MonoBehaviour
         }
     }
 
+
+// métodos para avisar al controlador que ya se uso la entrada correspondiente //
+// sirven para que el jugador no pueda saltar infinitamente o usar la habilidad infinitamente en un solo fotograma
     public void ConsumirSalto() // avisa al controlador que ya se salto
     {
         Salto = false;
