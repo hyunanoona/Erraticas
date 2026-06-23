@@ -19,10 +19,14 @@ public class JugadorController : MonoBehaviour
     private CheckGround checkGround; // el script que detecta si el pj esta tocando el suelo o no
 
     //info para buff del hunter
-    // --- Variables nuevas en la cabecera del script ---
+    //doble salto//
     private float tiempoBuffDobleSalto = 0f; // cuenta regresiva del poder
     private bool yaHizoDobleSalto = false; // indicador de si el jugador ya ha realizado un doble salto, para que no salte salte infinito y mas alla
+    //velocidad//
+    private float tiempoBuffVelocidad = 0f; // cuenta regresiva del poder
+    [SerializeField] private float multiplicadorVelocidad = 1.5f; // 1.5 significa que va 50% mas rapido, 2 significa que va el doble de rapido, etc.
 
+    
     void Start()
     {
         // inicializamos las referencias a los componentes del jugador
@@ -66,11 +70,25 @@ public class JugadorController : MonoBehaviour
         {
             tiempoBuffDobleSalto -= Time.deltaTime;
         }
+        //para la velocidad del hunter
+        if (tiempoBuffVelocidad > 0f)
+        {
+            tiempoBuffVelocidad -= Time.deltaTime;
+        }
     }
 
     void FixedUpdate()
     {
-        rb.velocity = new Vector2(input.MovimientoX * datos.Velocidad, rb.velocity.y); // mueve al jugador horizontalmente segun el input y la velocidad del pj
+        float velocidadActual = datos.Velocidad; // velocidad base del pj
+
+        // si el pj tiene el buff de velocidad, se multiplica la velocidad base por el multiplicador
+        if (tiempoBuffVelocidad > 0f)
+        {
+            velocidadActual *= multiplicadorVelocidad;
+        
+        }
+
+        rb.velocity = new Vector2(input.MovimientoX * velocidadActual, rb.velocity.y); // mueve al jugador horizontalmente segun el input y la velocidad del pj
 
         // bandera para resetear el doble salto si el pj esta tocando el suelo
         if (checkGround != null && checkGround.EstaSobreAlgoPisable)
@@ -99,5 +117,10 @@ public class JugadorController : MonoBehaviour
     public void ActivarBuffDobleSalto(float duracion)
     {
         tiempoBuffDobleSalto = duracion; // arranca o resetea el reloj del buff de doble salto
+    }
+
+    public void ActivarBuffVelocidad(float duracion)
+    {
+        tiempoBuffVelocidad = duracion; // arranca o resetea el reloj del buff de velocidad
     }
 }

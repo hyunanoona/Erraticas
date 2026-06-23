@@ -3,7 +3,7 @@ using UnityEngine;
 public class HabilidadCuracion : HabilidadBase
 {
     [Header("Ajustes de Curación")]
-    [SerializeField] private int cantidadCurar = 20;
+    [SerializeField] private int cantidadCurar = 20; // cantidad de vida que se restaurará al aliado cazador
 
     public override void Ejecutar(GameObject usuario, JugadorController aliadoCazador)
     {

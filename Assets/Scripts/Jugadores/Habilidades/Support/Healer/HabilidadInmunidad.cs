@@ -3,7 +3,7 @@ using UnityEngine;
 public class HabilidadInmunidad : HabilidadBase
 {
     [Header("Ajustes de Inmunidad")]
-    [SerializeField] private float duracion = 3f;
+    [SerializeField] private float duracion = 3f; // tiempo que dura el buff, se puede modificar igual en el inspector
 
     public override void Ejecutar(GameObject usuario, JugadorController aliadoCazador)
     {
