@@ -25,6 +25,9 @@ public class GameManager : MonoBehaviour
         public int nivelActualIndice = 0;
         public int puntajeJugador = 0;        
 
+        public string ratita1Rol;
+        public string ratita2Rol;
+
 
         private void Awake()
         {
@@ -73,6 +76,12 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene("MenuInicial");  // CAMBIAR POR ESCENA DE VICTORIA!!!!!
                 Destroy(gameObject);
             }
+        }
+
+    public void RolJugadores(string rol1, string rol2)
+        {
+            ratita1Rol = rol1;
+            ratita2Rol = rol2;
         }
 
 }

@@ -35,7 +35,7 @@ public class MenuInicial : MonoBehaviour
 
     public void Jugar()
     {
-        SceneManager.LoadScene("NivelUno");
+        SceneManager.LoadScene("SeleccionRol");
     }
 
     public void AbrirAjustes()
