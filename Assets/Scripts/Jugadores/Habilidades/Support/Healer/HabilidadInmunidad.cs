@@ -9,11 +9,11 @@ public class HabilidadInmunidad : HabilidadBase
     {
         if (aliadoCazador == null) return;
 
-        Health healthAliado = aliadoCazador.GetComponent<Health>();
+        Health healthCazador = aliadoCazador.GetComponent<Health>();
 
-        if (healthAliado != null)
+        if (healthCazador != null)
         {
-            healthAliado.ActivarInmunidadTemporal(duracion); // activamos la inmunidad temporal del cazador aliado
+            healthCazador.ActivarInmunidadTemporal(duracion); // activamos la inmunidad temporal del cazador aliado
             print($"{usuario.name} ha activado inmunidad temporal en {aliadoCazador.name} por {duracion} segundos.");
         }
     }

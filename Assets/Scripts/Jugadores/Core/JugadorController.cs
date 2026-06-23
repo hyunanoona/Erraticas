@@ -18,8 +18,14 @@ public class JugadorController : MonoBehaviour
     //detector de suelo
     private CheckGround checkGround; // el script que detecta si el pj esta tocando el suelo o no
 
+    //info para buff del hunter
+    // --- Variables nuevas en la cabecera del script ---
+    private float tiempoBuffDobleSalto = 0f; // cuenta regresiva del poder
+    private bool yaHizoDobleSalto = false; // indicador de si el jugador ya ha realizado un doble salto, para que no salte salte infinito y mas alla
+
     void Start()
     {
+        // inicializamos las referencias a los componentes del jugador
         rb = GetComponent<Rigidbody2D>(); // el rigidbody o sea la parte fisica
         input = GetComponent<InputJugador>(); //accede al input 
         datos = GetComponent<DatosPersonaje>(); // accede a los datos del personaje
@@ -31,6 +37,7 @@ public class JugadorController : MonoBehaviour
 
     void Update()
     {
+        //habilidades de soporte
         if (input.Habilidad1)
         {
             input.ConsumirHabilidad1(); // avisa al controlador que ya se uso la habilidad
@@ -53,20 +60,44 @@ public class JugadorController : MonoBehaviour
                 datosSoporte.PresionoHabilidad2(); // si el pj es soporte, ejecuta su habilidad 2
             }
         }
+
+        //para el doble salto del hunter
+        if (tiempoBuffDobleSalto > 0f)
+        {
+            tiempoBuffDobleSalto -= Time.deltaTime;
+        }
     }
 
     void FixedUpdate()
     {
         rb.velocity = new Vector2(input.MovimientoX * datos.Velocidad, rb.velocity.y); // mueve al jugador horizontalmente segun el input y la velocidad del pj
 
+        // bandera para resetear el doble salto si el pj esta tocando el suelo
+        if (checkGround != null && checkGround.EstaSobreAlgoPisable)
+        {
+            yaHizoDobleSalto = false;
+        }
+        
         if (input.Salto)
         {
+            //esta es la logica normal del salto
             if (checkGround != null && checkGround.EstaSobreAlgoPisable) // si el pj esta tocando el suelo, puede saltar
             {
                 rb.velocity = new Vector2(rb.velocity.x, datos.FuerzaSalto); // hace que el jugador salte segun la fuerza de salto del pj
             }
+            // esta para el doble salto del hunter
+            else if (tiempoBuffDobleSalto > 0f && !yaHizoDobleSalto)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, datos.FuerzaSalto); // hace que el jugador salte segun la fuerza de salto del pj
+                yaHizoDobleSalto = true; // para que no siga salta y salta
+            }
 
             input.ConsumirSalto(); // avisa al controlador que ya se uso el salto, para que no pueda saltar infinitamente en un solo fotograma
         }
+    }
+
+    public void ActivarBuffDobleSalto(float duracion)
+    {
+        tiempoBuffDobleSalto = duracion; // arranca o resetea el reloj del buff de doble salto
     }
 }
