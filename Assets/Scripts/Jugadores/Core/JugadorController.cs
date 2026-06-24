@@ -26,6 +26,9 @@ public class JugadorController : MonoBehaviour
     private float tiempoBuffVelocidad = 0f; // cuenta regresiva del poder
     [SerializeField] private float multiplicadorVelocidad = 1.5f; // 1.5 significa que va 50% mas rapido, 2 significa que va el doble de rapido, etc.
 
+    //info para el soporte
+    private float duracionSilenciado = 0f;
+
     
     void Start()
     {
@@ -42,7 +45,13 @@ public class JugadorController : MonoBehaviour
     void Update()
     {
         //habilidades de soporte
-        if (input.Habilidad1)
+
+        if (duracionSilenciado > 0f)
+        {
+            duracionSilenciado -= Time.deltaTime; // si el pj esta silenciado, se va descontando el tiempo de silenciado
+        }
+
+        if (input.Habilidad1 && duracionSilenciado <= 0f) // si el pj presiona la habilidad 1 y no esta silenciado
         {
             input.ConsumirHabilidad1(); // avisa al controlador que ya se uso la habilidad
 
@@ -54,11 +63,12 @@ public class JugadorController : MonoBehaviour
             }
         }
 
-        if (input.Habilidad2)
+        if (input.Habilidad2 && duracionSilenciado <= 0f) // si el pj presiona la habilidad 2 y no esta silenciado
         {
             input.ConsumirHabilidad2();
 
-            DatosSoporte datosSoporte = datos as DatosSoporte;
+            DatosSoporte datosSoporte = datos as DatosSoporte; // intenta convertir los datos del pj a datos de soporte
+            
             if (datosSoporte != null)
             {
                 datosSoporte.PresionoHabilidad2(); // si el pj es soporte, ejecuta su habilidad 2
@@ -122,5 +132,10 @@ public class JugadorController : MonoBehaviour
     public void ActivarBuffVelocidad(float duracion)
     {
         tiempoBuffVelocidad = duracion; // arranca o resetea el reloj del buff de velocidad
+    }
+
+    public void SilenciarHabilidades(float duracion)
+    {
+        duracionSilenciado = duracion; // arranca o resetea el reloj del silenciado de habilidades
     }
 }

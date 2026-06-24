@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3484739569644762817}
   - component: {fileID: 4289012452525121589}
   - component: {fileID: 2860783631184247751}
+  - component: {fileID: 8207435189361269089}
   m_Layer: 9
   m_Name: Soporte_Booster
   m_TagString: Soporte
@@ -117,6 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5fd76b5d52dace408aa7e257234b1e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  multiplicadorVelocidad: 1.5
 --- !u!50 &2916678622797010873
 Rigidbody2D:
   serializedVersion: 4
@@ -213,6 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 317a7fd77be1cb947bf4d168c5e21809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  duracionBuff: 5
 --- !u!114 &2860783631184247751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,6 +228,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57ab5daf34aec7347b0e5471e6255eef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  duracionBuff: 5
+--- !u!114 &8207435189361269089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3765934630118403142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e5ae8eee2787e04389d1cb934b58431, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  maxHealth: 100
 --- !u!1 &6318786539442467154
 GameObject:
   m_ObjectHideFlags: 0

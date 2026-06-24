@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4117243034792422686}
   - component: {fileID: 6368821077487048856}
   - component: {fileID: 7761494083591730634}
+  - component: {fileID: 2179048261581098560}
   m_Layer: 9
   m_Name: Soporte_Healer
   m_TagString: Soporte
@@ -104,6 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5fd76b5d52dace408aa7e257234b1e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  multiplicadorVelocidad: 1.5
 --- !u!114 &2951491586930387029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,6 +229,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duracion: 3
+--- !u!114 &2179048261581098560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4529798463355105067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e5ae8eee2787e04389d1cb934b58431, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  maxHealth: 100
 --- !u!1 &5539401345499594651
 GameObject:
   m_ObjectHideFlags: 0
