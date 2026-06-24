@@ -8,7 +8,7 @@ public class Health : MonoBehaviour
     public int maxHealth = 100; // vida máxima del personaje
     public bool esInmune { get; private set; } = false;
 
-    public virtual void RecibirDaño(int damage) // metodo para recibir daño
+    public virtual void RecibirDanio(int damage) // metodo para recibir daño
     {
         if (esInmune) return; // si el personaje es inmune, no recibe daño
 

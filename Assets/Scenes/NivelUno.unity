@@ -160,6 +160,10 @@ MonoBehaviour:
     puntajeParaGanar: 15
   nivelActualIndice: 0
   puntajeJugador: 0
+  ratita1Rol: 
+  ratita2Rol: 
+  ratita1TipoRol: 
+  ratita2TipoRol: 
 --- !u!4 &222443333
 Transform:
   m_ObjectHideFlags: 0
@@ -599,6 +603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5fd76b5d52dace408aa7e257234b1e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  multiplicadorVelocidad: 1.5
 --- !u!114 &980106842
 MonoBehaviour:
   m_ObjectHideFlags: 0

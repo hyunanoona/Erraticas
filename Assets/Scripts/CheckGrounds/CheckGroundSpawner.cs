@@ -4,14 +4,14 @@ using UnityEngine;
 
 /*
     ╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
-      SueloDetector ᝰ
+      CheckGroundSpawner ᝰ
         Se usa para detectar cuando el item toca el suelo y asi evitar que siga cayendo, tambien 
         se usa para detectar cuando el jugador toca el item y asi destruirlo para simular que lo
         recolecto
     ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
 */
 
-public class SueloDetector : MonoBehaviour
+public class CheckGroundSpawner : CheckGround
 {
 
     //  •• <<────────────────≪•◦ Collision ◦•≫────────────────>> ••
@@ -27,8 +27,10 @@ public class SueloDetector : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    protected override void OnTriggerEnter2D(Collider2D other)
     {
+        base.OnTriggerEnter2D(other);
+
         // Chquea si el jugador toca el item asi se destruye para simular que lo recolecto
         if (other.CompareTag("Cazador") || other.CompareTag("Soporte"))
         {

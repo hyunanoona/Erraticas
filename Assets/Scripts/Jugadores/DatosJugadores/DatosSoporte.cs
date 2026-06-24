@@ -16,8 +16,8 @@ public class DatosSoporte : DatosPersonaje
     {
         // datos especificos del soporte
         Velocidad = 6f;
-        FuerzaSalto = 15f;
-        EscalaGravedad = 2.5f;
+        FuerzaSalto = 12f;
+        EscalaGravedad = 2.7f;
     }
 
     void Start()

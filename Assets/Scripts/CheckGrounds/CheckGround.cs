@@ -7,7 +7,7 @@ public class CheckGround : MonoBehaviour
 {
     public bool EstaSobreAlgoPisable;
 
-    private void OnTriggerEnter2D(Collider2D collision) // al tocar el suelo
+    protected virtual void OnTriggerEnter2D(Collider2D collision) // al tocar el suelo
     {
         if (collision.CompareTag("Pisable"))
         {
@@ -15,7 +15,7 @@ public class CheckGround : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision) // al levantar los pies del suelo
+    protected virtual void OnTriggerExit2D(Collider2D collision) // al levantar los pies del suelo
     {
         if (collision.CompareTag("Pisable"))
         {
