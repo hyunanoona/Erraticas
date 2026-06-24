@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     /*
     GameManager ᝰ
     ಄ Se encarga de la gestión de los niveles (pasar de un escenario a otro, cargar el siguiente nivel), actualiza el estado del juego, controla el puntaje de los jugadores, 
-	಄ Conecta las animaciones y los audios con los eventos del juego, y maneja la condición de victoria o derrota. 
+	಄ Conecta las animaciones y los audios con los eventos del juego, y maneja la condición de victoria o derrota. También instancia los jugadores. 
     */
 
     [Header(". ݁₊ ⊹ . ݁ Referencias y Variables  ݁ . ⊹ ₊ ݁.")]
@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
 
         public string ratita1Rol;
         public string ratita2Rol;
+        public string ratita1TipoRol;
+        public string ratita2TipoRol;
 
 
         private void Awake()
@@ -83,6 +85,12 @@ public class GameManager : MonoBehaviour
             ratita1Rol = rol1;
             ratita2Rol = rol2;
         }
+
+    public void GuardarTiposDeRol(string rol1, string rol2)
+    {
+        ratita1TipoRol = rol1;
+        ratita2TipoRol = rol2;
+    }
 
 }
 

@@ -623,7 +623,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -352, y: -248}
+  m_AnchoredPosition: {x: -351, y: -331}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &248762944
@@ -1246,7 +1246,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 1.2000122, y: 34.299988}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &525371067
@@ -1417,7 +1417,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 187, y: -243}
+  m_AnchoredPosition: {x: 176, y: -213}
   m_SizeDelta: {x: 340.0068, y: 460.3928}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &685715898
@@ -1493,11 +1493,42 @@ MonoBehaviour:
   confirmarSeleccionInicial: {fileID: 1100195784}
   confirmarSelecP1: {fileID: 248762944}
   confirmarSelecP2: {fileID: 2008937405}
-  siguienteSeleccionInicialDer: {fileID: 0}
-  siguienteSeleccionInicialIzq: {fileID: 0}
+  siguienteSeleccionInicialDer: {fileID: 221562752}
+  siguienteSeleccionInicialIzq: {fileID: 2122589364}
+  siguienteSelecP1Der: {fileID: 1735880612}
+  siguienteSelecP1Izq: {fileID: 766215018}
+  siguienteSelecP2Der: {fileID: 1726000784}
+  siguienteSelecP2Izq: {fileID: 759341605}
   jugar: {fileID: 1843617032}
   p1Rol: {fileID: 525371069}
   p2Rol: {fileID: 317672527}
+  p1TipoTexto: {fileID: 1991914781}
+  p2TipoTexto: {fileID: 267575084}
+  p1DescripcionTexto: {fileID: 125523553}
+  p2DescripcionTexto: {fileID: 924393554}
+  ratita1Rol: Cazador
+  ratita2Rol: Soporte
+  ratita1TipoRol: 
+  ratita2TipoRol: 
+  opcionesCazador:
+  - nombreTipo: Cunty
+    descripcionTipo: "Seduce al chef con su coqueta mirada y no te lanza obst\xE1culos
+      por cierto rato "
+  - nombreTipo: Faso
+    descripcionTipo: Con su poderosa habilidad de rastreo, salen a la luz quesos
+      escondidos
+  opcionesSoporte:
+  - nombreTipo: Nico Tina
+    descripcionTipo: 'Otorga inmunidad cuando come mucho queso roquefort
+
+      Cura
+      al recoger el queso del tipo mozzarella
+
+'
+  - nombreTipo: Elva Rigon
+    descripcionTipo: "Aumenta la velocidad cuando se traga una buena cantidad de
+      provoleta.\r\n El salto se vuelve doble si se le cruzan varios quesitos cremosos
+      \r\n"
 --- !u!4 &689441582
 Transform:
   m_ObjectHideFlags: 0
@@ -1682,7 +1713,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 1.2000122, y: 34.299988}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &747408204
@@ -2482,7 +2513,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 709.2035, y: 1.4963989}
+  m_AnchoredPosition: {x: 698.2035, y: 31.496399}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!1 &897236764
@@ -3252,7 +3283,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -352.2, y: -14.3}
+  m_AnchoredPosition: {x: -351, y: 20}
   m_SizeDelta: {x: 340.0068, y: 460.3928}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1153595729
@@ -3567,7 +3598,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 709.2035, y: 1.4963989}
+  m_AnchoredPosition: {x: 698.2035, y: 31.496399}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!1 &1476126700
@@ -3604,7 +3635,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 294.88202, y: 18.950806}
+  m_AnchoredPosition: {x: 283.88202, y: 48.950806}
   m_SizeDelta: {x: 128.1715, y: 119.0912}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1476126702
@@ -5230,7 +5261,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -350.23566, y: 77}
+  m_AnchoredPosition: {x: -349.03564, y: 111.29999}
   m_SizeDelta: {x: 228.1715, y: 219.0912}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1968585604
@@ -5441,7 +5472,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -382, y: -213}
+  m_AnchoredPosition: {x: -381, y: -292}
   m_SizeDelta: {x: 60, y: -70}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &2008937405
