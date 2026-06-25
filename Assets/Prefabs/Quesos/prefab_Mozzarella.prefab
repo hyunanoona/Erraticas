@@ -11,13 +11,13 @@ GameObject:
   - component: {fileID: 3296055475905296168}
   - component: {fileID: 9071773006733187874}
   - component: {fileID: 9166864208730550039}
-  - component: {fileID: 6329889362679680772}
   - component: {fileID: -7532762190048829228}
   - component: {fileID: 1351982175760067610}
   - component: {fileID: 7029159259477831866}
+  - component: {fileID: 8632683322884203838}
   m_Layer: 8
   m_Name: prefab_Mozzarella
-  m_TagString: Untagged
+  m_TagString: Mozzarella
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,23 +134,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &6329889362679680772
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2212182547483668453}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12997e4f615c07e44950cd155d87aa83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nombreItem: Queso Mozzarella
-  duracionEnMesa: 15
-  tiempoDeSpaw: 1
-  puntosDeCarga: 0
-  puntosQueOtorga: 20
 --- !u!50 &-7532762190048829228
 Rigidbody2D:
   serializedVersion: 4
@@ -235,3 +218,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 004c314dea8ff994a919f581eab91172, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EstaSobreAlgoPisable: 0
+--- !u!114 &8632683322884203838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2212182547483668453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8f24122bc7b4ce4688059160aceb9b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nombreItem: Queso Mozzarella
+  duracionEnMesa: 15
+  tiempoDeSpaw: 1
+  puntosDeCarga: 0

@@ -12,15 +12,15 @@ using UnityEngine;
 
 //  •• <<─────────────────────≪•◦ Queso - Cazador ◦•≫─────────────────────>> ••
 
-public class QuesoPategras : ClaseItem
+public class QuesoPategras : ClaseItem 
 {
-    public int puntosQueOtorga = 20;
-    protected override string TagPermitido => "Cazador";
+    public int puntosQueOtorga = 20; // cantidad de puntos que se suman al puntaje del jugador al recolectar el queso, unico queso con puntaje
+    protected override string TagPermitido => "Cazador"; // solo el cazador puede recolectar este queso
     public QuesoPategras() { nombreItem = "Queso Pategras"; }
 
     protected override void AplicarEfectoCazador(DatosCazador cazador)
     {
-        // Puntaje 
+        // logica para que cuando el cazador recolecta el queso se suma al puntaje del jugador
         if (GameManager.Instance != null)
         {
             GameManager.Instance.SumarPuntos(puntosQueOtorga);
@@ -28,7 +28,7 @@ public class QuesoPategras : ClaseItem
     }
 }
 
-
+/* 
 //  •• <<────────────────≪•◦ Quesos - Soporte Healer ◦•≫────────────────>> ••
 
 public class QuesoRoquefort : ClaseItem
@@ -38,19 +38,18 @@ public class QuesoRoquefort : ClaseItem
 
     protected override void AplicarEfectoSoporte(DatosSoporte soporte)
     {
-        //soporte.CargarInmunidad(puntosDeCarga);
+        soporte.AgregarQueso("Roquefort"); // Mandamos el texto directo
     }
 }
 
 public class QuesoMozzarella : ClaseItem
 {
     protected override string TagPermitido => "Soporte";
-
     public QuesoMozzarella() { nombreItem = "Queso Mozzarella"; }
 
     protected override void AplicarEfectoSoporte(DatosSoporte soporte)
     {
-        //soporte.CargarCuracion(puntosDeCarga);
+        soporte.AgregarQueso("Mozzarella");
     }
 }
 
@@ -60,23 +59,22 @@ public class QuesoMozzarella : ClaseItem
 public class QuesoProvoleta : ClaseItem
 {
     protected override string TagPermitido => "Soporte";
-
     public QuesoProvoleta() { nombreItem = "Queso Provoleta"; }
 
     protected override void AplicarEfectoSoporte(DatosSoporte soporte)
     {
-        //soporte.CargarVelocidad(puntosDeCarga);
+        soporte.AgregarQueso("Provoleta");
     }
 }
 
 public class QuesoCremoso : ClaseItem
 {
     protected override string TagPermitido => "Soporte";
-
     public QuesoCremoso() { nombreItem = "Queso Cremoso"; }
 
     protected override void AplicarEfectoSoporte(DatosSoporte soporte)
     {
-        //soporte.CargarDobleSalto(puntosDeCarga);
+        soporte.AgregarQueso("Cremoso");
     }
 }
+*/

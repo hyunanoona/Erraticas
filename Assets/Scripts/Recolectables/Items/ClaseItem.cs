@@ -53,32 +53,32 @@ public abstract class ClaseItem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Si ya se esta por destruirse el item, evita otra recoleccion
-        if (yaFueAgarrado) return;
+        if (yaFueAgarrado) return; // evita otra recoleccion si ya fue agarrado por el jugador
 
-        // Si el queso pide el tag "cazador" o el obstaculo pide "Ambos"
-        // en caso de chocar con un queso o obstaculo se agarrara igual
-        if (TagPermitido == "Ambos" || other.CompareTag(TagPermitido))
+        // logica para cuando es tocado por el soporte
+        if (other.CompareTag("Soporte"))
         {
-            yaFueAgarrado = true;
+            yaFueAgarrado = true; // evita otra recoleccion si ya fue agarrado por el jugador
+            
+            DatosSoporte soporte = other.GetComponent<DatosSoporte>(); // obtenemos el componente del soporte que lo toco
 
-            // Se filtra entre los dos tags que tiene ("cazador" y "Ambos")
-            if (other.CompareTag("Cazador"))
+            if (soporte != null)
             {
-                DatosCazador cazador = other.GetComponent<DatosCazador>();
-                if (cazador != null)
-                {
-                    RecoleccionCazador(cazador);
-                }
+                AplicarEfectoSoporte(soporte); // ejecutamos la logica de recoleccion del soporte
+                Destroy(gameObject); // destruimos el item recolectable
             }
+        }
+        // logica para cuando es tocado por el cazador
+        else if (other.CompareTag("Cazador") && (TagPermitido == "Cazador" || TagPermitido == "Ambos")) // solo se ejecuta si el item es para el cazador o para ambos
+        {
+            yaFueAgarrado = true; // evita otra recoleccion si ya fue agarrado por el jugador
 
-            else if (other.CompareTag("Soporte"))
-            { 
-                DatosSoporte soporte = other.GetComponent<DatosSoporte>();
-                if (soporte != null)
-                {
-                    RecoleccionSoporte(soporte);
-                }
+            DatosCazador cazador = other.GetComponent<DatosCazador>(); // obtenemos el componente del cazador que lo toco
+            
+            if (cazador != null)
+            {
+                AplicarEfectoCazador(cazador); // ejecutamos la logica de recoleccion del cazador
+                Destroy(gameObject); // destruimos el item recolectable
             }
         }
 

@@ -7,6 +7,10 @@ TagManager:
   - Soporte
   - Cazador
   - Pisable
+  - Roquefort
+  - Mozzarella
+  - Provoleta
+  - Cremoso
   layers:
   - Default
   - TransparentFX

@@ -7,9 +7,13 @@ public class HabilidadVelocidad : HabilidadBase
 
     public override void Ejecutar(GameObject usuario, JugadorController aliadoCazador)
     {
-        if (aliadoCazador != null)
+        DatosSoporte datos = usuario.GetComponent<DatosSoporte>();
+
+        if (aliadoCazador != null && datos != null)
         {
-            aliadoCazador.ActivarBuffVelocidad(duracionBuff); // activamos el buff de velocidad en el aliado cazador
+            GastarQuesos(datos); // cobra los quesos correspondientes al tipo de habilidad
+
+            aliadoCazador.ActivarBuffVelocidad(duracionBuff); // activa el buff de velocidad en el cazador aliado por la duracion especificada
             print($"{usuario.name} le dio velocidad a {aliadoCazador.gameObject.name} por {duracionBuff}s!");
         }
     }

@@ -10,9 +10,12 @@ public class HabilidadCuracion : HabilidadBase
         if (aliadoCazador == null) return;
 
         Health healthCazador = aliadoCazador.GetComponent<Health>();
+        DatosSoporte soporte = usuario.GetComponent<DatosSoporte>();
 
         if (healthCazador != null)
         {
+            GastarQuesos(soporte); // cobra los quesos correspondientes al tipo de habilidad
+
             healthCazador.Curar(cantidadCurar); // curamos al cazador aliado
             print($"{usuario.name} ha curado a {aliadoCazador.name} por {cantidadCurar} puntos de vida. Su vida actual es {healthCazador.health}"); 
         }

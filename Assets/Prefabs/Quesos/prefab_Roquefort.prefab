@@ -11,13 +11,13 @@ GameObject:
   - component: {fileID: 1246220247527412937}
   - component: {fileID: 6911142099583683480}
   - component: {fileID: 2871887356930987387}
-  - component: {fileID: 5029018620544620768}
   - component: {fileID: 8417300458926289763}
   - component: {fileID: 4199208827151374837}
   - component: {fileID: 2580426133775037683}
+  - component: {fileID: -7153384520801586642}
   m_Layer: 8
   m_Name: prefab_Roquefort
-  m_TagString: Untagged
+  m_TagString: Roquefort
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,23 +134,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &5029018620544620768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4852697663980153424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12997e4f615c07e44950cd155d87aa83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nombreItem: Queso Roquefort
-  duracionEnMesa: 2
-  tiempoDeSpaw: 2
-  puntosDeCarga: 0
-  puntosQueOtorga: 20
 --- !u!50 &8417300458926289763
 Rigidbody2D:
   serializedVersion: 4
@@ -235,3 +218,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 004c314dea8ff994a919f581eab91172, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EstaSobreAlgoPisable: 0
+--- !u!114 &-7153384520801586642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4852697663980153424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84ff958f70edee642aaf823e01bbde6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nombreItem: Queso Roquefort
+  duracionEnMesa: 2
+  tiempoDeSpaw: 2
+  puntosDeCarga: 0

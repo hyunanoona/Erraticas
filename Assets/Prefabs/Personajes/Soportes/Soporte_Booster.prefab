@@ -215,6 +215,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 317a7fd77be1cb947bf4d168c5e21809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipoDeQuesoPorHabilidad: Cremoso
+  cantidadRequerida: 4
   duracionBuff: 5
 --- !u!114 &2860783631184247751
 MonoBehaviour:
@@ -228,6 +230,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57ab5daf34aec7347b0e5471e6255eef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipoDeQuesoPorHabilidad: Provoleta
+  cantidadRequerida: 4
   duracionBuff: 5
 --- !u!114 &8207435189361269089
 MonoBehaviour:

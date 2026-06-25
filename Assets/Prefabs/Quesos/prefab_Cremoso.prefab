@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: 7015606122145687157}
   - component: {fileID: -2800904211617333409}
   - component: {fileID: -8348132506689471122}
-  - component: {fileID: 3587285865780981018}
   - component: {fileID: -4751807235612443107}
+  - component: {fileID: 7987013472155443088}
   m_Layer: 8
   m_Name: prefab_Cremoso
-  m_TagString: Untagged
+  m_TagString: Cremoso
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -206,23 +206,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &3587285865780981018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3728334305560628198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12997e4f615c07e44950cd155d87aa83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nombreItem: Queso Cremoso
-  duracionEnMesa: 15
-  tiempoDeSpaw: 2
-  puntosDeCarga: 0
-  puntosQueOtorga: 20
 --- !u!114 &-4751807235612443107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,3 +218,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 004c314dea8ff994a919f581eab91172, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EstaSobreAlgoPisable: 0
+--- !u!114 &7987013472155443088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3728334305560628198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb27c115de9415f458ef30a91602382f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nombreItem: Queso Cremoso
+  duracionEnMesa: 15
+  tiempoDeSpaw: 2
+  puntosDeCarga: 0

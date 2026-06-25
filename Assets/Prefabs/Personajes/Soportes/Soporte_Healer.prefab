@@ -215,6 +215,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eb486d9a0852a64ab934f03006e11f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipoDeQuesoPorHabilidad: Mozzarella
+  cantidadRequerida: 4
   cantidadCurar: 20
 --- !u!114 &7761494083591730634
 MonoBehaviour:
@@ -228,6 +230,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59bdfae265751734ba65d3057632f4b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipoDeQuesoPorHabilidad: Roquefort
+  cantidadRequerida: 4
   duracion: 3
 --- !u!114 &2179048261581098560
 MonoBehaviour:

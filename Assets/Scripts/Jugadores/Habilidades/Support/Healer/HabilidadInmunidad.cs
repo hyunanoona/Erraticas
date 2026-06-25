@@ -10,9 +10,12 @@ public class HabilidadInmunidad : HabilidadBase
         if (aliadoCazador == null) return;
 
         Health healthCazador = aliadoCazador.GetComponent<Health>();
+        DatosSoporte datos = usuario.GetComponent<DatosSoporte>();
 
         if (healthCazador != null)
         {
+            GastarQuesos(datos); // cobra los quesos correspondientes al tipo de habilidad
+            
             healthCazador.ActivarInmunidadTemporal(duracion); // activamos la inmunidad temporal del cazador aliado
             print($"{usuario.name} ha activado inmunidad temporal en {aliadoCazador.name} por {duracion} segundos.");
         }

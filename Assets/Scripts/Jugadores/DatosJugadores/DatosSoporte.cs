@@ -12,6 +12,12 @@ public class DatosSoporte : DatosPersonaje
     private HabilidadBase hab1;
     private HabilidadBase hab2;
 
+    // contadores de unidades fisicas de queso para el soporte
+    public int QuesosRoquefort { get; private set; } = 0;
+    public int QuesosMozzarella { get; private set; } = 0;
+    public int QuesosProvoleta { get; private set; } = 0;
+    public int QuesosCremoso { get; private set; } = 0;
+
     void Awake()
     {
         // datos especificos del soporte
@@ -33,8 +39,8 @@ public class DatosSoporte : DatosPersonaje
 
         if (habilidades.Length > 0)
         {
-            hab1 = habilidades[0]; // asignamos la primera habilidad a hab1
-            hab2 = habilidades[1]; // asignamos la segunda habilidad a hab2
+            hab1 = habilidades[0]; // asignamos la primera habilidad a hab1, doble salto en el booster y curacion en el healer
+            hab2 = habilidades[1]; // asignamos la segunda habilidad a hab2, velocidad en el booster e inmunidad en el healer
         }
     }
 
@@ -42,7 +48,10 @@ public class DatosSoporte : DatosPersonaje
     {
         if (hab1 != null)
         {
-            hab1.Ejecutar(gameObject, cazadorAliado); // ejecutamos la habilidad pasando la info del soporte y del cazador aliado
+            if (hab1.PuedeEjecutar(this)) // solo ejecuta si la habilidad 1 confirma que tiene los 4 quesos correspondientes
+            {
+                hab1.Ejecutar(gameObject, cazadorAliado); // ejecutamos la habilidad pasando la info del soporte y del cazador aliado
+            }
         }
     }
 
@@ -50,7 +59,30 @@ public class DatosSoporte : DatosPersonaje
     {
         if (hab2 != null)
         {
-            hab2.Ejecutar(gameObject, cazadorAliado); // ejecutamos la habilidad pasando la info del soporte y del cazador aliado
+            if (hab2.PuedeEjecutar(this)) // solo ejecuta si la habilidad 2 confirma que tiene los 4 quesos correspondientes
+            {
+                hab2.Ejecutar(gameObject, cazadorAliado); // ejecutamos la habilidad pasando la info del soporte y del cazador aliado
+            }
         }
+    }
+
+    // metodos que cargan los quesos de a 1 unidad 
+    public void AgregarQueso(string tipoDeQueso)
+    {
+        if (tipoDeQueso == "Roquefort") QuesosRoquefort++;
+        if (tipoDeQueso == "Mozzarella") QuesosMozzarella++;
+        if (tipoDeQueso == "Provoleta") QuesosProvoleta++;
+        if (tipoDeQueso == "Cremoso") QuesosCremoso++;
+        
+        print($" Quesito sumado tipo: {tipoDeQueso} | Total: R:{QuesosRoquefort} M:{QuesosMozzarella} P:{QuesosProvoleta} C:{QuesosCremoso}");
+    }
+
+    // metodo para restar las 4 unidades de queso gastadas por la habilidad
+    public void RestarQuesos(string tipoQueso, int cantidad)
+    {
+        if (tipoQueso == "Roquefort") QuesosRoquefort -= cantidad;
+        if (tipoQueso == "Mozzarella") QuesosMozzarella -= cantidad;
+        if (tipoQueso == "Provoleta") QuesosProvoleta -= cantidad;
+        if (tipoQueso == "Cremoso") QuesosCremoso -= cantidad;
     }
 }

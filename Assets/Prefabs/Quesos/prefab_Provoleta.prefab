@@ -11,13 +11,13 @@ GameObject:
   - component: {fileID: 2966710711286208231}
   - component: {fileID: 1904793772735271721}
   - component: {fileID: 6188647867542397575}
-  - component: {fileID: 4261838643465126332}
   - component: {fileID: 3637968382097523611}
   - component: {fileID: 5277425978078704245}
   - component: {fileID: 8603063397400088556}
+  - component: {fileID: 2158616221442518962}
   m_Layer: 8
   m_Name: prefab_Provoleta
-  m_TagString: Untagged
+  m_TagString: Provoleta
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,23 +134,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &4261838643465126332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1904508839140295431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12997e4f615c07e44950cd155d87aa83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nombreItem: Queso Provoleta
-  duracionEnMesa: 6
-  tiempoDeSpaw: 3
-  puntosDeCarga: 0
-  puntosQueOtorga: 20
 --- !u!50 &3637968382097523611
 Rigidbody2D:
   serializedVersion: 4
@@ -235,3 +218,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 004c314dea8ff994a919f581eab91172, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EstaSobreAlgoPisable: 0
+--- !u!114 &2158616221442518962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904508839140295431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b4375cd9cd95c040b2d3338bdb9b3ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nombreItem: Queso Provoleta
+  duracionEnMesa: 6
+  tiempoDeSpaw: 3
+  puntosDeCarga: 0
