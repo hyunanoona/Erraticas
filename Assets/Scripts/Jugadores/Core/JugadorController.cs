@@ -143,7 +143,7 @@ public class JugadorController : MonoBehaviour
 
         //  . ݁₊ ⊹ . ݁ Chequear si está corriendo  ݁ . ⊹ ₊ ݁.
         bool estaMoviendose = (input.MovimientoX != 0f);
-        miAnimator.SetBool("estaCorriend", estaMoviendose);
+        miAnimator.SetBool("estaCorriendo", estaMoviendose);
 
         // . ݁₊ ⊹ . ݁ Espejar Sprite  . ⊹ ₊ ݁.
         if (input.MovimientoX > 0f)
