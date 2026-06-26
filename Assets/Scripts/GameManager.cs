@@ -9,6 +9,13 @@ public class ConfigNivelEscena
     public int puntajeParaGanar;  
 }
 
+[System.Serializable]
+public class PersonajePrefabConfig
+{
+    public string nombreID;
+    public GameObject prefabObjeto; 
+}
+
 public class GameManager : MonoBehaviour
 {
 
@@ -20,29 +27,72 @@ public class GameManager : MonoBehaviour
 
     [Header(". ݁₊ ⊹ . ݁ Referencias y Variables  ݁ . ⊹ ₊ ݁.")]
         public static GameManager Instance;
-
+        [Header(". ݁₊ ⊹ . ݁ Lista de Niveles  ݁ . ⊹ ₊ ݁.")]
         [SerializeField] private List<ConfigNivelEscena> niveles; 
+        [Header(". ݁₊ ⊹ . ݁ Base de Datos de Personajes  ݁ . ⊹ ₊ ݁.")]
+        [SerializeField] private List<PersonajePrefabConfig> catalogoPersonajes;
+        public string tipoSeleccionadoP1;
+        public string tipoSeleccionadoP2;
+        public string rolBaseP1; 
+        public string rolBaseP2;
         public int nivelActualIndice = 0;
         public int puntajeJugador = 0;        
 
-        public string ratita1Rol;
-        public string ratita2Rol;
-        public string ratita1TipoRol;
-        public string ratita2TipoRol;
 
 
         private void Awake()
         {
-            //Esto permite que sea una instancia unica y no haya mas de dos.
-            if (Instance!=null)
+            if (Instance != null) { Destroy(gameObject); }
+            else { Instance = this; DontDestroyOnLoad(gameObject); }
+            SceneManager.sceneLoaded += AlCargarEscena;
+        }
+
+        public void OnDestroy()
+        {
+            SceneManager.sceneLoaded -= AlCargarEscena;
+        }
+
+        public void GuardarSeleccionMenu(string tipoP1, string tipoP2)
+        {
+            tipoSeleccionadoP1 = tipoP1;
+            tipoSeleccionadoP2 = tipoP2;
+            Debug.Log($"GameManager guardó: P1 = {tipoP1}, P2 = {tipoP2}");
+        }
+
+        private void AlCargarEscena(Scene escena, LoadSceneMode modo)
+        {
+            if (escena.name != "MenuInicial" && escena.name != "MenuSeleccion")
             {
-                Destroy(gameObject);
+                SpawnearJugadores();
             }
-            else
+        }
+
+        private void SpawnearJugadores()
+        {
+            GameObject spawnP1 = GameObject.FindWithTag("SpawnPointP1");
+            GameObject spawnP2 = GameObject.FindWithTag("SpawnPointP2");
+
+            Vector3 posP1 = spawnP1 != null ? spawnP1.transform.position : new Vector3(-2, 0, 0);
+            Vector3 posP2 = spawnP2 != null ? spawnP2.transform.position : new Vector3(2, 0, 0);
+
+            GameObject prefabP1 = BuscarPrefabPorNombre(tipoSeleccionadoP1);
+            if (prefabP1 != null) Instantiate(prefabP1, posP1, Quaternion.identity);
+
+            GameObject prefabP2 = BuscarPrefabPorNombre(tipoSeleccionadoP2);
+            if (prefabP2 != null) Instantiate(prefabP2, posP2, Quaternion.identity);
+        }
+
+        private GameObject BuscarPrefabPorNombre(string nombre)
+        {
+            foreach (var config in catalogoPersonajes)
+        {
+            if(config.nombreID == nombre)
             {
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
+                return config.prefabObjeto;
             }
+        }
+            Debug.LogWarning($"No se encontró ningún Prefab para el nombre: {nombre}");
+            return null;
         }
 
         public void SumarPuntos(int puntos)
@@ -80,17 +130,12 @@ public class GameManager : MonoBehaviour
             }
         }
 
-    public void RolJugadores(string rol1, string rol2)
+        public void RolJugadores(string rolP1, string rolP2)
         {
-            ratita1Rol = rol1;
-            ratita2Rol = rol2;
+            rolBaseP1 = rolP1;
+            rolBaseP2 = rolP2;
+            Debug.Log($"Roles base registrados - P1: {rolP1} | P2: {rolP2}");
         }
-
-    public void GuardarTiposDeRol(string rol1, string rol2)
-    {
-        ratita1TipoRol = rol1;
-        ratita2TipoRol = rol2;
-    }
 
 }
 

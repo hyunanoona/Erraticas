@@ -11,6 +11,8 @@ TagManager:
   - Mozzarella
   - Provoleta
   - Cremoso
+  - SpawnPointP1
+  - SpawnPointP2
   layers:
   - Default
   - TransparentFX

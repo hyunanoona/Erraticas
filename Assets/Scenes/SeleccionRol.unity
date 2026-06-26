@@ -1525,7 +1525,7 @@ MonoBehaviour:
       al recoger el queso del tipo mozzarella
 
 '
-  - nombreTipo: Elva Rigon
+  - nombreTipo: Lava Rigona
     descripcionTipo: "Aumenta la velocidad cuando se traga una buena cantidad de
       provoleta.\r\n El salto se vuelve doble si se le cruzan varios quesitos cremosos
       \r\n"
@@ -5071,10 +5071,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   niveles: []
+  catalogoPersonajes: []
+  tipoSeleccionadoP1: 
+  tipoSeleccionadoP2: 
+  rolBaseP1: 
+  rolBaseP2: 
   nivelActualIndice: 0
   puntajeJugador: 0
-  ratita1Rol: Cazador
-  ratita2Rol: Soporte
 --- !u!4 &1932932622
 Transform:
   m_ObjectHideFlags: 0

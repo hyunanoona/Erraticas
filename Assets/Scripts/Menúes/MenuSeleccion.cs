@@ -225,7 +225,7 @@ void ActualizarTextoTipoP2()
     {
         if (selecP1Confirmada && selecP2Confirmada)
         {
-            GameManager.Instance.GuardarTiposDeRol(ratita1TipoRol, ratita2TipoRol);
+            GameManager.Instance.GuardarSeleccionMenu(ratita1TipoRol, ratita2TipoRol);
             if (segundaVisual != null) segundaVisual.SetActive(false);
             if (tercerVisual != null) tercerVisual.SetActive(true);
         }

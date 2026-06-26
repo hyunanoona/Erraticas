@@ -122,6 +122,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &52684531
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 52684532}
+  m_Layer: 9
+  m_Name: SpawnPointP1
+  m_TagString: SpawnPointP1
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &52684532
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52684531}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.964999, y: -3.726271, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1570888719}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &222443331
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,12 +189,21 @@ MonoBehaviour:
     puntajeParaGanar: 10
   - nombreNivel: NivelTres
     puntajeParaGanar: 15
+  catalogoPersonajes:
+  - nombreID: Cunty
+    prefabObjeto: {fileID: 0}
+  - nombreID: Faso
+    prefabObjeto: {fileID: 0}
+  - nombreID: Lava Rigota
+    prefabObjeto: {fileID: 0}
+  - nombreID: Nico Tina
+    prefabObjeto: {fileID: 0}
+  tipoSeleccionadoP1: 
+  tipoSeleccionadoP2: 
+  rolBaseP1: 
+  rolBaseP2: 
   nivelActualIndice: 0
   puntajeJugador: 0
-  ratita1Rol: 
-  ratita2Rol: 
-  ratita1TipoRol: 
-  ratita2TipoRol: 
 --- !u!4 &222443333
 Transform:
   m_ObjectHideFlags: 0
@@ -178,6 +218,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &350974631
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 350974632}
+  m_Layer: 9
+  m_Name: SpawnPointP2
+  m_TagString: SpawnPointP2
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &350974632
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350974631}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.04, y: -3.77, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1570888719}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -746,6 +817,8 @@ Transform:
   m_Children:
   - {fileID: 980106840}
   - {fileID: 1572299279}
+  - {fileID: 52684532}
+  - {fileID: 350974632}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1572299279 stripped
