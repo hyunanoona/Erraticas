@@ -69,27 +69,30 @@ public class GameManager : MonoBehaviour
 
         private void SpawnearJugadores()
         {
+            //  ⤷ ゛En caso de querer probar el nivel sin pasar por el menú de selección asigno por defecto ˎˊ˗
+            string personajeFinalP1 = tipoSeleccionadoP1;
+            string personajeFinalP2 = tipoSeleccionadoP2;
 
-            // En caso de querer probar el nivel sin pasar por el menú de selección asigno por defecto:
-            if (string.IsNullOrEmpty(tipoSeleccionadoP1)) 
+            if (string.IsNullOrEmpty(personajeFinalP1)) 
             {
-                tipoSeleccionadoP1 = "Cunty"; 
+                personajeFinalP1 = "Cunty"; 
             }
-            if (string.IsNullOrEmpty(tipoSeleccionadoP2)) 
+            if (string.IsNullOrEmpty(personajeFinalP2)) 
             {
-                tipoSeleccionadoP2 = "Lava Rigota"; 
+                personajeFinalP2 = "Lava Rigota"; 
             }
-
+            // ꒷꒦︶꒷꒦︶ ๋ ࣭ ⭑꒷꒦꒷꒦︶꒷꒦︶ ๋ ࣭ ⭑꒷꒦꒷꒦︶꒷꒦︶ ๋ ࣭ ⭑꒷꒦꒷꒦︶꒷꒦︶ ๋ ࣭ ⭑꒷꒦꒷꒦︶꒷꒦︶ ๋ ࣭ ⭑꒷꒦꒷꒦︶꒷꒦︶ ๋ ࣭ ⭑꒷꒦꒷꒦︶꒷꒦︶
+            
             GameObject spawnP1 = GameObject.FindWithTag("SpawnPointP1");
             GameObject spawnP2 = GameObject.FindWithTag("SpawnPointP2");
 
             Vector3 posP1 = spawnP1 != null ? spawnP1.transform.position : new Vector3(-2, 0, 0);
             Vector3 posP2 = spawnP2 != null ? spawnP2.transform.position : new Vector3(2, 0, 0);
 
-            GameObject prefabP1 = BuscarPrefabPorNombre(tipoSeleccionadoP1);
+            GameObject prefabP1 = BuscarPrefabPorNombre(personajeFinalP1);
             if (prefabP1 != null) Instantiate(prefabP1, posP1, Quaternion.identity);
 
-            GameObject prefabP2 = BuscarPrefabPorNombre(tipoSeleccionadoP2);
+            GameObject prefabP2 = BuscarPrefabPorNombre(personajeFinalP2);
             if (prefabP2 != null) Instantiate(prefabP2, posP2, Quaternion.identity);
         }
 
@@ -110,7 +113,7 @@ public class GameManager : MonoBehaviour
         {
             puntajeJugador += puntos;
             ChequearMetaNivel();
-            // Actualizar UI de puntaje, sonidos, animación.
+            //  ⤷ ゛Actualizar UI de puntaje, sonidos, animación. ˎˊ˗
         }
 
         private void ChequearMetaNivel()
@@ -136,7 +139,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                SceneManager.LoadScene("MenuInicial");  // CAMBIAR POR ESCENA DE VICTORIA!!!!!
+                SceneManager.LoadScene("MenuInicial");  //  ⤷ ゛CAMBIAR POR ESCENA DE VICTORIA!!!!! ˎˊ˗
                 Destroy(gameObject);
             }
         }
