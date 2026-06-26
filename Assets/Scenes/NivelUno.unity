@@ -195,9 +195,9 @@ MonoBehaviour:
   - nombreID: Faso
     prefabObjeto: {fileID: 0}
   - nombreID: Lava Rigota
-    prefabObjeto: {fileID: 0}
+    prefabObjeto: {fileID: 3765934630118403142, guid: 72ad801212d8d84449c388be0d77a601, type: 3}
   - nombreID: Nico Tina
-    prefabObjeto: {fileID: 0}
+    prefabObjeto: {fileID: 4529798463355105067, guid: 452ec3c706674bd419eeb5b07f93fe12, type: 3}
   tipoSeleccionadoP1: 
   tipoSeleccionadoP2: 
   rolBaseP1: 
@@ -816,16 +816,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 980106840}
-  - {fileID: 1572299279}
   - {fileID: 52684532}
   - {fileID: 350974632}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1572299279 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1050519282789042259, guid: 452ec3c706674bd419eeb5b07f93fe12, type: 3}
-  m_PrefabInstance: {fileID: 1764059703}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1575276110
 GameObject:
   m_ObjectHideFlags: 0
@@ -1001,63 +995,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7634145, y: 0.02354896}
   m_EdgeRadius: 0
---- !u!1001 &1764059703
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1570888719}
-    m_Modifications:
-    - target: {fileID: 1050519282789042259, guid: 452ec3c706674bd419eeb5b07f93fe12, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.9649992
-      objectReference: {fileID: 0}
-    - target: {fileID: 1050519282789042259, guid: 452ec3c706674bd419eeb5b07f93fe12, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.7262707
-      objectReference: {fileID: 0}
-    - target: {fileID: 1050519282789042259, guid: 452ec3c706674bd419eeb5b07f93fe12, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.07961554
-      objectReference: {fileID: 0}
-    - target: {fileID: 1050519282789042259, guid: 452ec3c706674bd419eeb5b07f93fe12, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1050519282789042259, guid: 452ec3c706674bd419eeb5b07f93fe12, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1050519282789042259, guid: 452ec3c706674bd419eeb5b07f93fe12, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1050519282789042259, guid: 452ec3c706674bd419eeb5b07f93fe12, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1050519282789042259, guid: 452ec3c706674bd419eeb5b07f93fe12, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1050519282789042259, guid: 452ec3c706674bd419eeb5b07f93fe12, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1050519282789042259, guid: 452ec3c706674bd419eeb5b07f93fe12, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4529798463355105067, guid: 452ec3c706674bd419eeb5b07f93fe12, type: 3}
-      propertyPath: m_Name
-      value: Soporte_Healer
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 452ec3c706674bd419eeb5b07f93fe12, type: 3}
 --- !u!1 &1860473816
 GameObject:
   m_ObjectHideFlags: 0

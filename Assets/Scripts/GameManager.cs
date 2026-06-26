@@ -69,6 +69,17 @@ public class GameManager : MonoBehaviour
 
         private void SpawnearJugadores()
         {
+
+            // En caso de querer probar el nivel sin pasar por el menú de selección asigno por defecto:
+            if (string.IsNullOrEmpty(tipoSeleccionadoP1)) 
+            {
+                tipoSeleccionadoP1 = "Cunty"; 
+            }
+            if (string.IsNullOrEmpty(tipoSeleccionadoP2)) 
+            {
+                tipoSeleccionadoP2 = "Lava Rigota"; 
+            }
+
             GameObject spawnP1 = GameObject.FindWithTag("SpawnPointP1");
             GameObject spawnP2 = GameObject.FindWithTag("SpawnPointP2");
 

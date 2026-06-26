@@ -1525,7 +1525,7 @@ MonoBehaviour:
       al recoger el queso del tipo mozzarella
 
 '
-  - nombreTipo: Lava Rigona
+  - nombreTipo: Lava Rigota
     descripcionTipo: "Aumenta la velocidad cuando se traga una buena cantidad de
       provoleta.\r\n El salto se vuelve doble si se le cruzan varios quesitos cremosos
       \r\n"
@@ -5071,7 +5071,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   niveles: []
-  catalogoPersonajes: []
+  catalogoPersonajes:
+  - nombreID: Cunty
+    prefabObjeto: {fileID: 0}
+  - nombreID: Faso
+    prefabObjeto: {fileID: 0}
+  - nombreID: Lava Rigota
+    prefabObjeto: {fileID: 3765934630118403142, guid: 72ad801212d8d84449c388be0d77a601, type: 3}
+  - nombreID: Nico Tina
+    prefabObjeto: {fileID: 4529798463355105067, guid: 452ec3c706674bd419eeb5b07f93fe12, type: 3}
   tipoSeleccionadoP1: 
   tipoSeleccionadoP2: 
   rolBaseP1: 
