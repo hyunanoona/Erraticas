@@ -15,6 +15,10 @@ public class JugadorController : MonoBehaviour
     private DatosPersonaje datos; // aca estan los datos del pj
     private Health health; // el script de salud del pj
 
+    // ⊹₊˚‧︵‿₊୨ visuales୧₊‿︵‧˚₊⊹
+    private Animator miAnimator;
+    private SpriteRenderer miSpriteRenderer;
+
     //detector de suelo
     private CheckGround checkGround; // el script que detecta si el pj esta tocando el suelo o no
 
@@ -38,6 +42,10 @@ public class JugadorController : MonoBehaviour
         datos = GetComponent<DatosPersonaje>(); // accede a los datos del personaje
         health = GetComponent<Health>(); // accede al script de salud del pj
         checkGround = GetComponentInChildren<CheckGround>(); // accede al script que detecta si el pj esta tocando el suelo o no
+
+        //⊹₊˚‧︵‿₊୨ Visuales୧₊‿︵‧˚₊⊹
+        miAnimator = GetComponent<Animator>();
+        miSpriteRenderer = GetComponent<SpriteRenderer>();
 
         rb.gravityScale = datos.EscalaGravedad; // ajusta la gravedad segun el pj
     }
@@ -85,6 +93,9 @@ public class JugadorController : MonoBehaviour
         {
             tiempoBuffVelocidad -= Time.deltaTime;
         }
+
+        // ⊹₊˚‧︵‿₊୨ Visuales ୧₊‿︵‧˚₊⊹
+        ManejarAnimacionesYRotacion();
     }
 
     void FixedUpdate()
@@ -121,6 +132,27 @@ public class JugadorController : MonoBehaviour
             }
 
             input.ConsumirSalto(); // avisa al controlador que ya se uso el salto, para que no pueda saltar infinitamente en un solo fotograma
+        }
+    }
+
+    // ⊹₊˚‧︵‿₊୨ Método para las Visuales୧ ₊‿︵‧˚₊⊹
+
+    private void ManejarAnimacionesYRotacion()
+    {        
+        if (miAnimator == null) return;
+
+        //  . ݁₊ ⊹ . ݁ Chequear si está corriendo  ݁ . ⊹ ₊ ݁.
+        bool estaMoviendose = (input.MovimientoX != 0f);
+        miAnimator.SetBool("estaCorriend", estaMoviendose);
+
+        // . ݁₊ ⊹ . ݁ Espejar Sprite  . ⊹ ₊ ݁.
+        if (input.MovimientoX > 0f)
+        {
+            miSpriteRenderer.flipX = true;
+        }
+        else if (input.MovimientoX < 0f)
+        {
+            miSpriteRenderer.flipX = false;
         }
     }
 
