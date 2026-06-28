@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class DetalleTipoRol
 {
     public string nombreTipo;
+    public Sprite imagenRataMenu;
     [TextArea(2, 4)] // cuadro cómodo para escribir desde el inspector
     public string descripcionTipo;
 }
@@ -30,6 +31,10 @@ public class MenuSeleccion : MonoBehaviour
     [SerializeField] private Button siguienteSelecP2Der;
     [SerializeField] private Button siguienteSelecP2Izq;
     [SerializeField] private Button jugar;
+
+    [Header("────୨ Componentes de Imagen UI ৎ────")]
+    [SerializeField] private Image p1FotoUI;
+    [SerializeField] private Image p2FotoUI;
 
     [Header("────୨ Textos TMP ৎ────")]
 
@@ -195,6 +200,10 @@ public class MenuSeleccion : MonoBehaviour
                 DetalleTipoRol seleccion = listaActualP1[indiceP1];
                 if (p1TipoTexto != null) p1TipoTexto.text = seleccion.nombreTipo; // seteo el nombre y la descrip. 
                 if (p1DescripcionTexto != null) p1DescripcionTexto.text = seleccion.descripcionTipo;
+                if (p1FotoUI != null && seleccion.imagenRataMenu != null)
+                {
+                    p1FotoUI.sprite = seleccion.imagenRataMenu;
+                }
             }
     }
 void ActualizarTextoTipoP2()
@@ -204,6 +213,10 @@ void ActualizarTextoTipoP2()
                 DetalleTipoRol seleccion = listaActualP2[indiceP2];
                 if (p2TipoTexto != null) p2TipoTexto.text = seleccion.nombreTipo;
                 if (p2DescripcionTexto != null) p2DescripcionTexto.text = seleccion.descripcionTipo;
+                if (p2FotoUI != null && seleccion.imagenRataMenu != null)
+                {
+                    p2FotoUI.sprite = seleccion.imagenRataMenu;
+                }
             }
     }
 

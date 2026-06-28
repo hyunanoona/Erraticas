@@ -1500,6 +1500,8 @@ MonoBehaviour:
   siguienteSelecP2Der: {fileID: 1726000784}
   siguienteSelecP2Izq: {fileID: 759341605}
   jugar: {fileID: 1843617032}
+  p1FotoUI: {fileID: 1968585604}
+  p2FotoUI: {fileID: 1476126702}
   p1Rol: {fileID: 525371069}
   p2Rol: {fileID: 317672527}
   p1TipoTexto: {fileID: 1991914781}
@@ -1512,13 +1514,16 @@ MonoBehaviour:
   ratita2TipoRol: 
   opcionesCazador:
   - nombreTipo: Cunty
+    imagenRataMenu: {fileID: -261067619, guid: d739b61910898c843b8eb664ba6aac05, type: 3}
     descripcionTipo: "Seduce al chef con su coqueta mirada y no te lanza obst\xE1culos
       por cierto rato "
   - nombreTipo: Faso
+    imagenRataMenu: {fileID: -1483006566, guid: bae942b014878e4449766d8ab74e8ccb, type: 3}
     descripcionTipo: Con su poderosa habilidad de rastreo, salen a la luz quesos
       escondidos
   opcionesSoporte:
   - nombreTipo: Nico Tina
+    imagenRataMenu: {fileID: -167579236, guid: 42a0fa73f7e742e45bf468a086ed41cb, type: 3}
     descripcionTipo: 'Otorga inmunidad cuando come mucho queso roquefort
 
       Cura
@@ -1526,6 +1531,7 @@ MonoBehaviour:
 
 '
   - nombreTipo: Lava Rigota
+    imagenRataMenu: {fileID: -2078986898, guid: 7d5c391835e76c54c928bfec71bca791, type: 3}
     descripcionTipo: "Aumenta la velocidad cuando se traga una buena cantidad de
       provoleta.\r\n El salto se vuelve doble si se le cruzan varios quesitos cremosos
       \r\n"
@@ -3613,7 +3619,7 @@ GameObject:
   - component: {fileID: 1476126703}
   - component: {fileID: 1476126702}
   m_Layer: 5
-  m_Name: RatitaElegidaUno
+  m_Name: RatitaElegidaDos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
