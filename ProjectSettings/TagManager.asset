@@ -24,7 +24,7 @@ TagManager:
   - Estructura
   - Item
   - Jugador
-  - 
+  - Panel
   - 
   - 
   - 
@@ -52,6 +52,9 @@ TagManager:
     locked: 0
   - name: Fondo
     uniqueID: 2179540239
+    locked: 0
+  - name: Panel
+    uniqueID: 3393783233
     locked: 0
   - name: Estructura
     uniqueID: 1003428155

@@ -42,9 +42,14 @@ public class GameManager : MonoBehaviour
 
         private void Awake()
         {
-            if (Instance != null) { Destroy(gameObject); }
+            if (Instance != null) 
+            { 
+                Destroy(gameObject); 
+                return;
+            }
             else { Instance = this; DontDestroyOnLoad(gameObject); }
             SceneManager.sceneLoaded += AlCargarEscena;
+            
         }
 
         public void OnDestroy()
@@ -61,7 +66,7 @@ public class GameManager : MonoBehaviour
 
         private void AlCargarEscena(Scene escena, LoadSceneMode modo)
         {
-            if (escena.name != "MenuInicial" && escena.name != "MenuSeleccion")
+            if (escena.name != "MenuInicial" && escena.name != "MenuSeleccion" && escena.name != "SeleccionRol")
             {
                 SpawnearJugadores();
             }
@@ -69,10 +74,11 @@ public class GameManager : MonoBehaviour
 
         private void SpawnearJugadores()
         {
-            //  ⤷ ゛En caso de querer probar el nivel sin pasar por el menú de selección asigno por defecto ˎˊ˗
+
             string personajeFinalP1 = tipoSeleccionadoP1;
             string personajeFinalP2 = tipoSeleccionadoP2;
 
+            //  ⤷ ゛En caso de querer probar el nivel sin pasar por el menú de selección asigno por defecto ˎˊ˗
             if (string.IsNullOrEmpty(personajeFinalP1)) 
             {
                 personajeFinalP1 = "Cunty"; 

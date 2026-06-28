@@ -5073,9 +5073,9 @@ MonoBehaviour:
   niveles: []
   catalogoPersonajes:
   - nombreID: Cunty
-    prefabObjeto: {fileID: 0}
+    prefabObjeto: {fileID: 9143847100231581337, guid: b808d43cb8fe71143adb8d5db3ac8a22, type: 3}
   - nombreID: Faso
-    prefabObjeto: {fileID: 0}
+    prefabObjeto: {fileID: 5386761218217278399, guid: a5525b090bdfeea46ab3fc7116f51e5c, type: 3}
   - nombreID: Lava Rigota
     prefabObjeto: {fileID: 3765934630118403142, guid: 72ad801212d8d84449c388be0d77a601, type: 3}
   - nombreID: Nico Tina

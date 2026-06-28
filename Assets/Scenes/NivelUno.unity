@@ -147,7 +147,7 @@ Transform:
   m_GameObject: {fileID: 52684531}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.964999, y: -3.726271, z: 0}
+  m_LocalPosition: {x: -2.964999, y: -2.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -191,9 +191,9 @@ MonoBehaviour:
     puntajeParaGanar: 15
   catalogoPersonajes:
   - nombreID: Cunty
-    prefabObjeto: {fileID: 0}
+    prefabObjeto: {fileID: 9143847100231581337, guid: b808d43cb8fe71143adb8d5db3ac8a22, type: 3}
   - nombreID: Faso
-    prefabObjeto: {fileID: 0}
+    prefabObjeto: {fileID: 5386761218217278399, guid: a5525b090bdfeea46ab3fc7116f51e5c, type: 3}
   - nombreID: Lava Rigota
     prefabObjeto: {fileID: 3765934630118403142, guid: 72ad801212d8d84449c388be0d77a601, type: 3}
   - nombreID: Nico Tina
