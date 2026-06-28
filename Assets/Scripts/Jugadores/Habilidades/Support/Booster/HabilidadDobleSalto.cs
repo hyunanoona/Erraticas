@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class HabilidadDobleSalto : HabilidadBase
 {
-    [Header("Ajustes de la Habilidad")]
+    [Header("Ajustes del Doble Salto")]
     [SerializeField] private float duracionBuff = 5f; // tiempo que dura el buff, se puede modificar igual en el inspector
 
     public override void Ejecutar(GameObject usuario, JugadorController aliadoCazador)
