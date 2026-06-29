@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0d4d420631340ff4692eadcd6a46e2b4
+guid: 1dede66dbaa987d49b9ec55c9d0f64ee
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -95,40 +95,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: escenario_almacen_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2867
-        height: 896
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e82940a6b66167842af1d7b1b23bf7d8
-      internalID: 1406308468
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      escenario_almacen_0: 1406308468
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
