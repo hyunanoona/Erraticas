@@ -2152,11 +2152,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.7293782, y: 4.890017}
-      - {x: -22.172558, y: 5.001968}
+    - - {x: 2.6645637, y: 18.007145}
+      - {x: -21.989101, y: 17.84391}
       - {x: -22.218834, y: -4.924623}
-      - {x: 10.213733, y: -5.044067}
-      - {x: 10.307249, y: 5.0836134}
+      - {x: 51.58314, y: -4.8606105}
+      - {x: 51.493202, y: 17.925556}
   m_UseDelaunayMesh: 0
 --- !u!4 &405791768
 Transform:
@@ -5498,7 +5498,7 @@ Transform:
   m_GameObject: {fileID: 1353939565}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.5727215, y: 1.6595861, z: -9.949676}
+  m_LocalPosition: {x: -5.5479755, y: 1.6960161, z: -9.949676}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
