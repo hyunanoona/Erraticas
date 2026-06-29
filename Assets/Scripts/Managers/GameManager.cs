@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
             {
                 personajeFinalP2 = "Lava Rigota"; 
             }
-            // ꒷꒦︶꒷꒦︶ ๋ ࣭ ⭑꒷꒦꒷꒦︶꒷꒦︶ ๋ ࣭ ⭑꒷꒦꒷꒦︶꒷꒦︶ ๋ ࣭ ⭑꒷꒦꒷꒦︶꒷꒦︶ ๋ ࣭ ⭑꒷꒦꒷꒦︶꒷꒦︶ ๋ ࣭ ⭑꒷꒦꒷꒦︶꒷꒦︶ ๋ ࣭ ⭑꒷꒦꒷꒦︶꒷꒦︶
+            // ꒷꒦︶꒷꒦︶ ๋ ࣭ ⭑꒷꒦꒷꒦︶꒷꒦︶ ๋ ࣭ ⭑꒷꒦꒷꒦︶꒷꒦︶ ๋ ࣭ ⭑꒷꒦꒷꒦︶꒷꒦︶ ๋ ࣭ ⭑꒷꒦꒷꒦︶꒷꒦︶ ๋ ࣭ ⭑꒷꒦꒷꒦︶꒷꒦︶ ๋ ࣭ ⭑꒷꒦꒷꒦︶꒷꒦
             
             GameObject spawnP1 = GameObject.FindWithTag("SpawnPointP1");
             GameObject spawnP2 = GameObject.FindWithTag("SpawnPointP2");
@@ -100,6 +100,13 @@ public class GameManager : MonoBehaviour
 
             GameObject prefabP2 = BuscarPrefabPorNombre(personajeFinalP2);
             if (prefabP2 != null) Instantiate(prefabP2, posP2, Quaternion.identity);
+
+            UIManager uiManagement = Object.FindFirstObjectByType<UIManager>();
+
+            if (uiManagement != null)
+            {
+                uiManagement.ConfigurarInterfazNvl(tipoSeleccionadoP1, tipoSeleccionadoP2);
+            }
         }
 
         private GameObject BuscarPrefabPorNombre(string nombre)
