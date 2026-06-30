@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using Cinemachine;
+using JetBrains.Annotations;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -40,6 +42,7 @@ public class GameManager : MonoBehaviour
         public string rolBaseP2;
         public int nivelActualIndice = 0;
         public int puntajeJugador = 0;      
+        private TextMeshProUGUI textoPuntajeUI;
 
         // . ⊹ ₊ ݁. Sistema de cronómetro . ⊹ ₊ ݁.
         private float tiempoRestante;
@@ -83,6 +86,13 @@ public class GameManager : MonoBehaviour
             // Inicializacion de cada Nivel
             nivelTerminado = false;
             puntajeJugador = 0;
+
+            // ⤷ ゛Texto de puntaje ˎˊ˗
+            GameObject puntajeObj = GameObject.FindWithTag("TextoPuntaje");
+            if (puntajeObj != null) textoPuntajeUI = puntajeObj.GetComponent<TMPro.TextMeshProUGUI>();
+            ActualizarTextoPuntaje();
+
+            // ⤷ ゛Texto del timer ˎˊ˗
             GameObject textObj = GameObject.FindWithTag("TextoCronometro");
             if (textObj != null) textoCronometro = textObj.GetComponent<TMPro.TextMeshProUGUI>();
             if(nivelActualIndice < niveles.Count)
@@ -191,8 +201,16 @@ public class GameManager : MonoBehaviour
         {
             if (nivelTerminado) return;
             puntajeJugador += puntos;
+            ActualizarTextoPuntaje();
             ChequearMetaNivel();
-            //  ⤷ ゛Actualizar UI de puntaje, sonidos, animación. ˎˊ˗
+        }
+
+        private void ActualizarTextoPuntaje()
+        {
+                if (textoPuntajeUI != null)
+                {
+                    textoPuntajeUI.text = puntajeJugador.ToString();
+                }
         }
 
         private void ChequearMetaNivel()
@@ -223,7 +241,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        private void EstablecerDerrota()
+        public void EstablecerDerrota()
         {
             nivelTerminado = true;
             SceneManager.LoadScene("Derrota");

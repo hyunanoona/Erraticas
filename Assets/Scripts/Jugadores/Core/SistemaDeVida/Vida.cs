@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -23,6 +24,10 @@ public class Health : MonoBehaviour
     public void Morir() // metodo para morir
     {
         Destroy(gameObject); // destruimos el objeto del personaje
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.EstablecerDerrota();
+        }
     }
 
     // funcionalides especiales para el soporte

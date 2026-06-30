@@ -15,6 +15,7 @@ TagManager:
   - SpawnPointP2
   - Pategras
   - TextoCronometro
+  - TextoPuntaje
   layers:
   - Default
   - TransparentFX
