@@ -18,6 +18,17 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Transform contenedorP1; 
     [SerializeField] private Transform contenedorP2; 
 
+    // ⁺‧₊˚ ཐི⋆ Variables del Cazador ⋆ཋྀ ˚₊‧⁺
+    private Health vidaCazador;
+    private UI_Cazador uiCazador;
+    private bool ultimoEstadoInmune = false;
+    private int ultimaVidaCazador = -1;
+
+    // ⁺‧₊˚ ཐི⋆ Variables del Soporte ⋆ཋྀ ˚₊‧⁺
+    private JugadorController controladorSoporte;
+    private UI_Soporte uiSoporte;
+    private bool estabaSilenciado = false;
+
     public void ConfigurarInterfazNvl(string personajeP1, string personajeP2)
     {
         GameObject clonCazador = GameObject.FindWithTag("Cazador");
@@ -28,48 +39,88 @@ public class UIManager : MonoBehaviour
         if (configP1 != null && contenedorP1 != null)
         {
             GameObject uiInstanciadaP1 = Instantiate(configP1.prefabUI, contenedorP1);
-            GameObject jugador1Target = configP1.esCazador ? clonCazador : clonSoporte;
-            if (jugador1Target != null)
+
+            // configuración del espacio
+            RectTransform rect = uiInstanciadaP1.GetComponent<RectTransform>();
+            if (rect != null)
             {
-                ConectarEventos(jugador1Target, uiInstanciadaP1, configP1.esCazador);
+                rect.anchorMin = Vector2.zero;
+                rect.anchorMax = Vector2.one;
+                rect.pivot = new Vector2(0.5f, 0.5f);
+                rect.anchoredPosition = Vector2.zero;
+                rect.sizeDelta = Vector2.zero;
+                rect.localScale = Vector3.one;
+            }
+
+            if (configP1.esCazador)
+            {
+                uiCazador = uiInstanciadaP1.GetComponent<UI_Cazador>();
+                if (clonCazador != null) vidaCazador = clonCazador.GetComponent<Health>();
+            }
+            else
+            {
+                uiSoporte = uiInstanciadaP1.GetComponent<UI_Soporte>();
+                if (clonSoporte != null) controladorSoporte = clonSoporte.GetComponent<JugadorController>();
             }
         }
-        // ✦•┈๑⋅⋯ ⋯⋅๑┈•✦✦•┈๑⋅⋯ ⋯⋅๑┈•✦✦•┈๑⋅⋯ ⋯⋅๑┈•✦✦•┈๑⋅⋯ ⋯⋅๑┈•✦
 
         // --- ⁺‧₊˚ ཐི⋆ JUGADOR DOS (LADO DERECHO) ⋆ཋྀ ˚₊‧⁺ ---
         UIPrefabConfig configP2 = BuscarConfigPorNombre(personajeP2);
         if (configP2 != null && contenedorP2 != null)
         {
             GameObject uiInstanciadaP2 = Instantiate(configP2.prefabUI, contenedorP2);
-            GameObject jugador2Target = configP2.esCazador ? clonCazador : clonSoporte;
-            if (jugador2Target != null)
+
+            // configuración del espacio
+            RectTransform rect = uiInstanciadaP2.GetComponent<RectTransform>();
+            if (rect != null)
             {
-                ConectarEventos(jugador2Target, uiInstanciadaP2, configP2.esCazador);
+                rect.anchorMin = Vector2.zero;
+                rect.anchorMax = Vector2.one;
+                rect.pivot = new Vector2(0.5f, 0.5f);
+                rect.anchoredPosition = Vector2.zero;
+                rect.sizeDelta = Vector2.zero;
+                rect.localScale = Vector3.one;
+            }
+
+            if (configP2.esCazador)
+            {
+                uiCazador = uiInstanciadaP2.GetComponent<UI_Cazador>();
+                if (clonCazador != null) vidaCazador = clonCazador.GetComponent<Health>();
+            }
+            else
+            {
+                uiSoporte = uiInstanciadaP2.GetComponent<UI_Soporte>();
+                if (clonSoporte != null) controladorSoporte = clonSoporte.GetComponent<JugadorController>();
             }
         }
-        // ✦•┈๑⋅⋯ ⋯⋅๑┈•✦✦•┈๑⋅⋯ ⋯⋅๑┈•✦✦•┈๑⋅⋯ ⋯⋅๑┈•✦✦•┈๑⋅⋯ ⋯⋅๑┈•✦
     }
 
-    private void ConectarEventos(GameObject jugador, GameObject uiInstanciada, bool esCazador)
+    void Update()
     {
-        Health scriptVida = jugador.GetComponent<Health>();
-        if (scriptVida == null) return;
-
-        if (esCazador)
+        // --- ⁺‧₊˚ ཐི⋆ ACTUALIZACION DEL ESTADO DEL CAZADOR ⋆ཋྀ ˚₊‧⁺ ---
+        if (vidaCazador != null && uiCazador != null)
         {
-            UI_Cazador uiCazador = uiInstanciada.GetComponent<UI_Cazador>();
-            if (uiCazador != null)
+            if (vidaCazador.health != ultimaVidaCazador)
             {
-                // hacer que la UI de cazador consulte la vida actual y actualizar
+                ultimaVidaCazador = vidaCazador.health;
+                uiCazador.ActualizarVida(ultimaVidaCazador, vidaCazador.maxHealth);
+            }
+            if(vidaCazador.esInmune != ultimoEstadoInmune)
+            {
+                ultimoEstadoInmune = vidaCazador.esInmune;
+                uiCazador.MostrarInmunidad(ultimoEstadoInmune);
             }
         }
-        else
+
+        // --- ⁺‧₊˚ ཐི⋆ ACTUALIZACION DEL ESTADO DEL SOPORTE ⋆ཋྀ ˚₊‧⁺ ---
+        if (controladorSoporte != null && uiSoporte != null)
         {
-            UI_Soporte uiSoporte = uiInstanciada.GetComponent<UI_Soporte>();
-            if (uiSoporte != null)
+            bool estaSilenciadoAhora = controladorSoporte.TiempoSilenciadoRestante > 0f;
+            if (estaSilenciadoAhora && !estabaSilenciado)
             {
-                // UI_Soporte.ActivarCooldownSilencio(5f);
+                uiSoporte.ActivarCoolDownSilencio(controladorSoporte.TiempoSilenciadoRestante);
             }
+            estabaSilenciado = estaSilenciadoAhora;
         }
     }
 

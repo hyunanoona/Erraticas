@@ -32,6 +32,7 @@ public class JugadorController : MonoBehaviour
 
     //info para el soporte
     private float duracionSilenciado = 0f;
+    public float TiempoSilenciadoRestante => duracionSilenciado; // agregado de Nicolsita <3
 
     
     void Start()

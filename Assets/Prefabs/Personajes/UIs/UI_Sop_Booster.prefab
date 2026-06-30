@@ -128,7 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iconoHabilidad1: {fileID: 5151595729354629090}
   iconoHabilidad2: {fileID: 8332052569359694590}
-  contenedorSilencio: {fileID: 0}
+  contenedorSilencio: {fileID: 5109996977601782746}
 --- !u!1 &4500117291929474983
 GameObject:
   m_ObjectHideFlags: 0

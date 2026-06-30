@@ -105,7 +105,7 @@ public class GameManager : MonoBehaviour
 
             if (uiManagement != null)
             {
-                uiManagement.ConfigurarInterfazNvl(tipoSeleccionadoP1, tipoSeleccionadoP2);
+                uiManagement.ConfigurarInterfazNvl(personajeFinalP1, personajeFinalP2);
             }
         }
 

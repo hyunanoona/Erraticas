@@ -622,7 +622,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682179cd6a9417f4d8898792481631f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  catalogoUIs: []
+  catalogoUIs:
+  - nombreID: Cunty
+    prefabUI: {fileID: 4189196002427322111, guid: 4fbf4a83363d51149a9a1254ec5d621c, type: 3}
+    esCazador: 1
+  - nombreID: Faso
+    prefabUI: {fileID: 1971670201443056548, guid: 38bc0c7039a61e841b2fdb617da5c1c4, type: 3}
+    esCazador: 1
+  - nombreID: Lava Rigota
+    prefabUI: {fileID: 3211146860867616473, guid: 002d755e70c1f5041b571c632c3eab61, type: 3}
+    esCazador: 0
+  - nombreID: Nico Tina
+    prefabUI: {fileID: 8099217350953833320, guid: b70b08e92f80a8b4da50ff10ecba2ae5, type: 3}
+    esCazador: 0
   contenedorP1: {fileID: 1621832110}
   contenedorP2: {fileID: 1927119594}
 --- !u!1 &1570888718
@@ -775,7 +787,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 400, y: 300}
   m_Pivot: {x: 0, y: 0}
 --- !u!1 &1860473816
 GameObject:
@@ -878,7 +890,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 400, y: 300}
   m_Pivot: {x: 1, y: 0}
 --- !u!1 &2021838036
 GameObject:

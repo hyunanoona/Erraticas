@@ -53,12 +53,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barraVida: {fileID: 2751141234303279975}
+  escudoInmune: {fileID: 7675023894148257665}
   barraHabilidad: {fileID: 6138436268794266663}
-  fillBarraHabilidad: {fileID: 5851039586323847503}
-  tipoDeQueso: queso_pategras
+  fillBarraHabilidad: {fileID: 7675023894148257665}
   quesosMaximosRequeridos: 2
   iconoPasiva: {fileID: 1155984177943600189}
-  iconoEscudoInmune: {fileID: 0}
 --- !u!1 &2166879863937473756
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,7 +302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9150943, g: 0.86922395, b: 0.35826805, a: 1}
+  m_Color: {r: 1, g: 0.9163613, b: 0.3160377, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -355,7 +354,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.48332, y: 26.8}
+  m_AnchoredPosition: {x: 0.00000098348, y: -40}
   m_SizeDelta: {x: 99.033, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6138436268794266663
@@ -424,7 +423,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2949074025689814859
 Transform:
   m_ObjectHideFlags: 0
@@ -639,7 +638,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000019073, y: -7.9}
+  m_AnchoredPosition: {x: -0.0000076294, y: -14.432}
   m_SizeDelta: {x: 28.707, y: 28.8647}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1715047611181559349
@@ -774,7 +773,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.8520418, b: 0, a: 1}
+  m_Color: {r: 0.809838, g: 0.33521718, b: 0.8773585, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

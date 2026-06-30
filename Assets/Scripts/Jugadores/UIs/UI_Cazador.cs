@@ -5,11 +5,11 @@ using TMPro;
 
 public class UI_Cazador : MonoBehaviour
 {
-    [Header("⁺‧₊˚ ཐི⋆ Barra vida ⋆ཋྀ ˚₊‧⁺")]
+    [Header("⁺‧₊˚ ཐི⋆ Componentes de Barra ⋆ཋྀ ˚₊‧⁺")]
     [SerializeField] private Slider barraVida;
+    [SerializeField] private Image escudoInmune;
 
     //------------------------------------------------- agregado de flor //
-
     [Header("⁺‧₊˚ ཐི⋆ Habilidad Pasiva ⋆ཋྀ ˚₊‧⁺")]
     [SerializeField] private Slider barraHabilidad;
     [SerializeField] private Image fillBarraHabilidad; 
@@ -21,33 +21,27 @@ public class UI_Cazador : MonoBehaviour
 
     private Coroutine corrutinaTitileo;
     private bool estaTitilando = false;
-
     //------------------------------------------------- agregado de flor //
 
     [Header("⁺‧₊˚ ཐི⋆ Componentes ⋆ཋྀ ˚₊‧⁺")]
     [SerializeField] private Image iconoPasiva;
-    [SerializeField] GameObject iconoEscudoInmune;
-    // Texto [SerializeField] private  contadorQuesos;
-    
+
     void Awake()
     {
-        iconoEscudoInmune.SetActive(false);
+        escudoInmune.gameObject.SetActive(false);
         ActualizarContadorQuesosPasiva(0); // --> lo puso flor
     }
 
-    public void ActualizarVida(int actual, int max) // se encarga el UIManager
+    public void ActualizarVida(int actual, int max) 
     {
         barraVida.value = (float)actual / max;
     }
 
-
-    // CORRUTINA DEL TIEMPO ACTIVO ACA!!!!!!!!!!!!!!!!!!!!!!!!!:
-    public void MostrarInmunidad(bool Activar, float tiempo)
+    public void MostrarInmunidad(bool esInmune)
     {
-        //iconoEscudoInmune.SetActive(true);
+        escudoInmune.gameObject.SetActive(esInmune);
     }
 
-    // public void ActualizarContadorQuesosPasiva(float cuantos) {}
 
 
     //------------------------------------------------- agregado de flor //
