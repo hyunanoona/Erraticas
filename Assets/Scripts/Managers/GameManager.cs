@@ -95,14 +95,31 @@ public class GameManager : MonoBehaviour
             Vector3 posP1 = spawnP1 != null ? spawnP1.transform.position : new Vector3(-2, 0, 0);
             Vector3 posP2 = spawnP2 != null ? spawnP2.transform.position : new Vector3(2, 0, 0);
 
+            //  SPAWN JUGADOR 1 (LADO IZQUIERDO, WASD)
+
             GameObject prefabP1 = BuscarPrefabPorNombre(personajeFinalP1);
-            if (prefabP1 != null) Instantiate(prefabP1, posP1, Quaternion.identity);
+            if (prefabP1 != null) {
+                GameObject clonP1 = Instantiate(prefabP1, posP1, Quaternion.identity);
+                InputJugador inputP1 = clonP1.GetComponent<InputJugador>();
+                if (inputP1 != null)
+                {
+                    inputP1.jugadorAsignado = InputJugador.NumeroJugador.Jugador1;
+                }
+            }
+
+            //  SPAWN JUGADOR 2 (LADO DERECHO, Flechitas)
 
             GameObject prefabP2 = BuscarPrefabPorNombre(personajeFinalP2);
-            if (prefabP2 != null) Instantiate(prefabP2, posP2, Quaternion.identity);
+            if (prefabP2 != null) {
+                GameObject clonP2 = Instantiate(prefabP2, posP2, Quaternion.identity);
+                InputJugador inputP2 = clonP2.GetComponent<InputJugador>();
+                if (clonP2 != null)
+                {
+                    inputP2.jugadorAsignado = InputJugador.NumeroJugador.Jugador2;
+                }
+            }
 
             UIManager uiManagement = Object.FindFirstObjectByType<UIManager>();
-
             if (uiManagement != null)
             {
                 uiManagement.ConfigurarInterfazNvl(personajeFinalP1, personajeFinalP2);

@@ -18,19 +18,30 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Transform contenedorP1; 
     [SerializeField] private Transform contenedorP2; 
 
-    // ⁺‧₊˚ ཐི⋆ Variables del Cazador ⋆ཋྀ ˚₊‧⁺
-    private Health vidaCazador;
-    private UI_Cazador uiCazador;
-    private bool ultimoEstadoInmune = false;
-    private int ultimaVidaCazador = -1;
+    // ⁺‧₊˚ ཐི⋆ VARIABLES JUGADOR 1 (LADO IZQUIERDO) ⋆ཋྀ ˚₊‧⁺
+    private UI_Cazador uiCazadorP1;
+    private Health vidaCazadorP1;
+    private int ultimaVidaCazadorP1 = -1;
+    private bool ultimoInmuneCazadorP1 = false;
 
-    // ⁺‧₊˚ ཐི⋆ Variables del Soporte ⋆ཋྀ ˚₊‧⁺
-    private JugadorController controladorSoporte;
-    private UI_Soporte uiSoporte;
-    private bool estabaSilenciado = false;
+    private UI_Soporte uiSoporteP1;
+    private JugadorController controladorSoporteP1;
+    private bool estabaSilenciadoP1 = false;
+
+    // ⁺‧₊˚ ཐི⋆ VARIABLES JUGADOR 2 (LADO DERECHO) ⋆ཋྀ ˚₊‧⁺
+    private UI_Cazador uiCazadorP2;
+    private Health vidaCazadorP2;
+    private int ultimaVidaCazadorP2 = -1;
+    private bool ultimoInmuneCazadorP2 = false;
+
+    private UI_Soporte uiSoporteP2;
+    private JugadorController controladorSoporteP2;
+    private bool estabaSilenciadoP2 = false;
+
 
     public void ConfigurarInterfazNvl(string personajeP1, string personajeP2)
     {
+        // Buscamos los clones en la escena de manera segura
         GameObject clonCazador = GameObject.FindWithTag("Cazador");
         GameObject clonSoporte = GameObject.FindWithTag("Soporte");
 
@@ -44,23 +55,24 @@ public class UIManager : MonoBehaviour
             RectTransform rect = uiInstanciadaP1.GetComponent<RectTransform>();
             if (rect != null)
             {
-                rect.anchorMin = Vector2.zero;
-                rect.anchorMax = Vector2.one;
-                rect.pivot = new Vector2(0.5f, 0.5f);
+                // rect.anchorMin = Vector2.zero;
+                // rect.anchorMax = Vector2.one;
+                // rect.pivot = new Vector2(0.5f, 0.5f);
                 rect.anchoredPosition = Vector2.zero;
-                rect.sizeDelta = Vector2.zero;
+                // rect.sizeDelta = Vector2.zero;
                 rect.localScale = Vector3.one;
             }
 
+            // Dependiendo de qué eligió el P1, le asignamos sus referencias del lado P1
             if (configP1.esCazador)
             {
-                uiCazador = uiInstanciadaP1.GetComponent<UI_Cazador>();
-                if (clonCazador != null) vidaCazador = clonCazador.GetComponent<Health>();
+                uiCazadorP1 = uiInstanciadaP1.GetComponent<UI_Cazador>();
+                if (clonCazador != null) vidaCazadorP1 = clonCazador.GetComponent<Health>();
             }
             else
             {
-                uiSoporte = uiInstanciadaP1.GetComponent<UI_Soporte>();
-                if (clonSoporte != null) controladorSoporte = clonSoporte.GetComponent<JugadorController>();
+                uiSoporteP1 = uiInstanciadaP1.GetComponent<UI_Soporte>();
+                if (clonSoporte != null) controladorSoporteP1 = clonSoporte.GetComponent<JugadorController>();
             }
         }
 
@@ -70,57 +82,83 @@ public class UIManager : MonoBehaviour
         {
             GameObject uiInstanciadaP2 = Instantiate(configP2.prefabUI, contenedorP2);
 
-            // configuración del espacio
             RectTransform rect = uiInstanciadaP2.GetComponent<RectTransform>();
             if (rect != null)
             {
-                rect.anchorMin = Vector2.zero;
-                rect.anchorMax = Vector2.one;
-                rect.pivot = new Vector2(0.5f, 0.5f);
+                // rect.anchorMin = Vector2.zero;
+                // rect.anchorMax = Vector2.one;
+                // rect.pivot = new Vector2(0.5f, 0.5f);
                 rect.anchoredPosition = Vector2.zero;
-                rect.sizeDelta = Vector2.zero;
+                // rect.sizeDelta = Vector2.zero;
                 rect.localScale = Vector3.one;
             }
 
+            // Dependiendo de qué eligió el P2, le asignamos sus referencias del lado P2
             if (configP2.esCazador)
             {
-                uiCazador = uiInstanciadaP2.GetComponent<UI_Cazador>();
-                if (clonCazador != null) vidaCazador = clonCazador.GetComponent<Health>();
+                uiCazadorP2 = uiInstanciadaP2.GetComponent<UI_Cazador>();
+                if (clonCazador != null) vidaCazadorP2 = clonCazador.GetComponent<Health>();
             }
             else
             {
-                uiSoporte = uiInstanciadaP2.GetComponent<UI_Soporte>();
-                if (clonSoporte != null) controladorSoporte = clonSoporte.GetComponent<JugadorController>();
+                uiSoporteP2 = uiInstanciadaP2.GetComponent<UI_Soporte>();
+                if (clonSoporte != null) controladorSoporteP2 = clonSoporte.GetComponent<JugadorController>();
             }
         }
     }
 
     void Update()
     {
-        // --- ⁺‧₊˚ ཐི⋆ ACTUALIZACION DEL ESTADO DEL CAZADOR ⋆ཋྀ ˚₊‧⁺ ---
-        if (vidaCazador != null && uiCazador != null)
+        // ------------------ ACTUALIZACION JUGADOR 1 (IZQUIERDA) ------------------
+        // Si el P1 es Cazador...
+        if (uiCazadorP1 != null && vidaCazadorP1 != null)
         {
-            if (vidaCazador.health != ultimaVidaCazador)
+            if (vidaCazadorP1.health != ultimaVidaCazadorP1)
             {
-                ultimaVidaCazador = vidaCazador.health;
-                uiCazador.ActualizarVida(ultimaVidaCazador, vidaCazador.maxHealth);
+                ultimaVidaCazadorP1 = vidaCazadorP1.health;
+                uiCazadorP1.ActualizarVida(ultimaVidaCazadorP1, vidaCazadorP1.maxHealth);
             }
-            if(vidaCazador.esInmune != ultimoEstadoInmune)
+            if (vidaCazadorP1.esInmune != ultimoInmuneCazadorP1)
             {
-                ultimoEstadoInmune = vidaCazador.esInmune;
-                uiCazador.MostrarInmunidad(ultimoEstadoInmune);
+                ultimoInmuneCazadorP1 = vidaCazadorP1.esInmune;
+                uiCazadorP1.MostrarInmunidad(ultimoInmuneCazadorP1);
             }
         }
-
-        // --- ⁺‧₊˚ ཐི⋆ ACTUALIZACION DEL ESTADO DEL SOPORTE ⋆ཋྀ ˚₊‧⁺ ---
-        if (controladorSoporte != null && uiSoporte != null)
+        // Si el P1 es Soporte...
+        else if (uiSoporteP1 != null && controladorSoporteP1 != null)
         {
-            bool estaSilenciadoAhora = controladorSoporte.TiempoSilenciadoRestante > 0f;
-            if (estaSilenciadoAhora && !estabaSilenciado)
+            bool estaSilenciadoAhora = controladorSoporteP1.TiempoSilenciadoRestante > 0f;
+            if (estaSilenciadoAhora && !estabaSilenciadoP1)
             {
-                uiSoporte.ActivarCoolDownSilencio(controladorSoporte.TiempoSilenciadoRestante);
+                uiSoporteP1.ActivarCoolDownSilencio(controladorSoporteP1.TiempoSilenciadoRestante);
             }
-            estabaSilenciado = estaSilenciadoAhora;
+            estabaSilenciadoP1 = estaSilenciadoAhora;
+        }
+
+        // ------------------ ACTUALIZACION JUGADOR 2 (DERECHA) ------------------
+        // Si el P2 es Cazador...
+        if (uiCazadorP2 != null && vidaCazadorP2 != null)
+        {
+            if (vidaCazadorP2.health != ultimaVidaCazadorP2)
+            {
+                ultimaVidaCazadorP2 = vidaCazadorP2.health;
+                uiCazadorP2.ActualizarVida(ultimaVidaCazadorP2, vidaCazadorP2.maxHealth);
+            }
+            if (vidaCazadorP2.esInmune != ultimoInmuneCazadorP2)
+            {
+                ultimoInmuneCazadorP2 = vidaCazadorP2.esInmune;
+                uiCazadorP2.MostrarInmunidad(ultimoInmuneCazadorP2);
+            }
+        }
+        // Si el P2 es Soporte...
+        else if (uiSoporteP2 != null && controladorSoporteP2 != null)
+        {
+            bool estaSilenciadoAhora = controladorSoporteP2.TiempoSilenciadoRestante > 0f;
+            if (estaSilenciadoAhora && !estabaSilenciadoP2)
+            {
+                uiSoporteP2.ActivarCoolDownSilencio(controladorSoporteP2.TiempoSilenciadoRestante);
+            }
+            estabaSilenciadoP2 = estaSilenciadoAhora;
         }
     }
 

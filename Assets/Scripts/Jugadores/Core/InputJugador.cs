@@ -9,7 +9,7 @@ using UnityEngine;
 public class InputJugador : MonoBehaviour
 {
     // Config de red local //
-    public enum NumeroJugador { Jugador1, Jugador2 }
+    public enum NumeroJugador { Jugador1, Jugador2 }    
     public NumeroJugador jugadorAsignado = NumeroJugador.Jugador1;
 
     // Variables para almacenar el estado de las entradas //
