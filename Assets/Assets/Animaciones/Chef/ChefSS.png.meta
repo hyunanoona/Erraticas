@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bae942b014878e4449766d8ab74e8ccb
+guid: 56b1f1fc0e1dd2e478e8d28b42fd7372
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 140
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,148 +110,232 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FasoIdleSS_0
+      name: ChefSS_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1030
-        width: 512
-        height: 512
+        y: 3248
+        width: 1920
+        height: 1080
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4cafc129fc8fa3f498dd87ed4ebcd7c5
-      internalID: -1483006566
+      spriteID: 74de5ed97d6945d4da996971aa1ea2cd
+      internalID: -2073164777
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FasoIdleSS_1
+      name: ChefSS_1
       rect:
         serializedVersion: 2
-        x: 512
-        y: 1030
-        width: 512
-        height: 512
+        x: 1920
+        y: 3248
+        width: 1920
+        height: 1080
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ff1823be3cbd764c84ed455314c3057
-      internalID: 1908628540
+      spriteID: d81d922d958d70d418378414c163c480
+      internalID: 830263393
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FasoIdleSS_2
+      name: ChefSS_2
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 1030
-        width: 512
-        height: 512
+        x: 3840
+        y: 3248
+        width: 1920
+        height: 1080
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa749f8fc8ce7e248b7f411196b1c01c
-      internalID: 675786678
+      spriteID: d8a7c12d05a043b489de1d56ffca2c73
+      internalID: 149820134
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FasoIdleSS_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 518
-        width: 512
-        height: 512
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 54edd9e6a7315354ca49c4f9fedcd5f3
-      internalID: -564964200
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FasoIdleSS_4
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 518
-        width: 512
-        height: 512
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b1fcf3441b9ab87418ec7ab5d1014d00
-      internalID: -1011641162
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FasoIdleSS_5
-      rect:
-        serializedVersion: 2
-        x: 1024
-        y: 518
-        width: 512
-        height: 512
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ca223cab510a2b2489d051d0ad91e88b
-      internalID: 2060557427
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FasoIdleSS_6
+      name: ChefSS_3
       rect:
         serializedVersion: 2
         x: 0
-        y: 6
-        width: 512
-        height: 512
+        y: 2168
+        width: 1920
+        height: 1080
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6450d7a73e07574ebe7d366ac13f047
-      internalID: 1410574781
+      spriteID: d40d707023fd043479016732db8aad4b
+      internalID: 984894293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefSS_4
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2168
+        width: 1920
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bea0a5486b44ac48a59cf32d45a6b18
+      internalID: -839763609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefSS_5
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 2168
+        width: 1920
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff07b11ab9475724eaea12dca63e72f9
+      internalID: -1863388860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefSS_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1088
+        width: 1920
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d9a302387425f2428aeca1dbccff048
+      internalID: -1276201926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefSS_7
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1088
+        width: 1920
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7da79b18662efbb419e98bdc0b69edc5
+      internalID: -729349400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefSS_8
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1088
+        width: 1920
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a41a5a901b27b244b05d4956a993166
+      internalID: -1510612212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefSS_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8
+        width: 1920
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: febf595555a809d4fa64a6ebefdb2499
+      internalID: 924322787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefSS_10
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 8
+        width: 1920
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c42384b897a4d9499c5826aef63868d
+      internalID: 1813834780
       vertices: []
       indices: 
       edges: []
@@ -267,13 +351,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      FasoIdleSS_0: -1483006566
-      FasoIdleSS_1: 1908628540
-      FasoIdleSS_2: 675786678
-      FasoIdleSS_3: -564964200
-      FasoIdleSS_4: -1011641162
-      FasoIdleSS_5: 2060557427
-      FasoIdleSS_6: 1410574781
+      ChefSS_0: -2073164777
+      ChefSS_1: 830263393
+      ChefSS_10: 1813834780
+      ChefSS_2: 149820134
+      ChefSS_3: 984894293
+      ChefSS_4: -839763609
+      ChefSS_5: -1863388860
+      ChefSS_6: -1276201926
+      ChefSS_7: -729349400
+      ChefSS_8: -1510612212
+      ChefSS_9: 924322787
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

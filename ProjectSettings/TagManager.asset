@@ -25,7 +25,7 @@ TagManager:
   - Item
   - Jugador
   - Panel
-  - 
+  - Chef
   - 
   - 
   - 
@@ -52,6 +52,9 @@ TagManager:
     locked: 0
   - name: Fondo
     uniqueID: 2179540239
+    locked: 0
+  - name: Chef
+    uniqueID: 3520320793
     locked: 0
   - name: Panel
     uniqueID: 3393783233
