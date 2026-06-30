@@ -38,7 +38,7 @@ public class Spawn : MonoBehaviour
     }
 
     //  •• <<────────────────≪•◦ Spawn ◦•≫────────────────>> ••
-    private void SpawnearItem()
+    protected virtual void SpawnearItem()
     {
 
         // Se elije un item al azar
