@@ -6,27 +6,21 @@ public abstract class HabilidadBase : MonoBehaviour
     [SerializeField] private string tipoDeQuesoPorHabilidad; // el tag que identifica la habilidad
     [SerializeField] private int cantidadRequerida = 4;   // costo fijo, puede cambiarse en el inspector
 
-    public bool PuedeEjecutar(DatosSoporte soporte) // metodo para chequear si tiene los quesos necesarios para ejecutar la habilidad
+    public bool PuedeEjecutar(DatosPersonaje personaje) // metodo para chequear si tiene los quesos necesarios para ejecutar la habilidad
     {
-        if (soporte == null) return false;
+        if (personaje == null) return false;
         
-        print($"El soporte esta intentando usar la habilidad del componente: '{this.GetType().Name}'. Requiere: '{tipoDeQuesoPorHabilidad}' (Necesita: {cantidadRequerida})");
+        print($"Intentando usar habilidad: '{this.GetType().Name}'. Requiere: '{tipoDeQuesoPorHabilidad}' ({cantidadRequerida})");
 
-        if (tipoDeQuesoPorHabilidad == "Roquefort") return soporte.QuesosRoquefort >= cantidadRequerida;
-        if (tipoDeQuesoPorHabilidad == "Mozzarella") return soporte.QuesosMozzarella >= cantidadRequerida;
-        if (tipoDeQuesoPorHabilidad == "Provoleta") return soporte.QuesosProvoleta >= cantidadRequerida;
-        if (tipoDeQuesoPorHabilidad == "Cremoso") return soporte.QuesosCremoso >= cantidadRequerida;
-
-        return false;
+        return personaje.ObtenerCantidadQueso(tipoDeQuesoPorHabilidad) >= cantidadRequerida; // llama al metodo segun los datos especificos
     }
 
-    protected void GastarQuesos(DatosSoporte soporte) // metodo para restar las unidades de queso gastadas por la habilidad
+    protected void GastarQuesos(DatosPersonaje personaje) // metodo para restar las unidades de queso gastadas por la habilidad
     {
-        if (soporte != null)
+        if (personaje != null)
         {
-            soporte.RestarQuesos(tipoDeQuesoPorHabilidad, cantidadRequerida);
+            personaje.RestarQuesos(tipoDeQuesoPorHabilidad, cantidadRequerida); //polimorfismo al palo
         }
     }
-
     public abstract void Ejecutar(GameObject usuario, JugadorController aliadoCazador); // metodo abstracto que debe ser implementado por cada habilidad concreta
 }

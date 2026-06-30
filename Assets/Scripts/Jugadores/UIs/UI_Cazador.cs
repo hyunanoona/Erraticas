@@ -14,8 +14,8 @@ public class UI_Cazador : MonoBehaviour
     [SerializeField] private Slider barraHabilidad;
     [SerializeField] private Image fillBarraHabilidad; 
 
-    [Tooltip("Tipo de queso que requiere este cazador")]
-    [SerializeField] private string tipoDeQueso = "queso_pategras";
+    //[Tooltip("Tipo de queso que requiere este cazador")]
+    //[SerializeField] private string tipoDeQueso = "queso_pategras";
     [Tooltip("Cantidad de quesos necesarios para activar la habilidad")]
     [SerializeField] private int quesosMaximosRequeridos = 5;
 

@@ -66,8 +66,18 @@ public class DatosSoporte : DatosPersonaje
         }
     }
 
-    // metodos que cargan los quesos de a 1 unidad 
-    public void AgregarQueso(string tipoDeQueso)
+    // metodo para obtener la cantidad de quesos especifica del soporte
+    public override int ObtenerCantidadQueso(string tipoDeQueso)
+    {
+        if (tipoDeQueso == "Roquefort") return QuesosRoquefort;
+        if (tipoDeQueso == "Mozzarella") return QuesosMozzarella;
+        if (tipoDeQueso == "Provoleta") return QuesosProvoleta;
+        if (tipoDeQueso == "Cremoso") return QuesosCremoso;
+        return 0;
+    }
+
+    // metodo que carga los quesos de a 1 unidad del soporte
+    public override void AgregarQueso(string tipoDeQueso)
     {
         if (tipoDeQueso == "Roquefort") QuesosRoquefort++;
         if (tipoDeQueso == "Mozzarella") QuesosMozzarella++;
@@ -78,7 +88,7 @@ public class DatosSoporte : DatosPersonaje
     }
 
     // metodo para restar las 4 unidades de queso gastadas por la habilidad
-    public void RestarQuesos(string tipoQueso, int cantidad)
+    public override void RestarQuesos(string tipoQueso, int cantidad)
     {
         if (tipoQueso == "Roquefort") QuesosRoquefort -= cantidad;
         if (tipoQueso == "Mozzarella") QuesosMozzarella -= cantidad;
