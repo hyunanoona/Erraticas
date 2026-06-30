@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using Cinemachine;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,6 +9,7 @@ public class ConfigNivelEscena
 {
     public string nombreNivel;
     public int puntajeParaGanar;  
+    public float tiempoParaGanar = 90f;
 }
 
 [System.Serializable]
@@ -36,8 +39,12 @@ public class GameManager : MonoBehaviour
         public string rolBaseP1; 
         public string rolBaseP2;
         public int nivelActualIndice = 0;
-        public int puntajeJugador = 0;        
+        public int puntajeJugador = 0;      
 
+        // . ⊹ ₊ ݁. Sistema de cronómetro . ⊹ ₊ ݁.
+        private float tiempoRestante;
+        private bool nivelTerminado = false;
+        private TMPro.TextMeshProUGUI textoCronometro;
 
 
         private void Awake()
@@ -66,10 +73,51 @@ public class GameManager : MonoBehaviour
 
         private void AlCargarEscena(Scene escena, LoadSceneMode modo)
         {
-            if (escena.name != "MenuInicial" && escena.name != "MenuSeleccion" && escena.name != "SeleccionRol")
+            if (escena.name == "MenuInicial" || escena.name == "SeleccionRol" ||
+                escena.name == "Derrota" || escena.name == "Victoria")
             {
-                SpawnearJugadores();
+                nivelTerminado = true;
+                return;
             }
+
+            // Inicializacion de cada Nivel
+            nivelTerminado = false;
+            puntajeJugador = 0;
+            GameObject textObj = GameObject.FindWithTag("TextoCronometro");
+            if (textObj != null) textoCronometro = textObj.GetComponent<TMPro.TextMeshProUGUI>();
+            if(nivelActualIndice < niveles.Count)
+            {
+                tiempoRestante = niveles[nivelActualIndice].tiempoParaGanar;
+            }
+            else
+            {
+                tiempoRestante = 90f;
+            }
+            SpawnearJugadores();
+        }
+
+        void Update()
+        {
+            if (nivelTerminado) return;
+            if (tiempoRestante > 0)
+            {
+                tiempoRestante -= Time.deltaTime;
+                ActualizarTextoCronometro();
+            }
+            else
+            {
+                tiempoRestante = 0;
+                ActualizarTextoCronometro();
+                EstablecerDerrota();
+            }
+        }
+
+        private void ActualizarTextoCronometro()
+        {
+            if (textoCronometro == null) return;
+            int minutos = Mathf.FloorToInt(tiempoRestante / 60);
+            int segundos = Mathf.FloorToInt(tiempoRestante % 60);
+            textoCronometro.text = string.Format("{0:00}: {1:00}", minutos, segundos);
         }
 
         private void SpawnearJugadores()
@@ -95,7 +143,7 @@ public class GameManager : MonoBehaviour
             Vector3 posP1 = spawnP1 != null ? spawnP1.transform.position : new Vector3(-2, 0, 0);
             Vector3 posP2 = spawnP2 != null ? spawnP2.transform.position : new Vector3(2, 0, 0);
 
-            //  SPAWN JUGADOR 1 (LADO IZQUIERDO, WASD)
+            //  . ݁₊ ⊹ . ݁ SPAWN JUGADOR 1 (LADO IZQUIERDO, WASD) ݁ . ⊹ ₊ ݁.
 
             GameObject prefabP1 = BuscarPrefabPorNombre(personajeFinalP1);
             if (prefabP1 != null) {
@@ -107,7 +155,7 @@ public class GameManager : MonoBehaviour
                 }
             }
 
-            //  SPAWN JUGADOR 2 (LADO DERECHO, Flechitas)
+            //  . ݁₊ ⊹ . ݁ SPAWN JUGADOR 2 (LADO DERECHO, Flechitas) ݁ . ⊹ ₊ ݁.
 
             GameObject prefabP2 = BuscarPrefabPorNombre(personajeFinalP2);
             if (prefabP2 != null) {
@@ -141,6 +189,7 @@ public class GameManager : MonoBehaviour
 
         public void SumarPuntos(int puntos)
         {
+            if (nivelTerminado) return;
             puntajeJugador += puntos;
             ChequearMetaNivel();
             //  ⤷ ゛Actualizar UI de puntaje, sonidos, animación. ˎˊ˗
@@ -163,14 +212,29 @@ public class GameManager : MonoBehaviour
             nivelActualIndice++;
             if (nivelActualIndice < niveles.Count)
             {
-                puntajeJugador = 0;
                 string proximaEscena = niveles[nivelActualIndice].nombreNivel;
                 SceneManager.LoadScene(proximaEscena);
             }
             else
             {
-                SceneManager.LoadScene("MenuInicial");  //  ⤷ ゛CAMBIAR POR ESCENA DE VICTORIA!!!!! ˎˊ˗
+                nivelTerminado = true;
+                SceneManager.LoadScene("Victoria");  
                 Destroy(gameObject);
+            }
+        }
+
+        private void EstablecerDerrota()
+        {
+            nivelTerminado = true;
+            SceneManager.LoadScene("Derrota");
+        }
+
+        public void ReiniciarNivelActual()
+        {
+            if (nivelActualIndice < niveles.Count)
+            {
+                string escenaActual = niveles[nivelActualIndice].nombreNivel;
+                SceneManager.LoadScene(escenaActual);
             }
         }
 
