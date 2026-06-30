@@ -11,6 +11,6 @@ public class HabilidadCunty : HabilidadBase
 
     public override void Ejecutar(GameObject usuario, JugadorController aliadoCazador)
     {
-        //contendria la pasiva de spawnear un queso pategras cerca de ella al juntar 4 de este mismo queso
+        //contendria la habilidad de seducir al chef aka no spawnear obstaculos por x tiempo
     }
 }

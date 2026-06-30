@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2959531086837913253}
   m_Layer: 8
   m_Name: prefab_Pategras
-  m_TagString: Untagged
+  m_TagString: Pategras
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1264301661
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: 46c94409e221bc54f9e613e628f77e2b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

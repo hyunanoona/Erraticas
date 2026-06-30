@@ -84,6 +84,7 @@ public abstract class ClaseItem : MonoBehaviour
 
     }
 
+/*
     //  •• <<────────────────≪•◦ Recolección ◦•≫────────────────>> ••
 
     private void RecoleccionCazador(DatosCazador cazador) 
@@ -98,7 +99,7 @@ public abstract class ClaseItem : MonoBehaviour
         AplicarEfectoSoporte(soporte);
         Destroy(gameObject);
     }
-
+*/
 
     //  •• <<────────────────≪•◦ Efectos Obstaculos ◦•≫────────────────>> ••
 

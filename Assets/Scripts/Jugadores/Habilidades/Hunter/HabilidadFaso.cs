@@ -11,6 +11,19 @@ public class HabilidadFaso : HabilidadBase
 
     public override void Ejecutar(GameObject usuario, JugadorController aliadoCazador)
     {
-        //contendria la habilidad de seducir al chef aka no spawnear obstaculos por x tiempo
+        //contendria la pasiva de spawnear un queso pategras cerca de ella al juntar 4 de este mismo queso
+        DatosCazador datosCazador = usuario.GetComponent<DatosCazador>();
+        if (datosCazador != null)
+        {
+            GastarQuesos(datosCazador); // gasta los quesos
+
+            int puntosExtra = datosCazador.PuntajeDelQueso; // accede al valor de los quesos desde los datos del cazador
+
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.SumarPuntos(puntosExtra); //suma el puntaje del queso extra directamente al gamemanager
+                print($"Pasiva faso activada, se consumieron 4 quesos y se sumó {puntosExtra}.");
+            }
+        }
     }
 }

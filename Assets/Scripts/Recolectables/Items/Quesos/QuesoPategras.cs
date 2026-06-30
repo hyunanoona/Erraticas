@@ -25,6 +25,10 @@ public class QuesoPategras : ClaseItem
         {
             GameManager.Instance.SumarPuntos(puntosQueOtorga);
         }
+
+        cazador.ActualizarPuntosBono(puntosQueOtorga); // le pasa el puntaje al cazador
+
+        cazador.AgregarQueso("Pategras"); // suma el queso para la pasiva
     }
 }
 

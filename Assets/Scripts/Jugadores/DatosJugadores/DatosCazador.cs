@@ -8,12 +8,18 @@ public class DatosCazador : DatosPersonaje
 {
     // contadores de unidades fisicas de queso para el cazador
     public int QuesosPategras { get; private set; } = 0; 
+    public int PuntajeDelQueso { get; private set; } = 0;
     void Awake()
     {
         // datos especificos del cazador
         Velocidad = 10f;
         FuerzaSalto = 10f;
         EscalaGravedad = 3.5f;
+    }
+
+    public void ActualizarPuntosBono(int puntos)
+    {
+        PuntajeDelQueso = puntos;
     }
 
     // metodo para obtener la cantidad de quesos especifica del cazador
@@ -30,6 +36,14 @@ public class DatosCazador : DatosPersonaje
         {
             QuesosPategras++;
             print($"Cazador sumó {tipoDeQueso}! Total: {QuesosPategras}");
+
+            HabilidadFaso habilidad = GetComponent<HabilidadFaso>();
+        
+            if (habilidad != null && habilidad.PuedeEjecutar(this))
+            {
+                JugadorController controller = GetComponent<JugadorController>();
+                habilidad.Ejecutar(gameObject, controller);
+            }
         }
     }
 

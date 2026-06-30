@@ -13,6 +13,7 @@ TagManager:
   - Cremoso
   - SpawnPointP1
   - SpawnPointP2
+  - Pategras
   layers:
   - Default
   - TransparentFX
