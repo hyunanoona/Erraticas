@@ -19,11 +19,20 @@ public class Veneno : ClaseItem
         public Veneno() { nombreItem = "Veneno"; }
         protected override void AplicarEfectoCazador(DatosCazador cazador)
         {
-            //cazador.RestarVida(danioVida);
+            Health vidaCazador = cazador.GetComponent<Health>();
+            if (vidaCazador != null)
+            {
+                vidaCazador.RecibirDanio(danioVida);
+            }
         }
+
         protected override void AplicarEfectoSoporte(DatosSoporte soporte)
         {
-            //soporte.RestarVida(danioVida);
+            Health vidaSoporte = soporte.GetComponent<Health>();
+            if (vidaSoporte != null)
+            {
+                vidaSoporte.RecibirDanio(danioVida);
+            }
         }
     }
 
