@@ -9,11 +9,26 @@ public class Health : MonoBehaviour
     public int maxHealth = 100; // vida máxima del personaje
     public bool esInmune { get; private set; } = false;
 
+    // ﮩ٨ـﮩﮩ٨ـ Variables Parpadedeo Nicolsita ﮩ٨ـﮩﮩ٨ـ
+    private SpriteRenderer spriteRenderer;
+    private Color colorOriginal;
+// ﮩ٨ـﮩﮩ٨ـﮩ٨ـﮩﮩ٨ـﮩ٨ـﮩﮩ٨ـﮩ٨ـﮩﮩ٨ـﮩ٨ـﮩﮩ٨ـﮩ٨ـﮩﮩ٨ـﮩ٨ـﮩﮩ٨ـﮩ٨ـﮩﮩ٨ـﮩ٨ـﮩﮩ٨ـ
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            colorOriginal = spriteRenderer.color;
+        }
+    }
+// ﮩ٨ـﮩﮩ٨ـﮩ٨ـﮩﮩ٨ـﮩ٨ـﮩﮩ٨ـﮩ٨ـﮩﮩ٨ـﮩ٨ـﮩﮩ٨ـﮩ٨ـﮩﮩ٨ـﮩ٨ـﮩﮩ٨ـﮩ٨ـﮩﮩ٨ـﮩ٨ـﮩﮩ٨ـ
     public virtual void RecibirDanio(int damage) // metodo para recibir daño
     {
         if (esInmune) return; // si el personaje es inmune, no recibe daño
 
         health -= damage; // restamos el daño a la vida
+        
+        ActivarParpadeo(); // Nicolsita: cuando recibe daño hace parpadeo ꉂ(˵˃ ᗜ ˂˵)
 
         if (health <= 0) // si la vida es menor o igual a 0
         {
@@ -21,6 +36,33 @@ public class Health : MonoBehaviour
         }
     }
 
+// ﮩ٨ـﮩﮩ٨ـﮩ٨ـﮩﮩ٨ـﮩ٨ـﮩﮩ٨ـﮩ٨ـﮩﮩ٨ـﮩ٨ـﮩﮩ٨ـﮩ٨ـﮩﮩ٨ـﮩ٨ـﮩﮩ٨ـﮩ٨ـﮩﮩ٨ـﮩ٨ـﮩﮩ٨ـ
+    public void ActivarParpadeo()
+    {
+        if (spriteRenderer != null)
+        {
+            StopCoroutine(ParpadeoCoroutine()); 
+            StartCoroutine(ParpadeoCoroutine());
+        }
+    }
+    private IEnumerator ParpadeoCoroutine()
+    {
+        float parpadeoDuracion = 0.5f; 
+        float parpadeoIntervalo = 0.1f; 
+        float tiempoTranscurrido = 0f;
+
+        while (tiempoTranscurrido < parpadeoDuracion)
+        {
+            spriteRenderer.color = Color.red; 
+            yield return new WaitForSeconds(parpadeoIntervalo);
+            spriteRenderer.color = colorOriginal; 
+            yield return new WaitForSeconds(parpadeoIntervalo);
+            tiempoTranscurrido += parpadeoIntervalo * 2; 
+        }
+
+        spriteRenderer.color = colorOriginal; 
+    }
+// ﮩ٨ـﮩﮩ٨ـﮩ٨ـﮩﮩ٨ـﮩ٨ـﮩﮩ٨ـﮩ٨ـﮩﮩ٨ـﮩ٨ـﮩﮩ٨ـﮩ٨ـﮩﮩ٨ـﮩ٨ـﮩﮩ٨ـﮩ٨ـﮩﮩ٨ـﮩ٨ـﮩﮩ٨ـ
     public void Morir() // metodo para morir
     {
         Destroy(gameObject); // destruimos el objeto del personaje

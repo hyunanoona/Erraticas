@@ -33,6 +33,7 @@ public class Veneno : ClaseItem
             {
                 vidaSoporte.RecibirDanio(danioVida);
             }
+
         }
     }
 
@@ -55,6 +56,9 @@ public class Ratonera : ClaseItem
             GameManager.Instance.SumarPuntos(-puntosQueResta);
         }
 
+        Health vida = cazador.GetComponent<Health>(); // Nicolsita ૮꒰◞ ˕ ◟ ྀི꒱ა
+        if (vida != null) vida.ActivarParpadeo();  // Nicolsita ૮꒰◞ ˕ ◟ ྀི꒱ა 
+
         //cazador.Inmovilizar(tiempoInmovilizado);
     }
     protected override void AplicarEfectoSoporte(DatosSoporte soporte)
@@ -64,6 +68,10 @@ public class Ratonera : ClaseItem
         {
             GameManager.Instance.SumarPuntos(-puntosQueResta);
         }
+
+        Health vida = soporte.GetComponent<Health>(); // Nicolsita ૮꒰◞ ˕ ◟ ྀི꒱ა 
+        if (vida != null) vida.ActivarParpadeo(); // Nicolsita ૮꒰◞ ˕ ◟ ྀི꒱ა 
+
     }
 
     //soporte.Inmovilizar(tiempoInmovilizado);

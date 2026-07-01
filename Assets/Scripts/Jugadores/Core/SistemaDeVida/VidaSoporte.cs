@@ -14,6 +14,7 @@ public class HealthSupport : Health
         if (controlador != null)
         {
             controlador.SilenciarHabilidades(5f);
+            ActivarParpadeo(); // Nicolsita ꉂ(˵˃ ᗜ ˂˵)
             print($"{gameObject.name} ha sido silenciado por 5 segundos.");
         }
     }
