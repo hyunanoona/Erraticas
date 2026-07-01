@@ -26,23 +26,13 @@ public class InputJugador : MonoBehaviour
 
         if (jugadorAsignado == NumeroJugador.Jugador1)
         {
-            // jugador 1: wasd + espacio
+            // jugador 1: wasd + espacio 
             if (Input.GetKey(KeyCode.D)) MovimientoX = 1f; // movimiento a la derecha
             if (Input.GetKey(KeyCode.A)) MovimientoX = -1f; // movimiento a la izquierda
 
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space))
             {
                 Salto = true;
-            }
-
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                Habilidad1 = true;
-            }
-
-            if (Input.GetKeyDown(KeyCode.Alpha2))
-            {
-                Habilidad2 = true; 
             }
         }
         else if (jugadorAsignado == NumeroJugador.Jugador2)
@@ -55,6 +45,17 @@ public class InputJugador : MonoBehaviour
             {
                 Salto = true;
             }
+        }
+
+        // habilidades para el soporte (globales)
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            Habilidad1 = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            Habilidad2 = true;
         }
     }
 

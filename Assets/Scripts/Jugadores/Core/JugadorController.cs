@@ -91,17 +91,6 @@ public class JugadorController : MonoBehaviour
             }
         }
 
-        {
-            input.ConsumirHabilidad2();
-
-            DatosSoporte datosSoporte = datos as DatosSoporte; // intenta convertir los datos del pj a datos de soporte
-            
-            if (datosSoporte != null)
-            {
-                datosSoporte.PresionoHabilidad2(); // si el pj es soporte, ejecuta su habilidad 2
-            }
-        }
-
         //para el doble salto del hunter
         if (tiempoBuffDobleSalto > 0f)
         {
