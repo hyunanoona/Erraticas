@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 2314104085775747832}
   - component: {fileID: 3919261649074378251}
   - component: {fileID: 2621838101507635374}
+  - component: {fileID: 6051633892956511315}
   m_Layer: 9
   m_Name: Cazador_Faso
   m_TagString: Cazador
@@ -171,7 +172,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 979146559
-  m_SortingLayer: 4
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: -1483006566, guid: bae942b014878e4449766d8ab74e8ccb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -285,7 +286,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.12, y: 5.12}
+    oldSize: {x: 3.6571429, y: 3.6571429}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -343,3 +344,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6051633892956511315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5386761218217278399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0d7a8ac3d422a4b8f25b1101f5d20d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

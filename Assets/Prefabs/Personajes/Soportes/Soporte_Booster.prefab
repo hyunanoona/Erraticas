@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 2860783631184247751}
   - component: {fileID: 8207435189361269089}
   - component: {fileID: 6977797829391280351}
+  - component: {fileID: -7234256988641088923}
   m_Layer: 9
   m_Name: Soporte_Booster
   m_TagString: Soporte
@@ -81,7 +82,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 979146559
-  m_SortingLayer: 4
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: -1198495436, guid: ee2118cfb5f9c844db84cd858777e585, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -269,6 +270,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-7234256988641088923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3765934630118403142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0d7a8ac3d422a4b8f25b1101f5d20d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6318786539442467154
 GameObject:
   m_ObjectHideFlags: 0
