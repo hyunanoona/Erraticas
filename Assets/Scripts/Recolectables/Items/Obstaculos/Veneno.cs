@@ -10,8 +10,6 @@ using UnityEngine;
     ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
 */
 
-//  •• <<───────────────────────≪•◦ Veneno ◦•≫───────────────────────>> ••
-
 public class Veneno : ClaseItem
     {
         public int danioVida = 10;
@@ -37,42 +35,3 @@ public class Veneno : ClaseItem
         }
     }
 
-
-//  •• <<──────────────────────≪•◦ Ratonera ◦•≫──────────────────────>> ••
-
-public class Ratonera : ClaseItem 
-{
-    public float tiempoInmovilizado = 5f;
-
-    public int puntosQueResta = 5;
-    protected override string TagPermitido => "Ambos";
-    public Ratonera() { nombreItem = "Ratonera"; }
-
-    protected override void AplicarEfectoCazador(DatosCazador cazador)
-    {
-        //Resta puntaje
-        if (GameManager.Instance != null)
-        {
-            GameManager.Instance.SumarPuntos(-puntosQueResta);
-        }
-
-        Health vida = cazador.GetComponent<Health>(); // Nicolsita ૮꒰◞ ˕ ◟ ྀི꒱ა
-        if (vida != null) vida.ActivarParpadeo();  // Nicolsita ૮꒰◞ ˕ ◟ ྀི꒱ა 
-
-        //cazador.Inmovilizar(tiempoInmovilizado);
-    }
-    protected override void AplicarEfectoSoporte(DatosSoporte soporte)
-    {
-        //Resta puntaje
-        if (GameManager.Instance != null)
-        {
-            GameManager.Instance.SumarPuntos(-puntosQueResta);
-        }
-
-        Health vida = soporte.GetComponent<Health>(); // Nicolsita ૮꒰◞ ˕ ◟ ྀི꒱ა 
-        if (vida != null) vida.ActivarParpadeo(); // Nicolsita ૮꒰◞ ˕ ◟ ྀི꒱ა 
-
-    }
-
-    //soporte.Inmovilizar(tiempoInmovilizado);
-}

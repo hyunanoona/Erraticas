@@ -13,7 +13,6 @@ public class JugadorController : MonoBehaviour
     private Rigidbody2D rb; // el componente de fisica del pj
     private InputJugador input; // el script que detecta las entradas del jugador
     private DatosPersonaje datos; // aca estan los datos del pj
-    private Health health; // el script de salud del pj
 
     // ⊹₊˚‧︵‿₊୨ visuales୧₊‿︵‧˚₊⊹
     private Animator miAnimator;
@@ -21,6 +20,10 @@ public class JugadorController : MonoBehaviour
 
     //detector de suelo
     private CheckGround checkGround; // el script que detecta si el pj esta tocando el suelo o no
+
+    //para el inmovilizado del pj
+    private float duracionInmovilizado = 0f; // cuenta regresiva del tiempo que el pj esta inmovilizado
+    public bool EstaInmovilizado => duracionInmovilizado > 0f; // booleano que indica si el pj esta inmovilizado o no
 
     //info para buff del hunter
     //doble salto//
@@ -41,7 +44,6 @@ public class JugadorController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>(); // el rigidbody o sea la parte fisica
         input = GetComponent<InputJugador>(); //accede al input 
         datos = GetComponent<DatosPersonaje>(); // accede a los datos del personaje
-        health = GetComponent<Health>(); // accede al script de salud del pj
         checkGround = GetComponentInChildren<CheckGround>(); // accede al script que detecta si el pj esta tocando el suelo o no
 
         //⊹₊˚‧︵‿₊୨ Visuales୧₊‿︵‧˚₊⊹
@@ -53,14 +55,19 @@ public class JugadorController : MonoBehaviour
 
     void Update()
     {
-        //habilidades de soporte
+        // para el inmovilizado del pj
+        if (duracionInmovilizado > 0f)
+        {
+            duracionInmovilizado -= Time.deltaTime; // si el pj esta inmovilizado, se va descontando el tiempo de inmovilizado
+        }
 
+        //habilidades de soporte
         if (duracionSilenciado > 0f)
         {
             duracionSilenciado -= Time.deltaTime; // si el pj esta silenciado, se va descontando el tiempo de silenciado
         }
 
-        if (input.Habilidad1 && duracionSilenciado <= 0f) // si el pj presiona la habilidad 1 y no esta silenciado
+        if (input.Habilidad1 && duracionSilenciado <= 0f && !EstaInmovilizado) // si el pj presiona la habilidad 1 y no esta silenciado ni inmovilizado
         {
             input.ConsumirHabilidad1(); // avisa al controlador que ya se uso la habilidad
 
@@ -72,7 +79,18 @@ public class JugadorController : MonoBehaviour
             }
         }
 
-        if (input.Habilidad2 && duracionSilenciado <= 0f) // si el pj presiona la habilidad 2 y no esta silenciado
+        if (input.Habilidad2 && duracionSilenciado <= 0f && !EstaInmovilizado) // si el pj presiona la habilidad 2 y no esta silenciado ni inmovilizado
+        {
+            input.ConsumirHabilidad2(); // avisa al controlador que ya se uso la habilidad
+
+            DatosSoporte datosSupp = datos as DatosSoporte; // intenta convertir los datos del pj a datos de soporte
+
+            if (datosSupp != null)
+            {
+                datosSupp.PresionoHabilidad2(); // si el pj es soporte, ejecuta su habilidad 2
+            }
+        }
+
         {
             input.ConsumirHabilidad2();
 
@@ -101,6 +119,15 @@ public class JugadorController : MonoBehaviour
 
     void FixedUpdate()
     {
+        // si el pj esta inmovilizado
+        if (EstaInmovilizado)
+        {
+            rb.velocity = new Vector2(0f, rb.velocity.y); // no puede moverse horizontalmente, pero si puede caer por gravedad
+            
+            if (input.Salto) input.ConsumirSalto();  // avisa al controlador que ya se uso el salto, para que no pueda saltar infinitamente en un solo fotograma
+            return; 
+        }
+
         float velocidadActual = datos.Velocidad; // velocidad base del pj
 
         // si el pj tiene el buff de velocidad, se multiplica la velocidad base por el multiplicador
@@ -143,7 +170,7 @@ public class JugadorController : MonoBehaviour
         if (miAnimator == null) return;
 
         //  . ݁₊ ⊹ . ݁ Chequear si está corriendo  ݁ . ⊹ ₊ ݁.
-        bool estaMoviendose = (input.MovimientoX != 0f);
+        bool estaMoviendose = (input.MovimientoX != 0f) && !EstaInmovilizado;
         miAnimator.SetBool("estaCorriendo", estaMoviendose);
 
         // . ݁₊ ⊹ . ݁ Espejar Sprite  . ⊹ ₊ ݁.
@@ -170,5 +197,11 @@ public class JugadorController : MonoBehaviour
     public void SilenciarHabilidades(float duracion)
     {
         duracionSilenciado = duracion; // arranca o resetea el reloj del silenciado de habilidades
+    }
+
+    public void ActivarInmovilizado(float duracion)
+    {
+        duracionInmovilizado = duracion;
+        print($"El jugador {gameObject.name} ha sido inmovilizado por {duracion} segundos.");
     }
 }

@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 3431514211747111483}
   - component: {fileID: 6807628117432208791}
   - component: {fileID: 14698711695243169}
-  - component: {fileID: 1424859387610941258}
   - component: {fileID: 8374639810526408336}
+  - component: {fileID: 5820850364903991310}
   m_Layer: 8
   m_Name: prefab_Ratonera
   m_TagString: Untagged
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1264301661
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: 36ed4f386a9661e46a368c03c240f79b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -206,23 +206,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1424859387610941258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 133186969796897991}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de7fec0bf06ee3745beef166d5306726, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nombreItem: Ratonera
-  duracionEnMesa: 10
-  tiempoDeSpaw: 2
-  puntosDeCarga: 0
-  danioVida: 10
 --- !u!114 &8374639810526408336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,3 +219,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EstaSobreAlgoPisable: 0
+--- !u!114 &5820850364903991310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133186969796897991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d41411f2161279488d7db6ede00fb7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nombreItem: Ratonera
+  duracionEnMesa: 20
+  tiempoDeSpaw: 0
+  puntosDeCarga: 0
+  tiempoInmovilizado: 5
+  puntosQueResta: 5
