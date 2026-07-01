@@ -55,8 +55,10 @@ public abstract class ClaseItem : MonoBehaviour
     {
         if (yaFueAgarrado) return; // evita otra recoleccion si ya fue agarrado por el jugador
 
+        print($"Objeto detectado: {other.gameObject.name} con Tag: '{other.tag}'. TagPermitido de este ítem es: '{TagPermitido}'"); //DE PRUEBA (BORRAR LUEGO)
+
         // logica para cuando es tocado por el soporte
-        if (other.CompareTag("Soporte"))
+        if (other.CompareTag("Soporte") && (TagPermitido == "Soporte" || TagPermitido == "Ambos"))
         {
             yaFueAgarrado = true; // evita otra recoleccion si ya fue agarrado por el jugador
             
@@ -68,6 +70,7 @@ public abstract class ClaseItem : MonoBehaviour
                 Destroy(gameObject); // destruimos el item recolectable
             }
         }
+
         // logica para cuando es tocado por el cazador
         else if (other.CompareTag("Cazador") && (TagPermitido == "Cazador" || TagPermitido == "Ambos")) // solo se ejecuta si el item es para el cazador o para ambos
         {
