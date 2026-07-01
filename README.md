@@ -1,5 +1,6 @@
 🧀 Erráticas!! 🧀
 
+<img width="1920" height="1080" alt="menu_inicio" src="https://github.com/user-attachments/assets/52c10dcb-9c96-422e-9be7-8c3dfb335756" />  
 
 
 El juego transcurre en una cocina donde encontraremos un chef pretencioso que no quiere ratas en su restaurante y hará todo lo posible para exterminarlas colocando obstáculos en el camino de nuestros protagonistas, los cuales podrán lograr su objetivo de recolectar la mayor cantidad quesos posibles gracias a su trabajo en equipo. 
