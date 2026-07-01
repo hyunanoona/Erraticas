@@ -251,6 +251,8 @@ public class GameManager : MonoBehaviour
         {
             if (nivelActualIndice < niveles.Count)
             {
+                nivelTerminado = false;
+                puntajeJugador = 0;
                 string escenaActual = niveles[nivelActualIndice].nombreNivel;
                 SceneManager.LoadScene(escenaActual);
             }
