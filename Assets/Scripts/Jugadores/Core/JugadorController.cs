@@ -13,6 +13,11 @@ public class JugadorController : MonoBehaviour
     private Rigidbody2D rb; // el componente de fisica del pj
     private InputJugador input; // el script que detecta las entradas del jugador
     private DatosPersonaje datos; // aca estan los datos del pj
+    private AudioSource audioSource; // para reproducir sonidos del pj
+
+    // componentes de audio
+    [SerializeField] private AudioClip sonidoSalto;
+    [SerializeField] private AudioClip sonidoCaida;
 
     // ⊹₊˚‧︵‿₊୨ visuales୧₊‿︵‧˚₊⊹
     private Animator miAnimator;
@@ -29,6 +34,7 @@ public class JugadorController : MonoBehaviour
     //doble salto//
     private float tiempoBuffDobleSalto = 0f; // cuenta regresiva del poder
     private bool yaHizoDobleSalto = false; // indicador de si el jugador ya ha realizado un doble salto, para que no salte salte infinito y mas alla
+
     //velocidad//
     private float tiempoBuffVelocidad = 0f; // cuenta regresiva del poder
     [SerializeField] private float multiplicadorVelocidad = 1.5f; // 1.5 significa que va 50% mas rapido, 2 significa que va el doble de rapido, etc.
@@ -45,6 +51,7 @@ public class JugadorController : MonoBehaviour
         input = GetComponent<InputJugador>(); //accede al input 
         datos = GetComponent<DatosPersonaje>(); // accede a los datos del personaje
         checkGround = GetComponentInChildren<CheckGround>(); // accede al script que detecta si el pj esta tocando el suelo o no
+        audioSource = GetComponent<AudioSource>(); // accede al componente de audio
 
         //⊹₊˚‧︵‿₊୨ Visuales୧₊‿︵‧˚₊⊹
         miAnimator = GetComponent<Animator>();
@@ -140,15 +147,39 @@ public class JugadorController : MonoBehaviour
             if (checkGround != null && checkGround.EstaSobreAlgoPisable) // si el pj esta tocando el suelo, puede saltar
             {
                 rb.velocity = new Vector2(rb.velocity.x, datos.FuerzaSalto); // hace que el jugador salte segun la fuerza de salto del pj
+
+                // para el sonido de salto
+                if (audioSource != null && sonidoSalto != null)
+                {
+                    audioSource.PlayOneShot(sonidoSalto); // reproduce el sonido de salto
+                }
             }
             // esta para el doble salto del hunter
             else if (tiempoBuffDobleSalto > 0f && !yaHizoDobleSalto)
             {
                 rb.velocity = new Vector2(rb.velocity.x, datos.FuerzaSalto); // hace que el jugador salte segun la fuerza de salto del pj
                 yaHizoDobleSalto = true; // para que no siga salta y salta
+
+                // para el sonido del doble salto
+                if (audioSource != null && sonidoSalto != null)
+                {
+                    audioSource.PlayOneShot(sonidoSalto); // reproduce el sonido de salto
+                }
             }
 
             input.ConsumirSalto(); // avisa al controlador que ya se uso el salto, para que no pueda saltar infinitamente en un solo fotograma
+        }
+
+        // para reproducir el sonido de caida
+        if (rb.velocity.y < -1f)  // si el jugador esta cayendo (velocidad negativa en y)
+        {
+            if (checkGround != null && checkGround.EstaSobreAlgoPisable) // si el jugador esta tocando el suelo
+            {
+                if (audioSource != null && sonidoCaida != null) // y hay un sonido de caida asignado
+                {
+                    audioSource.PlayOneShot(sonidoCaida); // reproduce el sonido de caida
+                }
+            }
         }
     }
 
