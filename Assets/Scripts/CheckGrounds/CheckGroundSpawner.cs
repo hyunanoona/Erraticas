@@ -18,23 +18,22 @@ public class CheckGroundSpawner : CheckGround
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Esto mantiene el ítem quieto al tocar el suelo
+        // Esto mantiene el item quieto al tocar el suelo
         if (collision.gameObject.CompareTag("Pisable"))
         {
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
-            rb.bodyType = RigidbodyType2D.Kinematic;
-            rb.velocity = Vector2.zero;
+            if (rb != null)
+            {
+                rb.bodyType = RigidbodyType2D.Kinematic;
+                rb.velocity = Vector2.zero;
+            }
         }
     }
 
+    /*
     protected override void OnTriggerEnter2D(Collider2D other)
     {
         base.OnTriggerEnter2D(other);
-
-        // Chquea si el jugador toca el item asi se destruye para simular que lo recolecto
-        if (other.CompareTag("Cazador") || other.CompareTag("Soporte"))
-        {
-            Destroy(gameObject); 
-        }
     }
+    */
 }

@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombreItem: Veneno
-  duracionEnMesa: 10
+  duracionEnMesa: 8
   tiempoDeSpaw: 3
   puntosDeCarga: 0
   danioVida: 10

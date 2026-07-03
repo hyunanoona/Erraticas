@@ -232,8 +232,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombreItem: Ratonera
-  duracionEnMesa: 20
-  tiempoDeSpaw: 0
+  duracionEnMesa: 10
+  tiempoDeSpaw: 3
   puntosDeCarga: 0
   tiempoInmovilizado: 5
   puntosQueResta: 5

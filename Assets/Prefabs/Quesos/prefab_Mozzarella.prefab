@@ -233,9 +233,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombreItem: Queso Mozzarella
-  duracionEnMesa: 15
-  tiempoDeSpaw: 1
-  puntosDeCarga: 0
+  duracionEnMesa: 4
+  tiempoDeSpaw: 2
+  puntosDeCarga: 10
 --- !u!1001 &4177235372116299731
 PrefabInstance:
   m_ObjectHideFlags: 0

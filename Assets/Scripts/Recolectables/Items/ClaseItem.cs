@@ -53,56 +53,40 @@ public abstract class ClaseItem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (yaFueAgarrado) return; // evita otra recoleccion si ya fue agarrado por el jugador
+        if (yaFueAgarrado) return;
 
-        print($"Objeto detectado: {other.gameObject.name} con Tag: '{other.tag}'. TagPermitido de este ítem es: '{TagPermitido}'"); //DE PRUEBA (BORRAR LUEGO)
-
-        // logica para cuando es tocado por el soporte
-        if (other.CompareTag("Soporte") && (TagPermitido == "Soporte" || TagPermitido == "Ambos"))
+        // Si lo toca el soporte 
+        if (other.CompareTag("Soporte"))
         {
-            yaFueAgarrado = true; // evita otra recoleccion si ya fue agarrado por el jugador
-            
-            DatosSoporte soporte = other.GetComponent<DatosSoporte>(); // obtenemos el componente del soporte que lo toco
+            // Si el queso no es para el Soporte ni para ambos lo ignora por completo
+            if (TagPermitido != "Soporte" && TagPermitido != "Ambos") return;
 
+            DatosSoporte soporte = other.GetComponent<DatosSoporte>() ?? other.GetComponentInParent<DatosSoporte>();
             if (soporte != null)
             {
-                AplicarEfectoSoporte(soporte); // ejecutamos la logica de recoleccion del soporte
-                Destroy(gameObject); // destruimos el item recolectable
+                yaFueAgarrado = true;
+                print($"¡{other.gameObject.name} (Soporte) recolectó con exito: {nombreItem}!");
+                AplicarEfectoSoporte(soporte);
+                Destroy(gameObject);
             }
         }
 
-        // logica para cuando es tocado por el cazador
-        else if (other.CompareTag("Cazador") && (TagPermitido == "Cazador" || TagPermitido == "Ambos")) // solo se ejecuta si el item es para el cazador o para ambos
+        // Si lo toca el cazador
+        else if (other.CompareTag("Cazador"))
         {
-            yaFueAgarrado = true; // evita otra recoleccion si ya fue agarrado por el jugador
+            // Si el queso no es para el Cazador ni para ambos lo ignora por completo
+            if (TagPermitido != "Cazador" && TagPermitido != "Ambos") return;
 
-            DatosCazador cazador = other.GetComponent<DatosCazador>(); // obtenemos el componente del cazador que lo toco
-            
+            DatosCazador cazador = other.GetComponent<DatosCazador>() ?? other.GetComponentInParent<DatosCazador>();
             if (cazador != null)
             {
-                AplicarEfectoCazador(cazador); // ejecutamos la logica de recoleccion del cazador
-                Destroy(gameObject); // destruimos el item recolectable
+                yaFueAgarrado = true;
+                print($"¡{other.gameObject.name} (Cazador) recolectó con éxito: {nombreItem}!");
+                AplicarEfectoCazador(cazador);
+                Destroy(gameObject);
             }
         }
-
     }
-
-/*
-    //  •• <<────────────────≪•◦ Recolección ◦•≫────────────────>> ••
-
-    private void RecoleccionCazador(DatosCazador cazador) 
-    {
-        //cazador.CargarBarraHabilidad(puntosDeCarga); --> Carga la habiliadad pasiva
-        AplicarEfectoCazador(cazador);
-        Destroy(gameObject);
-    }
-
-    private void RecoleccionSoporte(DatosSoporte soporte)
-    {
-        AplicarEfectoSoporte(soporte);
-        Destroy(gameObject);
-    }
-*/
 
     //  •• <<────────────────≪•◦ Efectos Obstaculos ◦•≫────────────────>> ••
 

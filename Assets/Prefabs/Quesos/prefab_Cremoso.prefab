@@ -232,6 +232,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombreItem: Queso Cremoso
-  duracionEnMesa: 15
-  tiempoDeSpaw: 2
-  puntosDeCarga: 0
+  duracionEnMesa: 6
+  tiempoDeSpaw: 3
+  puntosDeCarga: 10
