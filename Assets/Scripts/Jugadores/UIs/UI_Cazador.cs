@@ -9,83 +9,59 @@ public class UI_Cazador : MonoBehaviour
     [SerializeField] private Slider barraVida;
     [SerializeField] private Image escudoInmune;
 
-    //------------------------------------------------- agregado de flor //
     [Header("⁺‧₊˚ ཐི⋆ Habilidad Pasiva ⋆ཋྀ ˚₊‧⁺")]
-    [SerializeField] private Slider barraHabilidad;
-    [SerializeField] private Image fillBarraHabilidad; 
-
-    //[Tooltip("Tipo de queso que requiere este cazador")]
-    //[SerializeField] private string tipoDeQueso = "queso_pategras";
-    [Tooltip("Cantidad de quesos necesarios para activar la habilidad")]
-    [SerializeField] private int quesosMaximosRequeridos = 5;
-
-    private Coroutine corrutinaTitileo;
-    private bool estaTitilando = false;
-    //------------------------------------------------- agregado de flor //
+    [SerializeField] private Slider barraHabilidadVioleta;
 
     [Header("⁺‧₊˚ ཐི⋆ Componentes ⋆ཋྀ ˚₊‧⁺")]
     [SerializeField] private Image iconoPasiva;
 
+    // 🌟 Almacenamos el personaje que esta interfaz va a vigilar
+    private DatosCazador personajeVigilado;
+
     void Awake()
     {
-        escudoInmune.gameObject.SetActive(false);
-        ActualizarContadorQuesosPasiva(0); // --> lo puso flor
+        if (escudoInmune != null) escudoInmune.gameObject.SetActive(false);
     }
 
-    public void ActualizarVida(int actual, int max) 
+    void Start()
     {
-        barraVida.value = (float)actual / max;
+        // la UI busca al Cazador en la escena
+        personajeVigilado = Object.FindFirstObjectByType<DatosCazador>();
+
+        if (personajeVigilado != null)
+        {
+            personajeVigilado.AsignarUI(this);
+        }
+    }
+
+    void Update()
+    {
+        if (personajeVigilado == null)
+        {
+            personajeVigilado = Object.FindFirstObjectByType<DatosCazador>();
+            if (personajeVigilado != null)
+            {
+                personajeVigilado.AsignarUI(this);
+            }
+        }
+    }
+
+    public void ActualizarVida(int actual, int max)
+    {
+        if (barraVida != null) barraVida.value = (float)actual / max;
     }
 
     public void MostrarInmunidad(bool esInmune)
     {
-        escudoInmune.gameObject.SetActive(esInmune);
+        if (escudoInmune != null) escudoInmune.gameObject.SetActive(esInmune);
     }
 
-
-
-    //------------------------------------------------- agregado de flor //
-    public void ActualizarContadorQuesosPasiva(int cantidadActual)
+    // metodo para actualizar la barra de habilidad en la UI del cazador
+    public void SetearLlenadoHabilidad(float porcentaje)
     {
-        // Se calcula el porcentaje y actualizar la barrita 
-        float porcentaje = (float)cantidadActual / quesosMaximosRequeridos;
-        barraHabilidad.value = Mathf.Clamp01(porcentaje);
-
-
-        // Maneja el titileo 
-        if (cantidadActual >= quesosMaximosRequeridos)
+        if (barraHabilidadVioleta != null)
         {
-            if (!estaTitilando)
-            {
-                corrutinaTitileo = StartCoroutine(TitilarBarraAmarilla());
-            }
-        }
-        else
-        {
-            // Si la habilidad se gasta
-            if (estaTitilando)
-            {
-                StopCoroutine(corrutinaTitileo);
-                estaTitilando = false;
-                fillBarraHabilidad.color = Color.yellow; // Volver al color base fijo
-            }
+            barraHabilidadVioleta.value = Mathf.Clamp01(porcentaje);
         }
     }
-
-    private IEnumerator TitilarBarraAmarilla()
-    {
-        estaTitilando = true;
-        Color colorOriginal = Color.yellow;
-        Color colorOculto = new Color(colorOriginal.r, colorOriginal.g, colorOriginal.b, 0.2f); // Casi transparente
-
-        while (estaTitilando)
-        {
-            fillBarraHabilidad.color = colorOculto;
-            yield return new WaitForSeconds(0.2f); // Velocidad del parpadeo
-            fillBarraHabilidad.color = colorOriginal;
-            yield return new WaitForSeconds(0.2f);
-        }
-    }
-
-    //------------------------------------------------- agregado de flor //
 }

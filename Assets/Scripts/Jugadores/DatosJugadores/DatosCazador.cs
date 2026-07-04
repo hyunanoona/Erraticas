@@ -7,14 +7,26 @@ using UnityEngine;
 public class DatosCazador : DatosPersonaje
 {
     // contadores de unidades fisicas de queso para el cazador
-    public int QuesosPategras { get; private set; } = 0; 
+    public int QuesosPategras { get; private set; } = 0;
     public int PuntajeDelQueso { get; private set; } = 0;
+
+    // UI de los pjs
+    private int quesosParaHabilidad = 4; // De prueba por el momento 
+    private UI_Cazador uiAsociada;       // Se guarda la UI asignada a este clon del cazador
+
     void Awake()
     {
         // datos especificos del cazador
         Velocidad = 10f;
         FuerzaSalto = 18f;
         EscalaGravedad = 3.5f;
+    }
+
+    // metodo para asignar la UI del cazador a este script
+    public void AsignarUI(UI_Cazador uiCazador)
+    {
+        uiAsociada = uiCazador;
+        ActualizarVisualizacionBarra(); 
     }
 
     public void ActualizarPuntosBono(int puntos)
@@ -37,8 +49,10 @@ public class DatosCazador : DatosPersonaje
             QuesosPategras++;
             print($"Cazador sumó {tipoDeQueso}! Total: {QuesosPategras}");
 
+            ActualizarVisualizacionBarra();
+
             HabilidadFaso habilidad = GetComponent<HabilidadFaso>();
-        
+
             if (habilidad != null && habilidad.PuedeEjecutar(this))
             {
                 JugadorController controller = GetComponent<JugadorController>();
@@ -50,6 +64,21 @@ public class DatosCazador : DatosPersonaje
     // metodo para restar las 4 unidades de queso gastadas por la pasiva
     public override void RestarQuesos(string tipoDeQueso, int cantidad)
     {
-        if (tipoDeQueso == "Pategras") QuesosPategras -= cantidad;
+        if (tipoDeQueso == "Pategras")
+        {
+            QuesosPategras -= cantidad;
+
+            ActualizarVisualizacionBarra();
+        }
+    }
+
+    // metodo para actualizar la barra de habilidad en la UI del cazador
+    private void ActualizarVisualizacionBarra()
+    {
+        if (uiAsociada != null && quesosParaHabilidad > 0)
+        {
+            float porcentaje = (float)QuesosPategras / quesosParaHabilidad;
+            uiAsociada.SetearLlenadoHabilidad(porcentaje);
+        }
     }
 }
