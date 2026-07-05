@@ -205,6 +205,17 @@ public class GameManager : MonoBehaviour
             ChequearMetaNivel();
         }
 
+        public void SumarTiempoExtra(float segundosExtra) // para la pasiva de la cunty, agregado por ame :p
+        {
+            if (nivelTerminado) return; // si el nivel termino, returnea
+
+            tiempoRestante += segundosExtra; // suma el tiempo extra al cronometro
+            
+            ActualizarTextoCronometro(); //llama al metodo para actualizar el texto del cronometro en la UI
+
+            print($"Tiempo extra sumado: {segundosExtra} segundos. Tiempo restante ahora: {tiempoRestante} segundos."); // imprime en consola el tiempo extra sumado y el tiempo restante
+        }
+
         private void ActualizarTextoPuntaje()
         {
                 if (textoPuntajeUI != null)

@@ -37,8 +37,8 @@ public class DatosCazador : DatosPersonaje
     // metodo para obtener la cantidad de quesos especifica del cazador
     public override int ObtenerCantidadQueso(string tipoDeQueso)
     {
-        if (tipoDeQueso == "Pategras") return QuesosPategras;
-        return 0;
+        if (tipoDeQueso == "Pategras") return QuesosPategras; //si es pategras, retorna la cantidad de quesos del cazador
+        return 0; // si no, retorna 0
     }
 
     // metodo que carga los quesos de a 1 unidad del
@@ -51,12 +51,15 @@ public class DatosCazador : DatosPersonaje
 
             ActualizarVisualizacionBarra();
 
-            HabilidadFaso habilidad = GetComponent<HabilidadFaso>();
+            HabilidadBase habilidad = GetComponent<HabilidadBase>(); // obtenemos la habilidad del cazador 
 
-            if (habilidad != null && habilidad.PuedeEjecutar(this))
+            if (QuesosPategras >= quesosParaHabilidad && habilidad != null) // si tiene la cantidad de quesos necesarios y la habilidad no es nula
             {
-                JugadorController controller = GetComponent<JugadorController>();
-                habilidad.Ejecutar(gameObject, controller);
+                JugadorController controller = GetComponent<JugadorController>();  // obtenemos el controller del cazador para pasarlo a la habilidad
+                
+                habilidad.Ejecutar(gameObject, controller); // ejecutamos la habilidad del cazador, pasandole el gameObject del cazador y su controller
+
+                RestarQuesos("Pategras", quesosParaHabilidad); // resta los cheeses
             }
         }
     }
@@ -64,9 +67,9 @@ public class DatosCazador : DatosPersonaje
     // metodo para restar las 4 unidades de queso gastadas por la pasiva
     public override void RestarQuesos(string tipoDeQueso, int cantidad)
     {
-        if (tipoDeQueso == "Pategras")
+        if (tipoDeQueso == "Pategras") // si es del tipo de queso que el cazador puede usar
         {
-            QuesosPategras -= cantidad;
+            QuesosPategras -= cantidad; // resta la cantidad de quesos gastados
 
             ActualizarVisualizacionBarra();
         }
