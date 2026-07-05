@@ -18,12 +18,14 @@ public class DatosSoporte : DatosPersonaje
     public int QuesosProvoleta { get; private set; } = 0;
     public int QuesosCremoso { get; private set; } = 0;
 
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake(); // llama al Awake de la clase base para inicializar el audioSource
+
         // datos especificos del soporte
-        Velocidad = 6f;
-        FuerzaSalto = 16f;
-        EscalaGravedad = 2f;
+        Velocidad = 8f;
+        FuerzaSalto = 15f;
+        EscalaGravedad = 3.5f;
     }
 
     void Start()
@@ -79,6 +81,13 @@ public class DatosSoporte : DatosPersonaje
     // metodo que carga los quesos de a 1 unidad del soporte
     public override void AgregarQueso(string tipoDeQueso)
     {
+        // para que suene el ñam
+        if (tipoDeQueso == "Roquefort" || tipoDeQueso == "Mozzarella" || tipoDeQueso == "Provoleta" || tipoDeQueso == "Cremoso")
+        {
+            base.AgregarQueso(tipoDeQueso); // llama al metodo de la clase base para reproducir el sonido de mordida
+        }
+
+        // logica de agregado normal
         if (tipoDeQueso == "Roquefort") QuesosRoquefort++;
         if (tipoDeQueso == "Mozzarella") QuesosMozzarella++;
         if (tipoDeQueso == "Provoleta") QuesosProvoleta++;

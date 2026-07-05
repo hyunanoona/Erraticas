@@ -14,8 +14,10 @@ public class DatosCazador : DatosPersonaje
     private int quesosParaHabilidad = 4; // De prueba por el momento 
     private UI_Cazador uiAsociada;       // Se guarda la UI asignada a este clon del cazador
 
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake(); // llama al Awake de la clase base para inicializar el audioSource
+
         // datos especificos del cazador
         Velocidad = 10f;
         FuerzaSalto = 18f;
@@ -46,6 +48,8 @@ public class DatosCazador : DatosPersonaje
     {
         if (tipoDeQueso == "Pategras")
         {
+            base.AgregarQueso(tipoDeQueso);
+
             QuesosPategras++;
             print($"Cazador sumó {tipoDeQueso}! Total: {QuesosPategras}");
 
