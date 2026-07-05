@@ -14,6 +14,8 @@ public class DatosPersonaje : MonoBehaviour
 
     [Header("Efectos de sonido")]
     [SerializeField] private AudioClip sonidoMordida;
+    [SerializeField] private AudioClip sonidoHabilidadCargada;
+    [SerializeField] private AudioClip sonidoHabilidadUsada;
     private AudioSource audioSource;
 
     protected virtual void Awake()
@@ -39,9 +41,21 @@ public class DatosPersonaje : MonoBehaviour
     // para sonidos y chucherias asi
     public void ReproducirSonidoMordida()
     {
-        if (audioSource != null && sonidoMordida != null)
+        if (audioSource != null && sonidoMordida != null) // si el audioSource y el clip de sonido no son nulos
         {
-            audioSource.PlayOneShot(sonidoMordida);
+            audioSource.PlayOneShot(sonidoMordida); // reproduce el sonido de mordida
         }
+    }
+
+    public void ReproducirSonidoHabilidadCargada()
+    {
+        if (audioSource != null && sonidoHabilidadCargada != null) // si el audioSource y el clip de sonido no son nulos
+            audioSource.PlayOneShot(sonidoHabilidadCargada); // reproduce el sonido de habilidad cargada
+    }
+
+    public void ReproducirSonidoHabilidadUsada()
+    {
+        if (audioSource != null && sonidoHabilidadUsada != null) // si el audioSource y el clip de sonido no son nulos
+            audioSource.PlayOneShot(sonidoHabilidadUsada); // reproduce el sonido de habilidad usada
     }
 }
