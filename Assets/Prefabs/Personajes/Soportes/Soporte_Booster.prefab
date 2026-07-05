@@ -209,6 +209,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sonidoMordida: {fileID: 8300000, guid: 37802eed57a43914195a6f5be072353c, type: 3}
+  sonidoHabilidadCargada: {fileID: 0}
+  sonidoHabilidad1Usada: {fileID: 8300000, guid: 9098fab3f06762a4baaecedc492ac4b6, type: 3}
+  sonidoHabilidad2Usada: {fileID: 8300000, guid: 74b6cf6691187f14c995b34152f1ee15, type: 3}
 --- !u!114 &4289012452525121589
 MonoBehaviour:
   m_ObjectHideFlags: 0

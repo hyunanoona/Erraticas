@@ -227,6 +227,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sonidoMordida: {fileID: 8300000, guid: 37802eed57a43914195a6f5be072353c, type: 3}
+  sonidoHabilidadCargada: {fileID: 0}
+  sonidoHabilidad1Usada: {fileID: 8300000, guid: d9be46be23c2a804581e3a8323e883a4, type: 3}
+  sonidoHabilidad2Usada: {fileID: 0}
 --- !u!50 &6449594132741213762
 Rigidbody2D:
   serializedVersion: 4

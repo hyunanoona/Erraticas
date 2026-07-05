@@ -52,6 +52,7 @@ public class DatosSoporte : DatosPersonaje
         {
             if (hab1.PuedeEjecutar(this)) // solo ejecuta si la habilidad 1 confirma que tiene los 4 quesos correspondientes
             {
+                ReproducirSonidoHabilidad1Usada();
                 hab1.Ejecutar(gameObject, cazadorAliado); // ejecutamos la habilidad pasando la info del soporte y del cazador aliado
             }
         }
@@ -63,6 +64,7 @@ public class DatosSoporte : DatosPersonaje
         {
             if (hab2.PuedeEjecutar(this)) // solo ejecuta si la habilidad 2 confirma que tiene los 4 quesos correspondientes
             {
+                ReproducirSonidoHabilidad2Usada();
                 hab2.Ejecutar(gameObject, cazadorAliado); // ejecutamos la habilidad pasando la info del soporte y del cazador aliado
             }
         }
@@ -84,7 +86,7 @@ public class DatosSoporte : DatosPersonaje
         // para que suene el ñam
         if (tipoDeQueso == "Roquefort" || tipoDeQueso == "Mozzarella" || tipoDeQueso == "Provoleta" || tipoDeQueso == "Cremoso")
         {
-            base.AgregarQueso(tipoDeQueso); // llama al metodo de la clase base para reproducir el sonido de mordida
+            ReproducirSonidoMordida(); // reproduce el sonido de mordida 
         }
 
         // logica de agregado normal

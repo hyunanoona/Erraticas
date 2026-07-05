@@ -15,7 +15,9 @@ public class DatosPersonaje : MonoBehaviour
     [Header("Efectos de sonido")]
     [SerializeField] private AudioClip sonidoMordida;
     [SerializeField] private AudioClip sonidoHabilidadCargada;
-    [SerializeField] private AudioClip sonidoHabilidadUsada;
+    [SerializeField] private AudioClip sonidoHabilidad1Usada;
+    [SerializeField] private AudioClip sonidoHabilidad2Usada;
+
     private AudioSource audioSource;
 
     protected virtual void Awake()
@@ -30,7 +32,7 @@ public class DatosPersonaje : MonoBehaviour
 
     public virtual void AgregarQueso(string tipoDeQueso)
     {
-        ReproducirSonidoMordida(); // ñam
+        // metodo abstracto
     }
 
     public virtual void RestarQuesos(string tipoDeQueso, int cantidad)
@@ -53,9 +55,15 @@ public class DatosPersonaje : MonoBehaviour
             audioSource.PlayOneShot(sonidoHabilidadCargada); // reproduce el sonido de habilidad cargada
     }
 
-    public void ReproducirSonidoHabilidadUsada()
+    public void ReproducirSonidoHabilidad1Usada()
     {
-        if (audioSource != null && sonidoHabilidadUsada != null) // si el audioSource y el clip de sonido no son nulos
-            audioSource.PlayOneShot(sonidoHabilidadUsada); // reproduce el sonido de habilidad usada
+        if (audioSource != null && sonidoHabilidad1Usada != null) // si el audioSource y el clip de sonido no son nulos
+            audioSource.PlayOneShot(sonidoHabilidad1Usada, 1f); // reproduce el sonido de habilidad usada
+    }
+
+    public void ReproducirSonidoHabilidad2Usada()
+    {
+        if (audioSource != null && sonidoHabilidad2Usada != null) // si el audioSource y el clip de sonido no son nulos
+            audioSource.PlayOneShot(sonidoHabilidad2Usada); // reproduce el sonido de habilidad usada
     }
 }

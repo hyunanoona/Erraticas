@@ -48,7 +48,7 @@ public class DatosCazador : DatosPersonaje
     {
         if (tipoDeQueso == "Pategras")
         {
-            base.AgregarQueso(tipoDeQueso);
+            ReproducirSonidoMordida(); // reproduce el sonido de mordida
 
             QuesosPategras++;
             print($"Cazador sumó {tipoDeQueso}! Total: {QuesosPategras}");
@@ -59,6 +59,8 @@ public class DatosCazador : DatosPersonaje
 
             if (QuesosPategras >= quesosParaHabilidad && habilidad != null) // si tiene la cantidad de quesos necesarios y la habilidad no es nula
             {
+                ReproducirSonidoHabilidad1Usada();
+                
                 JugadorController controller = GetComponent<JugadorController>();  // obtenemos el controller del cazador para pasarlo a la habilidad
                 
                 habilidad.Ejecutar(gameObject, controller); // ejecutamos la habilidad del cazador, pasandole el gameObject del cazador y su controller
