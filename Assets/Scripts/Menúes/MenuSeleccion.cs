@@ -53,7 +53,7 @@ public class MenuSeleccion : MonoBehaviour
     public string ratita2TipoRol;
     private bool selecP1Confirmada = false;
     private bool selecP2Confirmada = false;
-    [SerializeField] private List<DetalleTipoRol> opcionesCazador;  // CONFIGURAR DESDE INSPECTOR
+    [SerializeField] private List<DetalleTipoRol> opcionesCazador;  
     [SerializeField] private List<DetalleTipoRol> opcionesSoporte;
 
     // Listas: reflejos e índices ˖ ࣪⊹
@@ -61,8 +61,7 @@ public class MenuSeleccion : MonoBehaviour
     private List<DetalleTipoRol> listaActualP2;
     private int indiceP1 = 0;
     private int indiceP2 = 0;
-
-
+    // private List<VisualesTutorial> visualesTutorial = new List<VisualesTutorial>();  van a tener el indice de las visuales que se ven en el tutorial (descripUno, descripDos...);
 
     void Start()
     { 
