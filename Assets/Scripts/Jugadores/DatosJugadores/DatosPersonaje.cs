@@ -36,6 +36,7 @@ public class DatosPersonaje : MonoBehaviour
         // metodo abstracto
     }
 
+    // para sonidos y chucherias asi
     public void ReproducirSonidoMordida()
     {
         if (audioSource != null && sonidoMordida != null)

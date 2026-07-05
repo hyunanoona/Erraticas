@@ -17,6 +17,8 @@ public class Veneno : ClaseItem
         public Veneno() { nombreItem = "Veneno"; }
         protected override void AplicarEfectoCazador(DatosCazador cazador)
         {
+            ReproducirSonidoInteractuar(); // reproduce el sonido de interaccion del item
+
             Health vidaCazador = cazador.GetComponent<Health>();
             if (vidaCazador != null)
             {
@@ -26,6 +28,7 @@ public class Veneno : ClaseItem
 
         protected override void AplicarEfectoSoporte(DatosSoporte soporte)
         {
+            ReproducirSonidoInteractuar(); // reproduce el sonido de interaccion del item
             Health vidaSoporte = soporte.GetComponent<Health>();
             if (vidaSoporte != null)
             {

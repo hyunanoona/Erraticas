@@ -10,6 +10,8 @@ public class Ratonera : ClaseItem
 
     protected override void AplicarEfectoCazador(DatosCazador cazador)
     {
+        ReproducirSonidoInteractuar(); // reproduce el sonido de interaccion del item
+        
         //Resta puntaje
         if (GameManager.Instance != null)
         {
@@ -24,6 +26,8 @@ public class Ratonera : ClaseItem
     }
     protected override void AplicarEfectoSoporte(DatosSoporte soporte)
     {
+        ReproducirSonidoInteractuar(); // reproduce el sonido de interaccion del item
+
         //Resta puntaje
         if (GameManager.Instance != null)
         {

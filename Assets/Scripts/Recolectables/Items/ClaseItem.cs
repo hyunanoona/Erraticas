@@ -30,6 +30,11 @@ public abstract class ClaseItem : MonoBehaviour
     protected bool yaFueAgarrado = false;
     protected abstract string TagPermitido { get; }
 
+    // variables de audio
+    [Header("Efectos de sonido")]
+    [SerializeField] private AudioClip sonidoInteractuar;
+    private AudioSource audioSource;
+
 
     //  •• <<────────────────≪•◦ Tiempo ◦•≫────────────────>> ••
 
@@ -88,7 +93,16 @@ public abstract class ClaseItem : MonoBehaviour
         }
     }
 
-    //  •• <<────────────────≪•◦ Efectos Obstaculos ◦•≫────────────────>> ••
+    //metodo para reproducir el sonido de interaccion del item
+    public void ReproducirSonidoInteractuar()
+    {
+        if (sonidoInteractuar != null)
+        {
+            AudioSource.PlayClipAtPoint(sonidoInteractuar, transform.position); // reproduce el sonido en la posicion del item desde la posicion del objeto (por el destroy)
+        }
+    }
+
+    //  •• <<────────────────≪•◦ Efectos Obstaculos ◦•≫────────────────>> ••  //
 
     // Estan vacios ya que dps los obstaculos y quesos tendran su logica de daño o bufos
     protected virtual void AplicarEfectoCazador(DatosCazador cazador) { }
