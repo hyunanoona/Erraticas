@@ -1741,7 +1741,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8759120897224900163}
   m_Layer: 0
-  m_Name: FlechaDer
+  m_Name: TeclaD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2746,7 +2746,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3483513839187504891}
   m_Layer: 0
-  m_Name: FlechaArriba
+  m_Name: TeclaW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3364,7 +3364,7 @@ GameObject:
   m_Component:
   - component: {fileID: 729699152286741724}
   m_Layer: 0
-  m_Name: FlechaIzq
+  m_Name: TeclaA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
