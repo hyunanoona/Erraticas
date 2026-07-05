@@ -52,7 +52,7 @@ public class DatosPersonaje : MonoBehaviour
     public void ReproducirSonidoHabilidadCargada()
     {
         if (audioSource != null && sonidoHabilidadCargada != null) // si el audioSource y el clip de sonido no son nulos
-            audioSource.PlayOneShot(sonidoHabilidadCargada); // reproduce el sonido de habilidad cargada
+            audioSource.PlayOneShot(sonidoHabilidadCargada, 1f); // reproduce el sonido de habilidad cargada
     }
 
     public void ReproducirSonidoHabilidad1Usada()
@@ -64,6 +64,6 @@ public class DatosPersonaje : MonoBehaviour
     public void ReproducirSonidoHabilidad2Usada()
     {
         if (audioSource != null && sonidoHabilidad2Usada != null) // si el audioSource y el clip de sonido no son nulos
-            audioSource.PlayOneShot(sonidoHabilidad2Usada); // reproduce el sonido de habilidad usada
+            audioSource.PlayOneShot(sonidoHabilidad2Usada, 1f); // reproduce el sonido de habilidad usada
     }
 }

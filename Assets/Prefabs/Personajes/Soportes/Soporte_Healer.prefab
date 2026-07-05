@@ -137,6 +137,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sonidoMordida: {fileID: 8300000, guid: 37802eed57a43914195a6f5be072353c, type: 3}
+  sonidoHabilidadCargada: {fileID: 8300000, guid: 6939e6a5671892748a7ce531562676ae, type: 3}
+  sonidoHabilidad1Usada: {fileID: 8300000, guid: a06b5d0ef7a44774f8863b3c8dfb4ec7, type: 3}
+  sonidoHabilidad2Usada: {fileID: 8300000, guid: a07aa5ed54c1d4d488d343578f8f32f2, type: 3}
 --- !u!61 &5095844470315635593
 BoxCollider2D:
   m_ObjectHideFlags: 0

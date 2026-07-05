@@ -96,6 +96,12 @@ public class DatosSoporte : DatosPersonaje
         if (tipoDeQueso == "Cremoso") QuesosCremoso++;
         
         print($" Quesito sumado tipo: {tipoDeQueso} | Total: R:{QuesosRoquefort} M:{QuesosMozzarella} P:{QuesosProvoleta} C:{QuesosCremoso}");
+
+        // para que suene el sonido de habilidad cargada cuando llega a 4 unidades de queso
+        if (tipoDeQueso == "Roquefort" && QuesosRoquefort == 4) ReproducirSonidoHabilidadCargada();
+        if (tipoDeQueso == "Mozzarella" && QuesosMozzarella == 4) ReproducirSonidoHabilidadCargada();
+        if (tipoDeQueso == "Provoleta" && QuesosProvoleta == 4) ReproducirSonidoHabilidadCargada();
+        if (tipoDeQueso == "Cremoso" && QuesosCremoso == 4) ReproducirSonidoHabilidadCargada();
     }
 
     // metodo para restar las 4 unidades de queso gastadas por la habilidad
