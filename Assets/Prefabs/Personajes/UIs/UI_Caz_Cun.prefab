@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.59099555, g: 0.1966002, b: 0.8867924, a: 1}
+  m_Color: {r: 0.8745098, g: 0.3647059, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -562,6 +562,7 @@ MonoBehaviour:
   barraVida: {fileID: 7917565225360075665}
   escudoInmune: {fileID: 2739646798626233942}
   barraHabilidadVioleta: {fileID: 3028489543842442524}
+  imageFillHabilidad: {fileID: 7183362593481484977}
   iconoPasiva: {fileID: 833868746313653504}
 --- !u!1 &5192808524201381724
 GameObject:

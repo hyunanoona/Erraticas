@@ -11,13 +11,13 @@ public class UI_Cazador : MonoBehaviour
 
     [Header("⁺‧₊˚ ཐི⋆ Habilidad Pasiva ⋆ཋྀ ˚₊‧⁺")]
     [SerializeField] private Slider barraHabilidadVioleta;
+    [SerializeField] private Image imageFillHabilidad; 
 
     [Header("⁺‧₊˚ ཐི⋆ Componentes ⋆ཋྀ ˚₊‧⁺")]
     [SerializeField] private Image iconoPasiva;
 
-    // 🌟 Almacenamos el personaje que esta interfaz va a vigilar
     private DatosCazador personajeVigilado;
-    private bool estaTitilando = false; // 🌟 Controla si el Update debe hacer parpadear la barra
+    private bool estaTitilando = false;
 
     void Awake()
     {
@@ -26,13 +26,9 @@ public class UI_Cazador : MonoBehaviour
 
     void Start()
     {
-        // la UI busca al Cazador en la escena
+        // se intenta encontrar el personaje vigilado al inicio para asignarle la UI
         personajeVigilado = Object.FindFirstObjectByType<DatosCazador>();
-
-        if (personajeVigilado != null)
-        {
-            personajeVigilado.AsignarUI(this);
-        }
+        if (personajeVigilado != null) personajeVigilado.AsignarUI(this);
     }
 
     void Update()
@@ -40,17 +36,14 @@ public class UI_Cazador : MonoBehaviour
         if (personajeVigilado == null)
         {
             personajeVigilado = Object.FindFirstObjectByType<DatosCazador>();
-            if (personajeVigilado != null)
-            {
-                personajeVigilado.AsignarUI(this);
-            }
+            if (personajeVigilado != null) personajeVigilado.AsignarUI(this);
         }
 
-        // 🌟 SI DEBE TITILAR: Apaga y prende el GameObject del Slider usando el reloj interno del juego
-        if (estaTitilando && barraHabilidadVioleta != null)
+        // Solo parpadea el componente Image del relleno (fill)
+        if (estaTitilando && imageFillHabilidad != null)
         {
-            // Alterna de visibilidad rápido (frecuencia multiplicada por 8f para que sea dinámico)
-            barraHabilidadVioleta.gameObject.SetActive(Mathf.FloorToInt(Time.time * 8f) % 2 == 0);
+            // se apaga y prende el componente Image (el fill)
+            imageFillHabilidad.enabled = (Mathf.FloorToInt(Time.time * 8f) % 2 == 0);
         }
     }
 
@@ -64,7 +57,6 @@ public class UI_Cazador : MonoBehaviour
         if (escudoInmune != null) escudoInmune.gameObject.SetActive(esInmune);
     }
 
-    // 🌟 MODIFICADO: Ahora recibe si tiene que activar el modo parpadeo o no
     public void SetearLlenadoHabilidad(float porcentaje, bool debeTitilar = false)
     {
         if (barraHabilidadVioleta != null)
@@ -74,10 +66,9 @@ public class UI_Cazador : MonoBehaviour
 
         estaTitilando = debeTitilar;
 
-        // Si ya terminó el tiempo y no debe titilar más, nos aseguramos de que quede visible
-        if (!debeTitilar && barraHabilidadVioleta != null)
+        if (!debeTitilar && imageFillHabilidad != null)
         {
-            barraHabilidadVioleta.gameObject.SetActive(true);
+            imageFillHabilidad.enabled = true;
         }
     }
 }

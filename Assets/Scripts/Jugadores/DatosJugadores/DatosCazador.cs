@@ -1,10 +1,11 @@
 using UnityEngine;
+using System.Collections;
 
 /*
     Este script es responsable de almacenar los datos del personaje, como su velocidad, su fuerza de salto, su escala de gravedad, etc. 
     Es una clase base que sera heredada por los datos especificos de cada rol (soporte y cazador), asi cada rol puede tener sus propios valores y habilidades sin afectar al otro.
 */
-using System.Collections; // 🌟 Necesario para usar IEnumerator
+
 
 public class DatosCazador : DatosPersonaje
 {
@@ -12,10 +13,10 @@ public class DatosCazador : DatosPersonaje
     public int QuesosPategras { get; private set; } = 0;
     public int PuntajeDelQueso { get; private set; } = 0;
 
-    // UI de los pjs
-    private int quesosParaHabilidad = 4; // De prueba por el momento 
-    private UI_Cazador uiAsociada;       // Se guarda la UI asignada a este clon del cazador
-    private bool esperandoHabilidad = false; // 🌟 Evita agarrar quesos de más mientras titila
+   
+    private int quesosParaHabilidad = 4;     // cantidad de quesos necesarios para activar la habilidad del cazador
+    private UI_Cazador uiAsociada;           // referencia a la UI del cazador para actualizar la barra de habilidad
+    private bool esperandoHabilidad = false; // var para bloquear la habilidad mientras se espera el titileo de 2 seg
 
     protected override void Awake()
     {
@@ -49,7 +50,7 @@ public class DatosCazador : DatosPersonaje
     // metodo que carga los quesos de a 1 unidad del
     public override void AgregarQueso(string tipoDeQueso)
     {
-        if (esperandoHabilidad) return; // 🌟 Bloqueo temporal durante los 2 segundos de parpadeo
+        if (esperandoHabilidad) return;
 
         if (tipoDeQueso == "Pategras")
         {
@@ -60,33 +61,31 @@ public class DatosCazador : DatosPersonaje
 
             ActualizarVisualizacionBarra();
 
-            HabilidadBase habilidad = GetComponent<HabilidadBase>(); // obtenemos la habilidad del cazador 
+            HabilidadBase habilidad = GetComponent<HabilidadBase>(); // se obtiene la habilidad del cazador 
 
-            if (QuesosPategras >= quesosParaHabilidad && habilidad != null) // si tiene la cantidad de quesos necesarios y la habilidad no es nula
+            // chequea si se ejecuta la corrutina para esperar 2 segy luego ejecutar la habilidad
+            if (QuesosPategras >= quesosParaHabilidad && habilidad != null) 
             {
-                // 🌟 En vez de ejecutar todo instantáneo, llamamos a la espera de 2 segundos
                 StartCoroutine(EsperaYEjecutaHabilidad(habilidad));
             }
         }
     }
 
-    // 🌟 NUEVA CORRUTINA: Mantiene la barra al 100% y titilando, luego gasta y ejecuta
+    // metodo para esperar 2 segundos y luego ejecuta la habilidad del cazador
     private IEnumerator EsperaYEjecutaHabilidad(HabilidadBase habilidad)
     {
         esperandoHabilidad = true;
 
-        // Le avisamos a la UI que fuerce el 100% y empiece a parpadear
+        // Si hay UI asociada se setea la barra de habilidad y se activa el titileo
         if (uiAsociada != null) uiAsociada.SetearLlenadoHabilidad(1f, true);
 
-        // Esperamos exactamente los 2 segundos que me pediste
         yield return new WaitForSeconds(2f);
 
-        // Pasados los 2 segundos de feedback, suena y se ejecuta la habilidad original
+        // Se reproduce el sonido de la habilidad usada y se ejecuta la habilidad del cazador
         ReproducirSonidoHabilidad1Usada();
         JugadorController controller = GetComponent<JugadorController>();
         habilidad.Ejecutar(gameObject, controller);
 
-        // Restamos los quesos (lo que bajará la barra a 0 y apagará el titileo)
         RestarQuesos("Pategras", quesosParaHabilidad);
 
         esperandoHabilidad = false;
@@ -108,9 +107,8 @@ public class DatosCazador : DatosPersonaje
     {
         if (uiAsociada != null && quesosParaHabilidad > 0)
         {
-            float porcentaje = (float)QuesosPategras / quesosParaHabilidad;
-            // Mandamos el porcentaje normal, y "false" porque no debe titilar en la carga común
-            uiAsociada.SetearLlenadoHabilidad(porcentaje, false);
+            float porcentaje = (float)QuesosPategras / quesosParaHabilidad; // calcula el porcentaje de quesos acumulados para activar la habilidad
+            uiAsociada.SetearLlenadoHabilidad(porcentaje, false);           // actualiza la barra de habilidad sin titileo
         }
     }
 }
