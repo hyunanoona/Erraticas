@@ -4,6 +4,8 @@ using UnityEngine;
     Este script es responsable de almacenar los datos del personaje, como su velocidad, su fuerza de salto, su escala de gravedad, etc. 
     Es una clase base que sera heredada por los datos especificos de cada rol (soporte y cazador), asi cada rol puede tener sus propios valores y habilidades sin afectar al otro.
 */
+using System.Collections; // 🌟 Necesario para usar IEnumerator
+
 public class DatosCazador : DatosPersonaje
 {
     // contadores de unidades fisicas de queso para el cazador
@@ -13,6 +15,7 @@ public class DatosCazador : DatosPersonaje
     // UI de los pjs
     private int quesosParaHabilidad = 4; // De prueba por el momento 
     private UI_Cazador uiAsociada;       // Se guarda la UI asignada a este clon del cazador
+    private bool esperandoHabilidad = false; // 🌟 Evita agarrar quesos de más mientras titila
 
     protected override void Awake()
     {
@@ -28,7 +31,7 @@ public class DatosCazador : DatosPersonaje
     public void AsignarUI(UI_Cazador uiCazador)
     {
         uiAsociada = uiCazador;
-        ActualizarVisualizacionBarra(); 
+        ActualizarVisualizacionBarra();
     }
 
     public void ActualizarPuntosBono(int puntos)
@@ -46,6 +49,8 @@ public class DatosCazador : DatosPersonaje
     // metodo que carga los quesos de a 1 unidad del
     public override void AgregarQueso(string tipoDeQueso)
     {
+        if (esperandoHabilidad) return; // 🌟 Bloqueo temporal durante los 2 segundos de parpadeo
+
         if (tipoDeQueso == "Pategras")
         {
             ReproducirSonidoMordida(); // reproduce el sonido de mordida
@@ -59,15 +64,32 @@ public class DatosCazador : DatosPersonaje
 
             if (QuesosPategras >= quesosParaHabilidad && habilidad != null) // si tiene la cantidad de quesos necesarios y la habilidad no es nula
             {
-                ReproducirSonidoHabilidad1Usada();
-                
-                JugadorController controller = GetComponent<JugadorController>();  // obtenemos el controller del cazador para pasarlo a la habilidad
-                
-                habilidad.Ejecutar(gameObject, controller); // ejecutamos la habilidad del cazador, pasandole el gameObject del cazador y su controller
-
-                RestarQuesos("Pategras", quesosParaHabilidad); // resta los cheeses
+                // 🌟 En vez de ejecutar todo instantáneo, llamamos a la espera de 2 segundos
+                StartCoroutine(EsperaYEjecutaHabilidad(habilidad));
             }
         }
+    }
+
+    // 🌟 NUEVA CORRUTINA: Mantiene la barra al 100% y titilando, luego gasta y ejecuta
+    private IEnumerator EsperaYEjecutaHabilidad(HabilidadBase habilidad)
+    {
+        esperandoHabilidad = true;
+
+        // Le avisamos a la UI que fuerce el 100% y empiece a parpadear
+        if (uiAsociada != null) uiAsociada.SetearLlenadoHabilidad(1f, true);
+
+        // Esperamos exactamente los 2 segundos que me pediste
+        yield return new WaitForSeconds(2f);
+
+        // Pasados los 2 segundos de feedback, suena y se ejecuta la habilidad original
+        ReproducirSonidoHabilidad1Usada();
+        JugadorController controller = GetComponent<JugadorController>();
+        habilidad.Ejecutar(gameObject, controller);
+
+        // Restamos los quesos (lo que bajará la barra a 0 y apagará el titileo)
+        RestarQuesos("Pategras", quesosParaHabilidad);
+
+        esperandoHabilidad = false;
     }
 
     // metodo para restar las 4 unidades de queso gastadas por la pasiva
@@ -87,7 +109,8 @@ public class DatosCazador : DatosPersonaje
         if (uiAsociada != null && quesosParaHabilidad > 0)
         {
             float porcentaje = (float)QuesosPategras / quesosParaHabilidad;
-            uiAsociada.SetearLlenadoHabilidad(porcentaje);
+            // Mandamos el porcentaje normal, y "false" porque no debe titilar en la carga común
+            uiAsociada.SetearLlenadoHabilidad(porcentaje, false);
         }
     }
 }
