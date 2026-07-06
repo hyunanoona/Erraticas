@@ -24,8 +24,8 @@ public class DatosCazador : DatosPersonaje
 
         // datos especificos del cazador
         Velocidad = 10f;
-        FuerzaSalto = 18f;
-        EscalaGravedad = 3.5f;
+        FuerzaSalto = 19f;
+        EscalaGravedad = 3f;
     }
 
     // metodo para asignar la UI del cazador a este script
