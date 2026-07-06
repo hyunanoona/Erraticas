@@ -2156,6 +2156,22 @@ PrefabInstance:
       propertyPath: canvasPadre
       value: 
       objectReference: {fileID: 526514584}
+    - target: {fileID: 8954417935619760215, guid: 9d1193c9e053470459a4f7132acce69c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8954417935619760215, guid: 9d1193c9e053470459a4f7132acce69c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8954417935619760215, guid: 9d1193c9e053470459a4f7132acce69c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8954417935619760215, guid: 9d1193c9e053470459a4f7132acce69c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

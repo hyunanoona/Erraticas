@@ -8,14 +8,18 @@ public class MenuPausa : MonoBehaviour
     [Header(". ݁₊ ⊹ . ݁ Referencias y Variables  ݁ . ⊹ ₊ ݁.")]
     [SerializeField] private GameObject contenedorVisual;  
     [SerializeField] private Button botonReanudar;
+    [SerializeField] private Button botonTutorial;
     [SerializeField] private Button botonAjustes;
     [SerializeField] private Button botonMenuInicial;
     [SerializeField] private Button botonSalir;
     [SerializeField] private Transform canvasPadre;
     [SerializeField] private GameObject prefabAjustes;
+    [SerializeField] private GameObject prefabTutorial;
     private bool enPausa = false;
     private bool ajustesAbiertos = false;
+    private bool tutorialAbierto = false;
     private GameObject instanciaAjustes;
+    private GameObject instanciaTutorial;
 
     void Start()
     {
@@ -26,6 +30,10 @@ public class MenuPausa : MonoBehaviour
         if(botonAjustes != null)
         {
             botonAjustes.onClick.AddListener(AbrirAjustes);
+        }
+        if(botonTutorial != null)
+        {
+            botonTutorial.onClick.AddListener(AbrirTutorial);
         }
         if (botonSalir != null)
         {
@@ -43,20 +51,14 @@ public class MenuPausa : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !ajustesAbiertos)
+        if (Input.GetKeyDown(KeyCode.Escape) && !ajustesAbiertos && !tutorialAbierto)
         {
-            if (enPausa)
-            {
-                Despausar();
-            }
-            else
-            {
-                Pausar();
-            }
+            if (enPausa) Despausar();
+            else Pausar();
             Debug.Log("Pausa: " + enPausa);
         }
 
-        if (ajustesAbiertos)
+        if (ajustesAbiertos || tutorialAbierto)
         {
             contenedorVisual.SetActive(false);
         }
@@ -114,11 +116,55 @@ public class MenuPausa : MonoBehaviour
         ajustesAbiertos = true;
     }
 
+    public void AbrirTutorial()
+    {
+        contenedorVisual.SetActive(false);
+        if (instanciaTutorial != null)
+        {
+            instanciaTutorial.SetActive(true);
+            instanciaTutorial.transform.SetAsLastSibling();
+            tutorialAbierto = true;
+            return;
+        }
+
+        if (prefabTutorial != null && canvasPadre != null)
+        {
+            instanciaTutorial = Instantiate(prefabTutorial, canvasPadre);
+            instanciaTutorial.transform.SetAsLastSibling();
+            TutorialEnPausa scriptTutorial = instanciaTutorial.GetComponent<TutorialEnPausa>();
+            if(scriptTutorial != null) scriptTutorial.ConfigurarMenuPausa(this);
+            NormalizarRectTransform(instanciaTutorial);
+        }
+
+        tutorialAbierto = true;
+    }
+
+    public void ActivarMenuDesdeTutorial()
+    {
+        contenedorVisual.SetActive(true);
+        tutorialAbierto = false;
+        if(instanciaTutorial != null)
+        {
+            instanciaTutorial.SetActive(false);
+        }
+    }
+
+    private void NormalizarRectTransform(GameObject objetoUI)
+    {
+        RectTransform rect = objetoUI.GetComponent<RectTransform>();
+        if (rect != null)
+        {
+            rect.localPosition = Vector3.zero;
+            rect.localScale = Vector3.one;
+        }
+    }
+
 
     public void ActivarMenuDesdeAjustes()
     {
         contenedorVisual.SetActive(true);
         ajustesAbiertos = false;
+        tutorialAbierto = false;
         if (instanciaAjustes != null)
         {
             instanciaAjustes.SetActive(false);

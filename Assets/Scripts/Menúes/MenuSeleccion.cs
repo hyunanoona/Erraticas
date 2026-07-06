@@ -20,6 +20,10 @@ public class MenuSeleccion : MonoBehaviour
     [SerializeField] private GameObject primerVisual;
     [SerializeField] private GameObject segundaVisual;
     [SerializeField] private GameObject tercerVisual;
+
+    [Header("⁺‧₊˚ ཐི⋆ Referencias para Fotos del Tutorial ⋆ཋྀ ˚₊‧⁺")]
+    [SerializeField] private Image fotoRatita1UI;
+    [SerializeField] private Image fotoRatita2UI;
     [Header("⊹ ࣪ ˖ Botones ⊹ ࣪ ˖")]
     [SerializeField] private Button confirmarSeleccionInicial; 
     [SerializeField] private Button confirmarSelecP1;
@@ -238,11 +242,28 @@ void ActualizarTextoTipoP2()
         if (selecP1Confirmada && selecP2Confirmada)
         {
             GameManager.Instance.GuardarSeleccionMenu(ratita1TipoRol, ratita2TipoRol);
+
             if (segundaVisual != null) segundaVisual.SetActive(false);
-            if (tercerVisual != null) tercerVisual.SetActive(true);
+            if (tercerVisual != null) {
+                tercerVisual.SetActive(true);
+                ActualizarFotosPersonajesEnTutorial();
+            }
         }
     }
     //                   . ݁₊ ⊹ . ݁ Tercera visual, comenzar el juego ݁ . ⊹ ₊ ݁.
+
+    public void ActualizarFotosPersonajesEnTutorial()
+    {
+        if (listaActualP1 != null && listaActualP1.Count > 0 && fotoRatita1UI != null)
+        {
+            fotoRatita1UI.sprite = listaActualP1[indiceP1].imagenRataMenu;
+        }
+
+        if (listaActualP2 != null && listaActualP2.Count > 0 && fotoRatita2UI != null)
+        {
+            fotoRatita2UI.sprite = listaActualP2[indiceP2].imagenRataMenu;
+        }
+    }
 
     void Jugar()
     {
