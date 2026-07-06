@@ -254,6 +254,7 @@ public class GameManager : MonoBehaviour
 
         public void EstablecerDerrota()
         {
+            if (nivelTerminado) return;
             nivelTerminado = true;
             SceneManager.LoadScene("Derrota");
         }

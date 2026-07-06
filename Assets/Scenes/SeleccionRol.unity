@@ -3567,8 +3567,7 @@ MonoBehaviour:
   opcionesCazador:
   - nombreTipo: Cunty
     imagenRataMenu: {fileID: -261067619, guid: d739b61910898c843b8eb664ba6aac05, type: 3}
-    descripcionTipo: "Seduce al chef con su coqueta mirada y no te lanza obst\xE1culos
-      por cierto rato "
+    descripcionTipo: 'Seduce al chef con su coqueta mirada, dandoles tiempo extra '
   - nombreTipo: Faso
     imagenRataMenu: {fileID: -1483006566, guid: bae942b014878e4449766d8ab74e8ccb, type: 3}
     descripcionTipo: Con su poderosa habilidad de rastreo, salen a la luz quesos
@@ -6776,8 +6775,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Cunty: Seducir\xE1 al chef y evitar\xE1 que le tire obst\xE1culos por
-    un tiempo."
+  m_text: "Cunty: Seducir\xE1 al chef, otorgando tiempo extra."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 25278f64f1c93ec4ebf631296c7a7d92, type: 2}
   m_sharedMaterial: {fileID: -3291385361405917683, guid: 25278f64f1c93ec4ebf631296c7a7d92, type: 2}
@@ -7710,7 +7708,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1342395381
 RectTransform:
   m_ObjectHideFlags: 0

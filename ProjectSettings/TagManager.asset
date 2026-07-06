@@ -16,6 +16,7 @@ TagManager:
   - Pategras
   - TextoCronometro
   - TextoPuntaje
+  - PlataformaAsesina
   layers:
   - Default
   - TransparentFX
