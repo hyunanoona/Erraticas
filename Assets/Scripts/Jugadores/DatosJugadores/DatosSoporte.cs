@@ -12,6 +12,8 @@ public class DatosSoporte : DatosPersonaje
     private HabilidadBase hab1;
     private HabilidadBase hab2;
 
+    private UI_Soporte uiSoporte; // Agregado Nicolsita ּ ֶָ֢.
+
     // contadores de unidades fisicas de queso para el soporte
     public int QuesosRoquefort { get; private set; } = 0;
     public int QuesosMozzarella { get; private set; } = 0;
@@ -44,6 +46,9 @@ public class DatosSoporte : DatosPersonaje
             hab1 = habilidades[0]; // asignamos la primera habilidad a hab1, doble salto en el booster y curacion en el healer
             hab2 = habilidades[1]; // asignamos la segunda habilidad a hab2, velocidad en el booster e inmunidad en el healer
         }
+
+        uiSoporte = FindObjectOfType<UI_Soporte>();  // nicolsita... 𝄞⨾𓍢ִ໋
+
     }
 
     public void PresionoHabilidad1()
@@ -102,6 +107,11 @@ public class DatosSoporte : DatosPersonaje
         if (tipoDeQueso == "Mozzarella" && QuesosMozzarella == 4) ReproducirSonidoHabilidadCargada();
         if (tipoDeQueso == "Provoleta" && QuesosProvoleta == 4) ReproducirSonidoHabilidadCargada();
         if (tipoDeQueso == "Cremoso" && QuesosCremoso == 4) ReproducirSonidoHabilidadCargada();
+
+        if (uiSoporte != null) 
+        {
+            uiSoporte.ActualizarVisualizadores();  // Nicolsita .⋆♱
+        }
     }
 
     // metodo para restar las 4 unidades de queso gastadas por la habilidad
@@ -111,5 +121,10 @@ public class DatosSoporte : DatosPersonaje
         if (tipoQueso == "Mozzarella") QuesosMozzarella -= cantidad;
         if (tipoQueso == "Provoleta") QuesosProvoleta -= cantidad;
         if (tipoQueso == "Cremoso") QuesosCremoso -= cantidad;
+
+        if (uiSoporte != null) 
+        {
+            uiSoporte.ActualizarVisualizadores(); // Nicolsita .⋆♱
+        }
     }
 }
