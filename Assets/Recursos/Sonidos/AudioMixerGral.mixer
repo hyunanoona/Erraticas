@@ -1,0 +1,142 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!244 &-2380978329563543425
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: f848a36e1c3943147a830ee74683798a
+  m_EffectName: Attenuation
+  m_MixLevel: 2a62254a7ffd6014f8a5ae0cdc5c7589
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!241 &24100000
+AudioMixerController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AudioMixerGral
+  m_OutputGroup: {fileID: 0}
+  m_MasterGroup: {fileID: 24300002}
+  m_Snapshots:
+  - {fileID: 24500006}
+  m_StartSnapshot: {fileID: 24500006}
+  m_SuspendThreshold: -80
+  m_EnableSuspend: 1
+  m_UpdateMode: 0
+  m_ExposedParameters:
+  - guid: 23cfd3a68bdd7fe479258e164b53291e
+    name: MusicaVol
+  - guid: 2c146768632410c4988a7604992ee853
+    name: SFXVol
+  m_AudioMixerGroupViews:
+  - guids:
+    - a2ab2fe56d58ef44daf5ac0755964ea7
+    - 87e7aed9221504548b94950b799717a7
+    - 0975e602c1b3ecb468c46c4a4d08a83c
+    name: View
+  m_CurrentViewIndex: 0
+  m_TargetSnapshot: {fileID: 24500006}
+--- !u!243 &24300002
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Master
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: a2ab2fe56d58ef44daf5ac0755964ea7
+  m_Children:
+  - {fileID: 4496063087051097342}
+  - {fileID: 7472528440119306133}
+  m_Volume: 731a26d7401719e4787dd3043ec45d84
+  m_Pitch: 1b761ad94c4cb9e40a4f188d9231681d
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 24400004}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &24400004
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 73dfc72ed3c34e5418ae39933b627168
+  m_EffectName: Attenuation
+  m_MixLevel: b5f37cb66c00eac4b91d6b682d787682
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!245 &24500006
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Snapshot
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: 515cd75f33de41048800f81cb9c49d14
+  m_FloatValues: {}
+  m_TransitionOverrides: {}
+--- !u!244 &2599278698112710542
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 0a72253f31a069f4dae4ac0e0185cfb0
+  m_EffectName: Attenuation
+  m_MixLevel: a04e84ffc0e8ee44a8b497f30e97a165
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!243 &4496063087051097342
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Musica
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 0975e602c1b3ecb468c46c4a4d08a83c
+  m_Children: []
+  m_Volume: 23cfd3a68bdd7fe479258e164b53291e
+  m_Pitch: 1c56655ca68983844af1d552b8bdd2d6
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 2599278698112710542}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!243 &7472528440119306133
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SFX
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 87e7aed9221504548b94950b799717a7
+  m_Children: []
+  m_Volume: 2c146768632410c4988a7604992ee853
+  m_Pitch: 11a4767ae4c2e3448be95d770a7007ea
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -2380978329563543425}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0

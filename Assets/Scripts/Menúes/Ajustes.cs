@@ -11,7 +11,7 @@ public class Ajustes : MonoBehaviour
     [SerializeField] private Toggle fullScreenToggle;
     [SerializeField] private TMP_Dropdown graficos_Dropdown;
     [SerializeField] private Button botonVolver;
-    [SerializeField] private AudioMixer audioMixer;  // CONFIGURAR EL AUDIOMIXER EN EL PROJECT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    [SerializeField] private AudioMixer audioMixer;  
 
     private MenuInicial menuInicialPadre;
     private MenuPausa menuPausaPadre;
