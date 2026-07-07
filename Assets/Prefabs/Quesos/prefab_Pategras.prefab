@@ -150,6 +150,7 @@ MonoBehaviour:
   duracionEnMesa: 5
   tiempoDeSpaw: 1
   puntosDeCarga: 0
+  sonidoInteractuar: {fileID: 0}
   puntosQueOtorga: 20
 --- !u!50 &8593764772548336346
 Rigidbody2D:

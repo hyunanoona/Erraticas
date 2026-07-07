@@ -12,6 +12,7 @@ public class ConfigNivelEscena
     public string nombreNivel;
     public int puntajeParaGanar;  
     public float tiempoParaGanar = 90f;
+    public AudioClip musicaNivel; // para que cada nivel tenga su rola
 }
 
 [System.Serializable]
@@ -49,6 +50,9 @@ public class GameManager : MonoBehaviour
         private bool nivelTerminado = false;
         private TMPro.TextMeshProUGUI textoCronometro;
 
+        // para la musica de cada nivel
+        [SerializeField] private AudioSource audioSourceMúsica; // referencia al componente AudioSource para reproducir la música de cada nivel
+
 
         private void Awake()
         {
@@ -58,8 +62,11 @@ public class GameManager : MonoBehaviour
                 return;
             }
             else { Instance = this; DontDestroyOnLoad(gameObject); }
+
+            // para la musica de cada nivel
+            audioSourceMúsica = GetComponent<AudioSource>(); // accede al componente AudioSource del GameObject al que está adjunto este script
+
             SceneManager.sceneLoaded += AlCargarEscena;
-            
         }
 
         public void OnDestroy()
@@ -80,6 +87,7 @@ public class GameManager : MonoBehaviour
                 escena.name == "Derrota" || escena.name == "Victoria")
             {
                 nivelTerminado = true;
+                if (audioSourceMúsica != null) audioSourceMúsica.Stop(); // detiene la música si se está reproduciendo y noe sta en el nivel
                 return;
             }
 
@@ -98,11 +106,16 @@ public class GameManager : MonoBehaviour
             if(nivelActualIndice < niveles.Count)
             {
                 tiempoRestante = niveles[nivelActualIndice].tiempoParaGanar;
+
+                //para la musica de cada nivel
+                AudioClip cancionNivel = niveles[nivelActualIndice].musicaNivel; // obtiene la canción del nivel actual
+                ControlarReproduccionMusica(cancionNivel); // llama al método para controlar la reproducción de la música del nivel
             }
             else
             {
                 tiempoRestante = 90f;
             }
+
             SpawnearJugadores();
         }
 
@@ -252,10 +265,27 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        //MAS DE COSAS DE LA MUSICA AAAAAAAAAAAAAA
+        private void ControlarReproduccionMusica(AudioClip cancionNivel)
+        {
+            if (audioSourceMúsica == null || cancionNivel == null) return; // si no hay audioSource o cancionNivel, returnea
+
+            if (audioSourceMúsica != cancionNivel) // si la cancion actual no es la misma que la del nivel
+            {
+                audioSourceMúsica.clip = cancionNivel; // asigna la cancion del nivel al audioSource
+                audioSourceMúsica.Play(); // reproduce la cancion del nivel
+            }
+            else if (!audioSourceMúsica.isPlaying) // si la cancion es la misma pero no se está reproduciendo
+            {
+                audioSourceMúsica.Play(); // reproduce la cancion del nivel
+            }
+        }
+
         public void EstablecerDerrota()
         {
             if (nivelTerminado) return;
             nivelTerminado = true;
+            if (audioSourceMúsica != null) audioSourceMúsica.Stop(); // detiene la música si se está reproduciendo y se perdio el nivel
             SceneManager.LoadScene("Derrota");
         }
 
@@ -265,6 +295,7 @@ public class GameManager : MonoBehaviour
             {
                 nivelTerminado = false;
                 puntajeJugador = 0;
+                if (audioSourceMúsica != null) audioSourceMúsica.Stop(); //lo mismo que en derrota, detiene la musica si se esta reproduciendo y se reinicia el nivel
                 string escenaActual = niveles[nivelActualIndice].nombreNivel;
                 SceneManager.LoadScene(escenaActual);
             }
@@ -276,6 +307,5 @@ public class GameManager : MonoBehaviour
             rolBaseP2 = rolP2;
             Debug.Log($"Roles base registrados - P1: {rolP1} | P2: {rolP2}");
         }
-
 }
 
