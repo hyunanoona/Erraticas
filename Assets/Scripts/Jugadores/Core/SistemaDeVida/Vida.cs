@@ -73,12 +73,12 @@ public class Health : MonoBehaviour
     }
 
     // funcionalides especiales para el soporte
-        public void ActivarInmunidadTemporal(float duracion) // metodo para activar la inmunidad temporal del soporte
+    public void ActivarInmunidadTemporal(int duracion) // metodo para activar la inmunidad temporal del soporte
     {
         StartCoroutine(RutinaInmunidad(duracion)); // iniciamos la rutina de inmunidad temporal
     }
 
-    private IEnumerator RutinaInmunidad(float duracion) // rutina que maneja el estado de inmunidad temporal del soporte, usa un ienumerator para esperar el tiempo de duración del efecto
+    private IEnumerator RutinaInmunidad(int duracion) // rutina que maneja el estado de inmunidad temporal del soporte, usa un ienumerator para esperar el tiempo de duración del efecto
     {
         esInmune = true; // arranca a ser inmune
         print($"{gameObject.name} es ahora inmune por {duracion} segundos."); 
