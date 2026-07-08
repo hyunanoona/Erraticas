@@ -5,6 +5,8 @@ using UnityEngine;
 public class ZonaMortal : MonoBehaviour
 {
 
+    public AudioClip miau;
+
     void Awake()
     {
         gameObject.tag = "PlataformaAsesina";
@@ -21,8 +23,14 @@ public class ZonaMortal : MonoBehaviour
     {
         if (otro.CompareTag("Cazador") || otro.CompareTag("Soporte") || otro.GetComponent<InputJugador>() != null)
         {
+            
+                AudioSource miAudio = GetComponent<AudioSource>();  
+                if (miau != null)
+                    {
+                        miAudio.PlayOneShot(miau);
+                    }
+            
             if(GameManager.Instance != null) GameManager.Instance.EstablecerDerrota();
-
         }
     }
 

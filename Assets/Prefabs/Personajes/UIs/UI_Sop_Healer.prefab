@@ -30,8 +30,6 @@ RectTransform:
   m_Children:
   - {fileID: 7958825310302349308}
   - {fileID: 8713588105555101375}
-  - {fileID: 8510315045108411951}
-  - {fileID: 6503628055491420773}
   m_Father: {fileID: 5890495010375905486}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -70,7 +68,7 @@ RectTransform:
   - {fileID: 3386133347363773872}
   - {fileID: 6191803320756993535}
   - {fileID: 9210918405357620086}
-  m_Father: {fileID: 5667792998468366039}
+  m_Father: {fileID: 5890495010375905486}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -902,6 +900,8 @@ RectTransform:
   - {fileID: 8671642740319125119}
   - {fileID: 6424224558314634235}
   - {fileID: 5667792998468366039}
+  - {fileID: 8510315045108411951}
+  - {fileID: 6503628055491420773}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -924,8 +924,8 @@ MonoBehaviour:
   iconoHabilidad1: {fileID: 5580320947645604993}
   iconoHabilidad2: {fileID: 3339442630935352242}
   contenedorSilencio: {fileID: 707374615906083273}
-  textoContadorHab1: {fileID: 0}
-  textoContadorHab2: {fileID: 0}
+  textoContadorHab1: {fileID: 8990290067801167181}
+  textoContadorHab2: {fileID: 4678285393212523030}
   tipoQuesoHabilidad1: Mozzarella
   tipoQuesoHabilidad2: Roquefort
   limiteQuesosHab1: 4
@@ -961,7 +961,7 @@ RectTransform:
   - {fileID: 6571020977917702730}
   - {fileID: 1195469782302698793}
   - {fileID: 3565710407917490930}
-  m_Father: {fileID: 5667792998468366039}
+  m_Father: {fileID: 5890495010375905486}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
