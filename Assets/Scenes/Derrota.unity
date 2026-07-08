@@ -662,6 +662,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf84b27c7dc385e4585649f52a8fd233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  botonReiniciarNvl: {fileID: 1771865037}
+  botonMenuInicial: {fileID: 1374675464}
+  botonSalir: {fileID: 2146873618}
 --- !u!4 &997571591
 Transform:
   m_ObjectHideFlags: 0

@@ -559,7 +559,7 @@ GameObject:
   - component: {fileID: 734271918}
   - component: {fileID: 734271917}
   m_Layer: 0
-  m_Name: VictoriaManager
+  m_Name: PuenteVictoria
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

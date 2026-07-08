@@ -291,14 +291,12 @@ public class GameManager : MonoBehaviour
 
         public void ReiniciarNivelActual()
         {
-            if (nivelActualIndice < niveles.Count)
-            {
                 nivelTerminado = false;
                 puntajeJugador = 0;
-                if (audioSourceMúsica != null) audioSourceMúsica.Stop(); //lo mismo que en derrota, detiene la musica si se esta reproduciendo y se reinicia el nivel
+                // (usando ?. por seguridad por si es null)
+                audioSourceMúsica?.Stop();
                 string escenaActual = niveles[nivelActualIndice].nombreNivel;
                 SceneManager.LoadScene(escenaActual);
-            }
         }
 
         public void RolJugadores(string rolP1, string rolP2)
